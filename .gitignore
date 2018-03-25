@@ -1,4 +1,4 @@
-# build artifacts
+# build artefacts
 plugin.sketchplugin/Contents/Sketch
 plugin.sketchplugin/Contents/Resources/_webpack_resources
 
@@ -9,6 +9,3 @@ npm-debug.log
 
 # mac
 .DS_Store
-
-# WebStorm
-.idea
