@@ -40,5 +40,8 @@
       "git add"
     ]
   },
-  "author": "larsenwork <andreas@larsenwork.com>"
+  "author": "larsenwork <andreas@larsenwork.com>",
+  "dependencies": {
+    "sketch-module-web-view": "^0.2.6"
+  }
 }
