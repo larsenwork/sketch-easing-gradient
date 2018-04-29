@@ -1,17 +1,23 @@
 {
-  "compatibleVersion": 3,
-  "bundleVersion": 1,
-  "commands": [
+  "author": "@larsenwork",
+  "commands" : [
     {
-      "name": "my-command",
-      "identifier": "my-command-identifier",
-      "script": "./my-command.js"
+      "script" : "main.js",
+      "shortcut" : "command alt g",
+      "name" : "Easing Gradient",
+      "identifier" : "easing-gradient"
     }
   ],
-  "menu": {
-    "title": "sketch-easing-gradients",
-    "items": [
-      "my-command-identifier"
-    ]
-  }
+  "menu" : {
+    "isRoot": true,
+    "items" : [
+      "easing-gradient"
+    ],
+    "title" : "easing-gradient"
+  },
+  "identifier" : "com.larsenwork.sketch.easing-gradient",
+  "version" : "0.1",
+  "description" : "Control the color mix of your gradients with easing functions.",
+  "authorEmail" : "andreas@larsenwork.com",
+  "name" : "easing-gradient"
 }
