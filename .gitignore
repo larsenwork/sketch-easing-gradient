@@ -1,6 +1,7 @@
 # build artefacts
 plugin.sketchplugin/Contents/Sketch
 plugin.sketchplugin/Contents/Resources/_webpack_resources
+plugin.sketchplugin/Contents/Resources/webview.js
 
 # npm
 node_modules
