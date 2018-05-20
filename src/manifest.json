@@ -1,5 +1,10 @@
 {
+  "name" : "easing-gradient",
+  "description" : "Control the color mix of your gradients with easing functions.",
+  "version" : "0.1",
+  "identifier" : "com.larsenwork.sketch.easing-gradient",
   "author": "@larsenwork",
+  "authorEmail" : "andreas@larsenwork.com",
   "compatibleVersion": 3,
   "bundleVersion": 1,
   "commands" : [
@@ -16,10 +21,5 @@
       "easing-gradient"
     ],
     "title" : "easing-gradient"
-  },
-  "identifier" : "com.larsenwork.sketch.easing-gradient",
-  "version" : "0.1",
-  "description" : "Control the color mix of your gradients with easing functions.",
-  "authorEmail" : "andreas@larsenwork.com",
-  "name" : "easing-gradient"
+  }
 }

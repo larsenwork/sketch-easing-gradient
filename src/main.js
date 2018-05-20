@@ -1,35 +1,39 @@
-import WebUI from 'sketch-module-web-view';
+import BrowserWindow from 'sketch-module-web-view'
 
-export default function (context) {
-  const webUI = new WebUI(context, require('../resources/index.html'), {
+const UI = require('sketch/ui')
+
+export default function () {
+  const options = {
     identifier: 'easing-gradient',
     x: 0,
     y: 0,
     width: 800,
-    height: 450,
+    height: 800,
     blurredBackground: true,
     onlyShowCloseButton: true,
     hideTitleBar: true,
     shouldKeepAround: true,
-    frameLoadDelegate: {
-      // https://developer.apple.com/reference/webkit/webframeloaddelegate?language=objc
-      'webView:didFinishLoadForFrame:'(webView, webFrame) {
-        context.document.showMessage('UI loaded!');
-      },
-    },
-    onPanelClose: () => 'true',
-    handlers: {
-      nativeLog(s) {
-        try {
-          context.document.showMessage(s);
-          const sketch = context.api();
-          console.log(sketch);
-          const msg = 'From Sketch!';
-          webUI.eval(`window.msg = ${msg}`);
-        } catch (error) {
-          console.error(error.stack);
-        }
-      },
-    },
-  });
+  }
+
+  const browserWindow = new BrowserWindow(options)
+
+  // only show the window when the page has loaded
+  browserWindow.once('ready-to-show', () => {
+    browserWindow.show()
+  })
+
+  const { webContents } = browserWindow
+
+  // print a message when the page loads
+  webContents.on('did-finish-load', () => {
+    UI.message('UI loaded!')
+  })
+
+  // add a handler for a call from web content's javascript
+  webContents.on('nativeLog', (s) => {
+    UI.message(s)
+    webContents.executeJavaScript(`setRandomNumber(${Math.random()})`)
+  })
+
+  browserWindow.loadURL(require('../resources/index.html')); // eslint-disable-line
 }
