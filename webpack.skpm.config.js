@@ -27,20 +27,6 @@ module.exports = function(config) {
     ],
   });
   config.module.rules.push({
-    test: /\.(less)$/,
-    use: [
-      {
-        loader: 'style-loader',
-      },
-      {
-        loader: 'css-loader',
-      },
-      {
-        loader: 'less-loader',
-      },
-    ],
-  });
-  config.module.rules.push({
     test: /\.(png|jpg|gif|svg|sketch)$/,
     loader: 'file-loader',
     options: {

@@ -1,39 +1,95 @@
 import BrowserWindow from 'sketch-module-web-view'
 
-const UI = require('sketch/ui')
+const UI = require('sketch/ui') // eslint-disable-line
+const document = require('sketch/dom').getSelectedDocument() // eslint-disable-line
 
-export default function () {
+export default function (context) {
   const options = {
     identifier: 'easing-gradient',
-    x: 0,
-    y: 0,
-    width: 800,
-    height: 800,
-    blurredBackground: true,
-    onlyShowCloseButton: true,
-    hideTitleBar: true,
-    shouldKeepAround: true,
+    width: 400,
+    height: 400,
+    frame: false,
+    transparent: true,
+    resizable: false,
+    movable: false,
+    alwaysOnTop: true,
   }
 
-  const browserWindow = new BrowserWindow(options)
+  if (document) {
+    const selection = document.selectedLayers
 
-  // only show the window when the page has loaded
-  browserWindow.once('ready-to-show', () => {
-    browserWindow.show()
-  })
+    if (selection && selection.length === 1) {
+      const mutableLayer = context.selection.firstObject()
+      const selectedLayer = selection.layers[0]
 
-  const { webContents } = browserWindow
+      if (selectedLayer.style.fills
+        && selectedLayer.style.fills.length === 1
+        && selectedLayer.style.fills[0].fill === 'Gradient'
+        && selectedLayer.style.fills[0].gradient.gradientType === 'Linear'
+      ) {
+        const gradientFill = selectedLayer.style.fills[0]
+        const browserWindow = new BrowserWindow(options)
+        const { webContents } = browserWindow
 
-  // print a message when the page loads
-  webContents.on('did-finish-load', () => {
-    UI.message('UI loaded!')
-  })
+        // Show the window when the page has loaded
+        browserWindow.once('ready-to-show', () => {
+          browserWindow.setHasShadow(false)
+          browserWindow.show()
+        })
 
-  // add a handler for a call from web content's javascript
-  webContents.on('nativeLog', (s) => {
-    UI.message(s)
-    webContents.executeJavaScript(`setRandomNumber(${Math.random()})`)
-  })
+        // Close the window on blur
+        browserWindow.once('blur', () => {
+          // browserWindow.close()
+        })
 
-  browserWindow.loadURL(require('../resources/index.html')); // eslint-disable-line
+        // Handler for a call from web content's javascript
+        webContents.on('nativeLog', (s) => {
+          UI.message(s)
+        })
+
+        webContents.on('did-finish-load', () => {
+          const gradientParams = selectedLayer.name
+            .split('🌈')
+            .pop()
+            .split(';')
+            .map(item => item.trim())
+          const gradientStops = gradientFill.gradient.stops
+          const gradientStopFirst = gradientStops[0]
+          const gradientStopLast = gradientStops.pop()
+          let gradientTiming = 'linear'
+          let gradientColorSpace = 'lrgb'
+
+          if (gradientParams.length === 2) {
+            [gradientTiming, gradientColorSpace] = gradientParams
+          }
+
+          const paramsAsString = JSON.stringify([
+            gradientStopFirst,
+            gradientTiming,
+            gradientStopLast,
+            gradientColorSpace,
+          ])
+
+          webContents.executeJavaScript(`setGradientParams('${paramsAsString}')`)
+        })
+
+        webContents.on('updateName', (params) => {
+          const nameWithOutParams = selectedLayer.name.split('🌈')[0].trim()
+          mutableLayer.name = `${nameWithOutParams} 🌈${params}`
+        })
+
+        // // Handler to close the window
+        webContents.on('closeWindow', () => {
+          browserWindow.close()
+        })
+
+        // Load the html template
+        browserWindow.loadURL(require('../resources/index.html')); // eslint-disable-line
+      } else {
+        UI.message('🌈 ⚠️ Please check: layer only has one fill and it\'s a linear-gradient')
+      }
+    } else {
+      UI.message('🌈 ⚠️ Please select a layer')
+    }
+  }
 }

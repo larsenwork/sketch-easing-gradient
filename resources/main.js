@@ -1,11 +1,10 @@
-/* eslint-disable */
-import Vue from 'vue';
-import App from './App.vue';
+import Vue from 'vue'
+import App from './App.vue'
+import store from './store'
+import './styles/main.css'
 
-// import your style files inside main.js, not html link tag
-import './styles/style.less';
-
-new Vue({
+new Vue({ // eslint-disable-line no-new
   el: '#app',
+  store,
   render: h => h(App),
-});
+})

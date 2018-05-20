@@ -35,8 +35,6 @@
     "eslint-plugin-import": "^2.12.0",
     "file-loader": "^1.1.11",
     "html-loader": "^0.5.5",
-    "less": "^3.0.4",
-    "less-loader": "^4.1.0",
     "style-loader": "^0.21.0",
     "vue-loader": "^14.2.2",
     "vue-template-compiler": "^2.5.16"
@@ -46,7 +44,9 @@
   ],
   "dependencies": {
     "sketch-module-web-view": "^1.1.5",
-    "vue": "^2.5.16"
+    "throttleit": "^1.0.0",
+    "vue": "^2.5.16",
+    "vuex": "^3.0.1"
   },
   "author": "larsenwork <andreas@larsenwork.com>",
   "license": "MIT"
