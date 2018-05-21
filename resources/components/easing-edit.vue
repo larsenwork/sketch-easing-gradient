@@ -58,6 +58,7 @@
         height="1"
       />
       <line
+        v-if="$store.state.gradient.ease1.x !== 0 && $store.state.gradient.ease1.y !== 1"
         :x2="$store.state.gradient.ease1.x"
         :y2="1 - $store.state.gradient.ease1.y"
         class="c-easingEdit-line"
@@ -65,6 +66,7 @@
         y1="1"
       />
       <line
+        v-if="$store.state.gradient.ease2.x !== 1 && $store.state.gradient.ease2.y !== 0"
         :x2="$store.state.gradient.ease2.x"
         :y2="1 - $store.state.gradient.ease2.y"
         class="c-easingEdit-line"
@@ -95,7 +97,7 @@ export default {
 }
 </script>
 
-<style lang="postcss">
+<style>
 .c-easingEdit {
   /* Placeholder */
 }
@@ -112,26 +114,25 @@ export default {
 
 .c-easingEdit-line,
 .c-easingEdit-helpLine {
-  stroke-width: var(--stroke-large);
+  stroke-width: var(--stroke-medium);
   stroke-linecap: round;
   stroke-linejoin: round;
   vector-effect: non-scaling-stroke;
 }
 
 .c-easingEdit-line {
-  stroke: var(--color-brand);
-  opacity: var(--opacity-mid);
+  stroke: var(--color-themed-fg);
 }
 
 .c-easingEdit-helpLine {
-  stroke: var(--color-themed-bg-dimmed-more);
+  stroke: var(--color-themed-fg-50);
   fill: none;
 }
 
 .c-easingEdit-thinLine {
   fill: none;
-  stroke-width: var(--stroke-medium);
-  stroke: var(--color-themed-bg-dimmed-more);
+  stroke-width: var(--stroke-small);
+  stroke: var(--color-themed-fg-50);
   vector-effect: non-scaling-stroke;
 }
 </style>

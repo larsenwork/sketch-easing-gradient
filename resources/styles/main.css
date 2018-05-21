@@ -1,35 +1,3 @@
 @import './reset.css';
 @import './settings.css';
 @import './utilities.css';
-
-button,
-select,
-input {
-  -webkit-appearance: none;
-  display: flex;
-  background: var(--color-themed-bg);
-  color: var(--color-themed-fg);
-  font-size: inherit;
-  padding: var(--spacer-xsmall);
-  border-radius: var(--spacer-xsmall);
-  border-width: 0;
-  border-color: var(--color-themed-bg);
-  transition: var(--transition);
-  box-shadow: var(--shadow);
-  overflow: hidden;
-  width: 100%;
-
-  &:hover {
-    box-shadow: var(--shadow--hover);
-  }
-
-  &:focus {
-    outline: none;
-  }
-
-  &.is-active {
-    box-shadow: var(--shadow--inset);
-    background-color: var(--color-themed-bg-dimmed);
-    transition: 0.2s var(--transitionFunction);
-  }
-}

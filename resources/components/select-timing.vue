@@ -1,5 +1,6 @@
 <template>
   <select
+    class="u-input"
     v-model="$store.state.timingFunction"
     @change="updateLayerName()"
   >

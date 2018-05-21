@@ -7,7 +7,7 @@ export default function (context) {
   const options = {
     identifier: 'easing-gradient',
     width: 400,
-    height: 400,
+    height: 300,
     frame: false,
     transparent: true,
     resizable: false,

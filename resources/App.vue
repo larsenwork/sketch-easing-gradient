@@ -20,10 +20,20 @@
         <select-color-space/>
       </div>
       <div
-        class="u-aspect--1-1"
         v-if="$store.state.timingFunction.includes('cubic') || $store.state.timingFunction.includes('ease')"
+        class="c-gradientEditor-ease u-position-relative"
       >
-        <easing-edit/>
+        <div
+          class="u-aspect--1-1"
+        >
+          <easing-preview/>
+          <easing-edit/>
+        </div>
+      </div>
+      <div
+        v-if="$store.state.timingFunction.includes('steps')"
+      >
+        <step-edit/>
       </div>
     </div>
   </div>
@@ -34,6 +44,8 @@
 import selectTiming from './components/select-timing.vue'
 import selectColorSpace from './components/select-color-space.vue'
 import easingEdit from './components/easing-edit.vue'
+import easingPreview from './components/easing-preview.vue'
+import stepEdit from './components/step-edit.vue'
 
 export default {
   name: 'app',
@@ -41,6 +53,8 @@ export default {
     'select-timing': selectTiming,
     'select-color-space': selectColorSpace,
     'easing-edit': easingEdit,
+    'easing-preview': easingPreview,
+    'step-edit': stepEdit,
   },
   methods: {
     // log() {
@@ -64,25 +78,39 @@ export default {
 </script>
 
 <style>
+html {
+  overflow: hidden;
+  background-color: hsla(0, 0%, 100%, 0.5);
+  border-radius: var(--spacer-xsmall);
+  will-change: opacity;
+  animation: fadeIn 0.5s ease both;
+}
+
 #vue {
   font-family: -apple-system;
   -webkit-font-smoothing: antialiased;
   width: 100vw;
   height: 100vh;
-  padding: 0 var(--spacer-xsmall);
-  will-change: opacity, transform;
-  animation: fadeIn 0.2s ease both;
-  /* background-color: pink; */
+  padding: var(--spacer-small);
+  will-change: transform;
+  animation: slideDown 0.5s ease both;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(calc(var(--spacer-xsmall) * -0.5));
+  }
+  to {
+    transform: translateY(0);
+  }
 }
 
 @keyframes fadeIn {
   from {
-    opacity:0;
-    transform: translateY(calc(var(--spacer-xsmall) * -1));
+    opacity: 0;
   }
   to {
-    opacity:1;
-    transform: translateY(0);
+    opacity: 1;
   }
 }
 
@@ -93,6 +121,11 @@ export default {
 .c-gradientEditor-label {
   display: block;
   margin-bottom: var(--lineHeight-margin-xsmall);
-  color: var(--color-themed-fg-50);
+  font-weight: 700;
+  opacity: 0.7;
+}
+
+.c-gradientEditor-ease {
+  padding: var(--spacer-xsmall);
 }
 </style>

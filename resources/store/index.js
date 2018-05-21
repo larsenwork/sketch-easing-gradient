@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import easeMap from '../components/helpers/ease-map'
 
 Vue.use(Vuex)
 
@@ -11,6 +12,7 @@ export default new Vuex.Store({
     colorSpace: 'lrgb',
     parentBounding: {},
     mouseElement: '',
+    colorStopCoordinates: [],
     gradient: {
       ease1: {
         x: 0.42,
@@ -38,6 +40,10 @@ export default new Vuex.Store({
         state.gradient[`${obj.element}`].x = obj.x
         state.gradient[`${obj.element}`].y = obj.y
       }
+      const xyxy = `${state.gradient.ease1.x}, ${state.gradient.ease1.y}, ${state.gradient.ease2.x}, ${state.gradient.ease2.y}`
+      state.timingFunction = easeMap[xyxy]
+        ? easeMap[xyxy]
+        : 'cubic-bezier'
     },
     parentBounding(state, obj) {
       state.parentBounding = obj

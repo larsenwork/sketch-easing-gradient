@@ -37,15 +37,15 @@
 
 .u-knob {
   border-radius: 50%;
-  width: 32px;
-  height: 32px;
+  width: calc(1.5 * var(--spacer-small));
+  height: calc(1.5 * var(--spacer-small));
   position: absolute;
   background-color: var(--color-bright);
   box-shadow: var(--shadow);
   transform: translate(-50%, -50%);
-  &:hover {
-    box-shadow: var(--shadow--hover);
-  }
+}
+.u-knob:hover {
+  box-shadow: var(--shadow--hover);
 }
 
 .u-grid {
@@ -98,4 +98,35 @@
 
 .u-textCapitalize {
   text-transform: capitalize;
+}
+
+/* Inputs */
+.u-input {
+  -webkit-appearance: none;
+  display: flex;
+  background: var(--color-themed-bg);
+  color: var(--color-themed-fg);
+  font-size: inherit;
+  padding: var(--spacer-xsmall);
+  border-radius: var(--spacer-xsmall);
+  border-width: 0;
+  border-color: var(--color-themed-bg);
+  transition: var(--transition);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  width: 100%;
+}
+
+.u-input:hover {
+  box-shadow: var(--shadow--hover);
+}
+
+.u-input:focus {
+  outline: none;
+}
+
+.u-input.is-active {
+  box-shadow: var(--shadow--inset);
+  background-color: var(--color-themed-bg-dimmed);
+  transition: 0.2s var(--transitionFunction);
 }

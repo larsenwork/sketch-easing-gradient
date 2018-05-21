@@ -79,7 +79,7 @@
     inset 0 0.25px 2px hsla(0, 0%, 0%, 0.0);
 
   /* Sketch specific sizes... */
-  --fontSize-html: 1rem;
+  --fontSize-html: 0.8rem;
   --fontSize-h2: 1.62rem;
   --fontSize-h1: 2.62rem;
   --lineHeight-body: 1.6rem;
