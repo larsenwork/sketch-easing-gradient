@@ -35,6 +35,13 @@
       >
         <step-edit/>
       </div>
+      <div>
+        {{ $store.state.startColor }} <br>
+        {{ $store.state.timingFunction }} <br>
+        {{ $store.state.stopColor }} <br>
+        {{ $store.state.colorSpace }} <br>
+        {{ $store.state.gradient }} <br>
+      </div>
     </div>
   </div>
 </template>
@@ -66,12 +73,28 @@ export default {
   },
   created() {
     window.setGradientParams = (paramsAsString) => {
-      [
-        this.$store.state.startColor,
-        this.$store.state.timingFunction,
-        this.$store.state.stopColor,
-        this.$store.state.colorSpace,
+      const [
+        startColor,
+        timingFunction,
+        stopColor,
+        colorSpace,
       ] = JSON.parse(paramsAsString)
+      if (timingFunction.includes('cubic-bezier')) {
+        this.$store.state.timingFunction = 'cubic-bezier'
+        const bezierParams = timingFunction
+          .match(/\(([^)]+)\)/)[1]
+          .split(',')
+          .map(item => parseFloat(item))
+        if (bezierParams.length === 4) {
+          this.$store.commit('updateXYXYFromSketch', bezierParams)
+        }
+      // } else if (timingFunction.includes('steps')) {
+      } else {
+        this.$store.state.timingFunction = timingFunction
+      }
+      this.$store.state.startColor = startColor
+      this.$store.state.stopColor = stopColor
+      this.$store.state.colorSpace = colorSpace
     }
   },
 }

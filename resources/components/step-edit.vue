@@ -25,7 +25,7 @@
       id="c-gradientEditor-input-steps-number"
       class="u-input"
       v-model="$store.state.gradient.steps.skip"
-      @change="updateLayerName()"
+      @change="$store.commit('updateLayerName')"
     >
       <option>skip-none</option>
       <option>skip-both</option>
@@ -34,11 +34,3 @@
     </select>
   </div>
 </template>
-
-<script>
-import updateLayerName from './mixins/updateLayerName'
-
-export default {
-  mixins: [updateLayerName],
-}
-</script>

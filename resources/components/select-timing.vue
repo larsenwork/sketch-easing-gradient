@@ -2,10 +2,10 @@
   <select
     class="u-input"
     v-model="$store.state.timingFunction"
-    @change="updateLayerName()"
+    @change="$store.commit('updateXYXY')"
   >
     <option>cubic-bezier</option>
-    <option>steps</option>
+    <!-- <option>steps</option> -->
     <option disabled value="-"></option>
     <option>ease</option>
     <option>ease-in</option>
@@ -15,11 +15,3 @@
     <option>linear</option>
   </select>
 </template>
-
-<script>
-import updateLayerName from './mixins/updateLayerName'
-
-export default {
-  mixins: [updateLayerName],
-}
-</script>

@@ -16,7 +16,7 @@ export default {
     down(event, element) {
       this.$store.commit(
         'parentBounding',
-        event.target.parentElement.getBoundingClientRect()
+        event.target.parentElement.getBoundingClientRect(),
       )
       this.$store.commit('mouseDown', element)
     },

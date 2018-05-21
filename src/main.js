@@ -39,7 +39,7 @@ export default function (context) {
 
         // Close the window on blur
         browserWindow.once('blur', () => {
-          // browserWindow.close()
+          browserWindow.close()
         })
 
         // Handler for a call from web content's javascript
@@ -64,9 +64,9 @@ export default function (context) {
           }
 
           const paramsAsString = JSON.stringify([
-            gradientStopFirst,
+            gradientStopFirst.color,
             gradientTiming,
-            gradientStopLast,
+            gradientStopLast.color,
             gradientColorSpace,
           ])
 

@@ -134,6 +134,13 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 // import pluginCall from 'sketch-module-web-view/client'
 
 
@@ -160,14 +167,30 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
     var _this = this;
 
     window.setGradientParams = function (paramsAsString) {
-      var _JSON$parse = JSON.parse(paramsAsString);
+      var _JSON$parse = JSON.parse(paramsAsString),
+          _JSON$parse2 = _slicedToArray(_JSON$parse, 4),
+          startColor = _JSON$parse2[0],
+          timingFunction = _JSON$parse2[1],
+          stopColor = _JSON$parse2[2],
+          colorSpace = _JSON$parse2[3];
 
-      var _JSON$parse2 = _slicedToArray(_JSON$parse, 4);
+      if (timingFunction.includes('cubic-bezier')) {
+        _this.$store.state.timingFunction = 'cubic-bezier';
+        var bezierParams = timingFunction.match(/\(([^)]+)\)/)[1].split(',').map(function (item) {
+          return parseFloat(item);
+        });
 
-      _this.$store.state.startColor = _JSON$parse2[0];
-      _this.$store.state.timingFunction = _JSON$parse2[1];
-      _this.$store.state.stopColor = _JSON$parse2[2];
-      _this.$store.state.colorSpace = _JSON$parse2[3];
+        if (bezierParams.length === 4) {
+          _this.$store.commit('updateXYXYFromSketch', bezierParams);
+        } // } else if (timingFunction.includes('steps')) {
+
+      } else {
+        _this.$store.state.timingFunction = timingFunction;
+      }
+
+      _this.$store.state.startColor = startColor;
+      _this.$store.state.stopColor = stopColor;
+      _this.$store.state.colorSpace = colorSpace;
     };
   }
 });
@@ -282,126 +305,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/@skpm/builder/node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/components/select-color-space.vue":
-/*!******************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/@skpm/builder/node_modules/babel-loader/lib!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/components/select-color-space.vue ***!
-  \******************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _mixins_updateLayerName__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./mixins/updateLayerName */ "./resources/components/mixins/updateLayerName.js");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  mixins: [_mixins_updateLayerName__WEBPACK_IMPORTED_MODULE_0__["default"]]
-});
-
-/***/ }),
-
-/***/ "./node_modules/@skpm/builder/node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/components/select-timing.vue":
-/*!*************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/@skpm/builder/node_modules/babel-loader/lib!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/components/select-timing.vue ***!
-  \*************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _mixins_updateLayerName__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./mixins/updateLayerName */ "./resources/components/mixins/updateLayerName.js");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  mixins: [_mixins_updateLayerName__WEBPACK_IMPORTED_MODULE_0__["default"]]
-});
-
-/***/ }),
-
-/***/ "./node_modules/@skpm/builder/node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/components/step-edit.vue":
-/*!*********************************************************************************************************************************************************************!*\
-  !*** ./node_modules/@skpm/builder/node_modules/babel-loader/lib!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/components/step-edit.vue ***!
-  \*********************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _mixins_updateLayerName__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./mixins/updateLayerName */ "./resources/components/mixins/updateLayerName.js");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  mixins: [_mixins_updateLayerName__WEBPACK_IMPORTED_MODULE_0__["default"]]
-});
-
-/***/ }),
-
 /***/ "./node_modules/css-loader/index.js!./resources/styles/main.css":
 /*!*************************************************************!*\
   !*** ./node_modules/css-loader!./resources/styles/main.css ***!
@@ -492,7 +395,7 @@ exports = module.exports = __webpack_require__(/*! ../node_modules/css-loader/li
 
 
 // module
-exports.push([module.i, "\nhtml {\n  overflow: hidden;\n  background-color: hsla(0, 0%, 100%, 0.5);\n  border-radius: var(--spacer-xsmall);\n  will-change: opacity;\n  animation: fadeIn 0.5s ease both;\n}\n#vue {\n  font-family: -apple-system;\n  -webkit-font-smoothing: antialiased;\n  width: 100vw;\n  height: 100vh;\n  padding: var(--spacer-small);\n  will-change: transform;\n  animation: slideDown 0.5s ease both;\n}\n@keyframes slideDown {\nfrom {\n    transform: translateY(calc(var(--spacer-xsmall) * -0.5));\n}\nto {\n    transform: translateY(0);\n}\n}\n@keyframes fadeIn {\nfrom {\n    opacity: 0;\n}\nto {\n    opacity: 1;\n}\n}\n.c-gradientEditor-settings {\n  grid-template-columns: repeat(2, 1fr);\n}\n.c-gradientEditor-label {\n  display: block;\n  margin-bottom: var(--lineHeight-margin-xsmall);\n  font-weight: 700;\n  opacity: 0.7;\n}\n.c-gradientEditor-ease {\n  padding: var(--spacer-xsmall);\n}\n", "", {"version":3,"sources":["/Users/andreaslarsen/Git/sketch-easing-gradients/resources/resources/App.vue"],"names":[],"mappings":";AAgFA;EACA,iBAAA;EACA,yCAAA;EACA,oCAAA;EACA,qBAAA;EACA,iCAAA;CACA;AAEA;EACA,2BAAA;EACA,oCAAA;EACA,aAAA;EACA,cAAA;EACA,6BAAA;EACA,uBAAA;EACA,oCAAA;CACA;AAEA;AACA;IACA,yDAAA;CACA;AACA;IACA,yBAAA;CACA;CACA;AAEA;AACA;IACA,WAAA;CACA;AACA;IACA,WAAA;CACA;CACA;AAEA;EACA,sCAAA;CACA;AAEA;EACA,eAAA;EACA,+CAAA;EACA,iBAAA;EACA,aAAA;CACA;AAEA;EACA,8BAAA;CACA","file":"App.vue","sourcesContent":["<template>\n  <div id=\"vue\">\n    <div\n      class=\"c-gradientEditor-settings u-grid\"\n    >\n      <div>\n        <div\n          class=\"c-gradientEditor-label\"\n        >\n          Easing function\n        </div>\n        <select-timing/>\n      </div>\n      <div>\n        <div\n          class=\"c-gradientEditor-label\"\n        >\n          Color space\n        </div>\n        <select-color-space/>\n      </div>\n      <div\n        v-if=\"$store.state.timingFunction.includes('cubic') || $store.state.timingFunction.includes('ease')\"\n        class=\"c-gradientEditor-ease u-position-relative\"\n      >\n        <div\n          class=\"u-aspect--1-1\"\n        >\n          <easing-preview/>\n          <easing-edit/>\n        </div>\n      </div>\n      <div\n        v-if=\"$store.state.timingFunction.includes('steps')\"\n      >\n        <step-edit/>\n      </div>\n    </div>\n  </div>\n</template>\n\n<script>\n// import pluginCall from 'sketch-module-web-view/client'\nimport selectTiming from './components/select-timing.vue'\nimport selectColorSpace from './components/select-color-space.vue'\nimport easingEdit from './components/easing-edit.vue'\nimport easingPreview from './components/easing-preview.vue'\nimport stepEdit from './components/step-edit.vue'\n\nexport default {\n  name: 'app',\n  components: {\n    'select-timing': selectTiming,\n    'select-color-space': selectColorSpace,\n    'easing-edit': easingEdit,\n    'easing-preview': easingPreview,\n    'step-edit': stepEdit,\n  },\n  methods: {\n    // log() {\n    //   pluginCall('nativeLog', 'From vue.js2!')\n    // },\n    // close() {\n    //   pluginCall('closeWindow')\n    // },\n  },\n  created() {\n    window.setGradientParams = (paramsAsString) => {\n      [\n        this.$store.state.startColor,\n        this.$store.state.timingFunction,\n        this.$store.state.stopColor,\n        this.$store.state.colorSpace,\n      ] = JSON.parse(paramsAsString)\n    }\n  },\n}\n</script>\n\n<style>\nhtml {\n  overflow: hidden;\n  background-color: hsla(0, 0%, 100%, 0.5);\n  border-radius: var(--spacer-xsmall);\n  will-change: opacity;\n  animation: fadeIn 0.5s ease both;\n}\n\n#vue {\n  font-family: -apple-system;\n  -webkit-font-smoothing: antialiased;\n  width: 100vw;\n  height: 100vh;\n  padding: var(--spacer-small);\n  will-change: transform;\n  animation: slideDown 0.5s ease both;\n}\n\n@keyframes slideDown {\n  from {\n    transform: translateY(calc(var(--spacer-xsmall) * -0.5));\n  }\n  to {\n    transform: translateY(0);\n  }\n}\n\n@keyframes fadeIn {\n  from {\n    opacity: 0;\n  }\n  to {\n    opacity: 1;\n  }\n}\n\n.c-gradientEditor-settings {\n  grid-template-columns: repeat(2, 1fr);\n}\n\n.c-gradientEditor-label {\n  display: block;\n  margin-bottom: var(--lineHeight-margin-xsmall);\n  font-weight: 700;\n  opacity: 0.7;\n}\n\n.c-gradientEditor-ease {\n  padding: var(--spacer-xsmall);\n}\n</style>\n"],"sourceRoot":""}]);
+exports.push([module.i, "\nhtml {\n  overflow: hidden;\n  background-color: hsla(0, 0%, 100%, 0.5);\n  border-radius: var(--spacer-xsmall);\n  will-change: opacity;\n  animation: fadeIn 0.5s ease both;\n}\n#vue {\n  font-family: -apple-system;\n  -webkit-font-smoothing: antialiased;\n  width: 100vw;\n  height: 100vh;\n  padding: var(--spacer-small);\n  will-change: transform;\n  animation: slideDown 0.5s ease both;\n}\n@keyframes slideDown {\nfrom {\n    transform: translateY(calc(var(--spacer-xsmall) * -0.5));\n}\nto {\n    transform: translateY(0);\n}\n}\n@keyframes fadeIn {\nfrom {\n    opacity: 0;\n}\nto {\n    opacity: 1;\n}\n}\n.c-gradientEditor-settings {\n  grid-template-columns: repeat(2, 1fr);\n}\n.c-gradientEditor-label {\n  display: block;\n  margin-bottom: var(--lineHeight-margin-xsmall);\n  font-weight: 700;\n  opacity: 0.7;\n}\n.c-gradientEditor-ease {\n  padding: var(--spacer-xsmall);\n}\n", "", {"version":3,"sources":["/Users/andreaslarsen/Git/sketch-easing-gradients/resources/resources/App.vue"],"names":[],"mappings":";AAuGA;EACA,iBAAA;EACA,yCAAA;EACA,oCAAA;EACA,qBAAA;EACA,iCAAA;CACA;AAEA;EACA,2BAAA;EACA,oCAAA;EACA,aAAA;EACA,cAAA;EACA,6BAAA;EACA,uBAAA;EACA,oCAAA;CACA;AAEA;AACA;IACA,yDAAA;CACA;AACA;IACA,yBAAA;CACA;CACA;AAEA;AACA;IACA,WAAA;CACA;AACA;IACA,WAAA;CACA;CACA;AAEA;EACA,sCAAA;CACA;AAEA;EACA,eAAA;EACA,+CAAA;EACA,iBAAA;EACA,aAAA;CACA;AAEA;EACA,8BAAA;CACA","file":"App.vue","sourcesContent":["<template>\n  <div id=\"vue\">\n    <div\n      class=\"c-gradientEditor-settings u-grid\"\n    >\n      <div>\n        <div\n          class=\"c-gradientEditor-label\"\n        >\n          Easing function\n        </div>\n        <select-timing/>\n      </div>\n      <div>\n        <div\n          class=\"c-gradientEditor-label\"\n        >\n          Color space\n        </div>\n        <select-color-space/>\n      </div>\n      <div\n        v-if=\"$store.state.timingFunction.includes('cubic') || $store.state.timingFunction.includes('ease')\"\n        class=\"c-gradientEditor-ease u-position-relative\"\n      >\n        <div\n          class=\"u-aspect--1-1\"\n        >\n          <easing-preview/>\n          <easing-edit/>\n        </div>\n      </div>\n      <div\n        v-if=\"$store.state.timingFunction.includes('steps')\"\n      >\n        <step-edit/>\n      </div>\n      <div>\n        {{ $store.state.startColor }} <br>\n        {{ $store.state.timingFunction }} <br>\n        {{ $store.state.stopColor }} <br>\n        {{ $store.state.colorSpace }} <br>\n        {{ $store.state.gradient }} <br>\n      </div>\n    </div>\n  </div>\n</template>\n\n<script>\n// import pluginCall from 'sketch-module-web-view/client'\nimport selectTiming from './components/select-timing.vue'\nimport selectColorSpace from './components/select-color-space.vue'\nimport easingEdit from './components/easing-edit.vue'\nimport easingPreview from './components/easing-preview.vue'\nimport stepEdit from './components/step-edit.vue'\n\nexport default {\n  name: 'app',\n  components: {\n    'select-timing': selectTiming,\n    'select-color-space': selectColorSpace,\n    'easing-edit': easingEdit,\n    'easing-preview': easingPreview,\n    'step-edit': stepEdit,\n  },\n  methods: {\n    // log() {\n    //   pluginCall('nativeLog', 'From vue.js2!')\n    // },\n    // close() {\n    //   pluginCall('closeWindow')\n    // },\n  },\n  created() {\n    window.setGradientParams = (paramsAsString) => {\n      const [\n        startColor,\n        timingFunction,\n        stopColor,\n        colorSpace,\n      ] = JSON.parse(paramsAsString)\n      if (timingFunction.includes('cubic-bezier')) {\n        this.$store.state.timingFunction = 'cubic-bezier'\n        const bezierParams = timingFunction\n          .match(/\\(([^)]+)\\)/)[1]\n          .split(',')\n          .map(item => parseFloat(item))\n        if (bezierParams.length === 4) {\n          this.$store.commit('updateXYXYFromSketch', bezierParams)\n        }\n      // } else if (timingFunction.includes('steps')) {\n      } else {\n        this.$store.state.timingFunction = timingFunction\n      }\n      this.$store.state.startColor = startColor\n      this.$store.state.stopColor = stopColor\n      this.$store.state.colorSpace = colorSpace\n    }\n  },\n}\n</script>\n\n<style>\nhtml {\n  overflow: hidden;\n  background-color: hsla(0, 0%, 100%, 0.5);\n  border-radius: var(--spacer-xsmall);\n  will-change: opacity;\n  animation: fadeIn 0.5s ease both;\n}\n\n#vue {\n  font-family: -apple-system;\n  -webkit-font-smoothing: antialiased;\n  width: 100vw;\n  height: 100vh;\n  padding: var(--spacer-small);\n  will-change: transform;\n  animation: slideDown 0.5s ease both;\n}\n\n@keyframes slideDown {\n  from {\n    transform: translateY(calc(var(--spacer-xsmall) * -0.5));\n  }\n  to {\n    transform: translateY(0);\n  }\n}\n\n@keyframes fadeIn {\n  from {\n    opacity: 0;\n  }\n  to {\n    opacity: 1;\n  }\n}\n\n.c-gradientEditor-settings {\n  grid-template-columns: repeat(2, 1fr);\n}\n\n.c-gradientEditor-label {\n  display: block;\n  margin-bottom: var(--lineHeight-margin-xsmall);\n  font-weight: 700;\n  opacity: 0.7;\n}\n\n.c-gradientEditor-ease {\n  padding: var(--spacer-xsmall);\n}\n</style>\n"],"sourceRoot":""}]);
 
 // exports
 
@@ -511,7 +414,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, "\n.c-easingEdit {\n  /* Placeholder */\n}\n.c-easingEdit-toggle {\n  margin-top: var(--spacer-xsmall);\n  margin-left: var(--spacer-xsmall);\n}\n.c-easingEdit-lines {\n  overflow: visible;\n  z-index: -1;\n}\n.c-easingEdit-line,\n.c-easingEdit-helpLine {\n  stroke-width: var(--stroke-medium);\n  stroke-linecap: round;\n  stroke-linejoin: round;\n  vector-effect: non-scaling-stroke;\n}\n.c-easingEdit-line {\n  stroke: var(--color-themed-fg);\n}\n.c-easingEdit-helpLine {\n  stroke: var(--color-themed-fg-50);\n  fill: none;\n}\n.c-easingEdit-thinLine {\n  fill: none;\n  stroke-width: var(--stroke-small);\n  stroke: var(--color-themed-fg-50);\n  vector-effect: non-scaling-stroke;\n}\n", "", {"version":3,"sources":["/Users/andreaslarsen/Git/sketch-easing-gradients/resources/components/resources/components/easing-edit.vue"],"names":[],"mappings":";AAoGA;EACA,iBAAA;CACA;AAEA;EACA,iCAAA;EACA,kCAAA;CACA;AAEA;EACA,kBAAA;EACA,YAAA;CACA;AAEA;;EAEA,mCAAA;EACA,sBAAA;EACA,uBAAA;EACA,kCAAA;CACA;AAEA;EACA,+BAAA;CACA;AAEA;EACA,kCAAA;EACA,WAAA;CACA;AAEA;EACA,WAAA;EACA,kCAAA;EACA,kCAAA;EACA,kCAAA;CACA","file":"easing-edit.vue","sourcesContent":["<template>\n  <div\n    class=\"c-easingEdit u-position-cover\"\n    @touchmove=\"move\"\n    @touchend.prevent=\"up\"\n  >\n    <svg\n      class=\"c-easingEdit-lines u-position-cover\"\n      viewBox=\"0 0 1 1\"\n    >\n      <line\n        class=\"c-easingEdit-thinLine\"\n        x1=\".25\"\n        y1=\"0\"\n        x2=\".25\"\n        y2=\"1\"\n      />\n      <line\n        class=\"c-easingEdit-thinLine\"\n        x1=\".5\"\n        y1=\"0\"\n        x2=\".5\"\n        y2=\"1\"\n      />\n      <line\n        class=\"c-easingEdit-thinLine\"\n        x1=\".75\"\n        y1=\"0\"\n        x2=\".75\"\n        y2=\"1\"\n      />\n      <line\n        class=\"c-easingEdit-thinLine\"\n        x1=\"0\"\n        y1=\".25\"\n        x2=\"1\"\n        y2=\".25\"\n      />\n      <line\n        class=\"c-easingEdit-thinLine\"\n        x1=\"0\"\n        y1=\".5\"\n        x2=\"1\"\n        y2=\".5\"\n      />\n      <line\n        class=\"c-easingEdit-thinLine\"\n        x1=\"0\"\n        y1=\".75\"\n        x2=\"1\"\n        y2=\".75\"\n      />\n      <rect\n        class=\"c-easingEdit-helpLine\"\n        x=\"0\"\n        y=\"0\"\n        width=\"1\"\n        height=\"1\"\n      />\n      <line\n        v-if=\"$store.state.gradient.ease1.x !== 0 && $store.state.gradient.ease1.y !== 1\"\n        :x2=\"$store.state.gradient.ease1.x\"\n        :y2=\"1 - $store.state.gradient.ease1.y\"\n        class=\"c-easingEdit-line\"\n        x1=\"0\"\n        y1=\"1\"\n      />\n      <line\n        v-if=\"$store.state.gradient.ease2.x !== 1 && $store.state.gradient.ease2.y !== 0\"\n        :x2=\"$store.state.gradient.ease2.x\"\n        :y2=\"1 - $store.state.gradient.ease2.y\"\n        class=\"c-easingEdit-line\"\n        x1=\"1\"\n        y1=\"0\"\n      />\n    </svg>\n    <div\n      :style=\"`left: ${$store.state.gradient.ease1.x * 100}%; top: ${100 - $store.state.gradient.ease1.y * 100}%`\"\n      class=\"u-knob\"\n      @mousedown=\"down($event, 'ease1')\"\n      @touchstart.prevent=\"down($event, 'ease1')\"\n    />\n    <div\n      :style=\"`left: ${$store.state.gradient.ease2.x * 100}%; top: ${100 - $store.state.gradient.ease2.y * 100}%`\"\n      class=\"u-knob\"\n      @mousedown=\"down($event, 'ease2')\"\n      @touchstart.prevent=\"down($event, 'ease2')\"\n    />\n  </div>\n</template>\n\n<script>\nimport mouse from './mixins/mouse'\n\nexport default {\n  mixins: [mouse],\n}\n</script>\n\n<style>\n.c-easingEdit {\n  /* Placeholder */\n}\n\n.c-easingEdit-toggle {\n  margin-top: var(--spacer-xsmall);\n  margin-left: var(--spacer-xsmall);\n}\n\n.c-easingEdit-lines {\n  overflow: visible;\n  z-index: -1;\n}\n\n.c-easingEdit-line,\n.c-easingEdit-helpLine {\n  stroke-width: var(--stroke-medium);\n  stroke-linecap: round;\n  stroke-linejoin: round;\n  vector-effect: non-scaling-stroke;\n}\n\n.c-easingEdit-line {\n  stroke: var(--color-themed-fg);\n}\n\n.c-easingEdit-helpLine {\n  stroke: var(--color-themed-fg-50);\n  fill: none;\n}\n\n.c-easingEdit-thinLine {\n  fill: none;\n  stroke-width: var(--stroke-small);\n  stroke: var(--color-themed-fg-50);\n  vector-effect: non-scaling-stroke;\n}\n</style>\n"],"sourceRoot":""}]);
+exports.push([module.i, "\n.c-easingEdit {\n  /* Placeholder */\n}\n.c-easingEdit-toggle {\n  margin-top: var(--spacer-xsmall);\n  margin-left: var(--spacer-xsmall);\n}\n.c-easingEdit-lines {\n  overflow: visible;\n  z-index: -1;\n}\n.c-easingEdit-line,\n.c-easingEdit-helpLine {\n  stroke-width: var(--stroke-medium);\n  stroke-linecap: round;\n  stroke-linejoin: round;\n  vector-effect: non-scaling-stroke;\n}\n.c-easingEdit-line {\n  stroke: var(--color-themed-fg);\n}\n.c-easingEdit-helpLine {\n  stroke: var(--color-themed-fg-50);\n  fill: none;\n}\n.c-easingEdit-thinLine {\n  fill: none;\n  stroke-width: var(--stroke-small);\n  stroke: var(--color-themed-fg-50);\n  vector-effect: non-scaling-stroke;\n}\n", "", {"version":3,"sources":["/Users/andreaslarsen/Git/sketch-easing-gradients/resources/components/resources/components/easing-edit.vue"],"names":[],"mappings":";AAoGA;EACA,iBAAA;CACA;AAEA;EACA,iCAAA;EACA,kCAAA;CACA;AAEA;EACA,kBAAA;EACA,YAAA;CACA;AAEA;;EAEA,mCAAA;EACA,sBAAA;EACA,uBAAA;EACA,kCAAA;CACA;AAEA;EACA,+BAAA;CACA;AAEA;EACA,kCAAA;EACA,WAAA;CACA;AAEA;EACA,WAAA;EACA,kCAAA;EACA,kCAAA;EACA,kCAAA;CACA","file":"easing-edit.vue","sourcesContent":["<template>\n  <div\n    class=\"c-easingEdit u-position-cover\"\n    @touchmove=\"move\"\n    @touchend.prevent=\"up\"\n  >\n    <svg\n      class=\"c-easingEdit-lines u-position-cover\"\n      viewBox=\"0 0 1 1\"\n    >\n      <line\n        class=\"c-easingEdit-thinLine\"\n        x1=\".25\"\n        y1=\"0\"\n        x2=\".25\"\n        y2=\"1\"\n      />\n      <line\n        class=\"c-easingEdit-thinLine\"\n        x1=\".5\"\n        y1=\"0\"\n        x2=\".5\"\n        y2=\"1\"\n      />\n      <line\n        class=\"c-easingEdit-thinLine\"\n        x1=\".75\"\n        y1=\"0\"\n        x2=\".75\"\n        y2=\"1\"\n      />\n      <line\n        class=\"c-easingEdit-thinLine\"\n        x1=\"0\"\n        y1=\".25\"\n        x2=\"1\"\n        y2=\".25\"\n      />\n      <line\n        class=\"c-easingEdit-thinLine\"\n        x1=\"0\"\n        y1=\".5\"\n        x2=\"1\"\n        y2=\".5\"\n      />\n      <line\n        class=\"c-easingEdit-thinLine\"\n        x1=\"0\"\n        y1=\".75\"\n        x2=\"1\"\n        y2=\".75\"\n      />\n      <rect\n        class=\"c-easingEdit-helpLine\"\n        x=\"0\"\n        y=\"0\"\n        width=\"1\"\n        height=\"1\"\n      />\n      <line\n        v-if=\"$store.state.gradient.ease1.x > 0 || $store.state.gradient.ease1.y > 0\"\n        :x2=\"$store.state.gradient.ease1.x\"\n        :y2=\"1 - $store.state.gradient.ease1.y\"\n        class=\"c-easingEdit-line\"\n        x1=\"0\"\n        y1=\"1\"\n      />\n      <line\n        v-if=\"$store.state.gradient.ease2.x < 1 || $store.state.gradient.ease2.y < 1\"\n        :x2=\"$store.state.gradient.ease2.x\"\n        :y2=\"1 - $store.state.gradient.ease2.y\"\n        class=\"c-easingEdit-line\"\n        x1=\"1\"\n        y1=\"0\"\n      />\n    </svg>\n    <div\n      :style=\"`left: ${$store.state.gradient.ease1.x * 100}%; top: ${100 - $store.state.gradient.ease1.y * 100}%`\"\n      class=\"u-knob\"\n      @mousedown=\"down($event, 'ease1')\"\n      @touchstart.prevent=\"down($event, 'ease1')\"\n    />\n    <div\n      :style=\"`left: ${$store.state.gradient.ease2.x * 100}%; top: ${100 - $store.state.gradient.ease2.y * 100}%`\"\n      class=\"u-knob\"\n      @mousedown=\"down($event, 'ease2')\"\n      @touchstart.prevent=\"down($event, 'ease2')\"\n    />\n  </div>\n</template>\n\n<script>\nimport mouse from './mixins/mouse'\n\nexport default {\n  mixins: [mouse],\n}\n</script>\n\n<style>\n.c-easingEdit {\n  /* Placeholder */\n}\n\n.c-easingEdit-toggle {\n  margin-top: var(--spacer-xsmall);\n  margin-left: var(--spacer-xsmall);\n}\n\n.c-easingEdit-lines {\n  overflow: visible;\n  z-index: -1;\n}\n\n.c-easingEdit-line,\n.c-easingEdit-helpLine {\n  stroke-width: var(--stroke-medium);\n  stroke-linecap: round;\n  stroke-linejoin: round;\n  vector-effect: non-scaling-stroke;\n}\n\n.c-easingEdit-line {\n  stroke: var(--color-themed-fg);\n}\n\n.c-easingEdit-helpLine {\n  stroke: var(--color-themed-fg-50);\n  fill: none;\n}\n\n.c-easingEdit-thinLine {\n  fill: none;\n  stroke-width: var(--stroke-small);\n  stroke: var(--color-themed-fg-50);\n  vector-effect: non-scaling-stroke;\n}\n</style>\n"],"sourceRoot":""}]);
 
 // exports
 
@@ -1821,7 +1724,7 @@ var render = function() {
             )
           },
           function($event) {
-            _vm.updateLayerName()
+            _vm.$store.commit("updateLayerName")
           }
         ]
       }
@@ -1891,15 +1794,13 @@ var render = function() {
             )
           },
           function($event) {
-            _vm.updateLayerName()
+            _vm.$store.commit("updateXYXY")
           }
         ]
       }
     },
     [
       _c("option", [_vm._v("cubic-bezier")]),
-      _vm._v(" "),
-      _c("option", [_vm._v("steps")]),
       _vm._v(" "),
       _c("option", { attrs: { disabled: "", value: "-" } }),
       _vm._v(" "),
@@ -1983,7 +1884,20 @@ var render = function() {
       _vm._v(" "),
       _vm.$store.state.timingFunction.includes("steps")
         ? _c("div", [_c("step-edit")], 1)
-        : _vm._e()
+        : _vm._e(),
+      _vm._v(" "),
+      _c("div", [
+        _vm._v("\n      " + _vm._s(_vm.$store.state.startColor) + " "),
+        _c("br"),
+        _vm._v("\n      " + _vm._s(_vm.$store.state.timingFunction) + " "),
+        _c("br"),
+        _vm._v("\n      " + _vm._s(_vm.$store.state.stopColor) + " "),
+        _c("br"),
+        _vm._v("\n      " + _vm._s(_vm.$store.state.colorSpace) + " "),
+        _c("br"),
+        _vm._v("\n      " + _vm._s(_vm.$store.state.gradient) + " "),
+        _c("br")
+      ])
     ])
   ])
 }
@@ -2093,7 +2007,7 @@ var render = function() {
               )
             },
             function($event) {
-              _vm.updateLayerName()
+              _vm.$store.commit("updateLayerName")
             }
           ]
         }
@@ -2187,8 +2101,8 @@ var render = function() {
             attrs: { x: "0", y: "0", width: "1", height: "1" }
           }),
           _vm._v(" "),
-          _vm.$store.state.gradient.ease1.x !== 0 &&
-          _vm.$store.state.gradient.ease1.y !== 1
+          _vm.$store.state.gradient.ease1.x > 0 ||
+          _vm.$store.state.gradient.ease1.y > 0
             ? _c("line", {
                 staticClass: "c-easingEdit-line",
                 attrs: {
@@ -2200,8 +2114,8 @@ var render = function() {
               })
             : _vm._e(),
           _vm._v(" "),
-          _vm.$store.state.gradient.ease2.x !== 1 &&
-          _vm.$store.state.gradient.ease2.y !== 0
+          _vm.$store.state.gradient.ease2.x < 1 ||
+          _vm.$store.state.gradient.ease2.y < 1
             ? _c("line", {
                 staticClass: "c-easingEdit-line",
                 attrs: {
@@ -11917,38 +11831,6 @@ var throttleDuration = 1000 / 60;
 
 /***/ }),
 
-/***/ "./resources/components/mixins/updateLayerName.js":
-/*!********************************************************!*\
-  !*** ./resources/components/mixins/updateLayerName.js ***!
-  \********************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var sketch_module_web_view_client__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sketch-module-web-view/client */ "./node_modules/sketch-module-web-view/client.js");
-/* harmony import */ var sketch_module_web_view_client__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sketch_module_web_view_client__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _helpers_ease_map__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helpers/ease-map */ "./resources/components/helpers/ease-map.js");
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  methods: {
-    updateLayerName: function updateLayerName() {
-      sketch_module_web_view_client__WEBPACK_IMPORTED_MODULE_0___default()('updateName', "".concat(this.$store.state.timingFunction, ";").concat(this.$store.state.colorSpace));
-
-      if (this.$store.state.timingFunction.includes('ease')) {
-        var xy = _helpers_ease_map__WEBPACK_IMPORTED_MODULE_1__["default"][this.$store.state.timingFunction];
-        this.$store.state.gradient.ease1.x = xy.x1;
-        this.$store.state.gradient.ease1.y = xy.y1;
-        this.$store.state.gradient.ease2.x = xy.x2;
-        this.$store.state.gradient.ease2.y = xy.y2;
-      }
-    }
-  }
-});
-
-/***/ }),
-
 /***/ "./resources/components/select-color-space.vue":
 /*!*****************************************************!*\
   !*** ./resources/components/select-color-space.vue ***!
@@ -11958,13 +11840,11 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_select_color_space_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !babel-loader!../../node_modules/vue-loader/lib/selector?type=script&index=0!./select-color-space.vue */ "./node_modules/@skpm/builder/node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/components/select-color-space.vue");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_template_compiler_index_id_data_v_04e133dc_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_select_color_space_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../node_modules/vue-loader/lib/template-compiler/index?{"id":"data-v-04e133dc","hasScoped":false,"optionsId":"0","buble":{"transforms":{}}}!../../node_modules/vue-loader/lib/selector?type=template&index=0!./select-color-space.vue */ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-04e133dc\",\"hasScoped\":false,\"optionsId\":\"0\",\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/components/select-color-space.vue");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_component_normalizer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../node_modules/vue-loader/lib/runtime/component-normalizer */ "./node_modules/vue-loader/lib/runtime/component-normalizer.js");
+/* harmony import */ var _node_modules_vue_loader_lib_template_compiler_index_id_data_v_04e133dc_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_select_color_space_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../node_modules/vue-loader/lib/template-compiler/index?{"id":"data-v-04e133dc","hasScoped":false,"optionsId":"0","buble":{"transforms":{}}}!../../node_modules/vue-loader/lib/selector?type=template&index=0!./select-color-space.vue */ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-04e133dc\",\"hasScoped\":false,\"optionsId\":\"0\",\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/components/select-color-space.vue");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_component_normalizer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../node_modules/vue-loader/lib/runtime/component-normalizer */ "./node_modules/vue-loader/lib/runtime/component-normalizer.js");
 var disposed = false
 /* script */
-
-
+var __vue_script__ = null
 /* template */
 
 /* template functional */
@@ -11976,10 +11856,10 @@ var __vue_scopeId__ = null
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 
-var Component = Object(_node_modules_vue_loader_lib_runtime_component_normalizer__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_select_color_space_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-  _node_modules_vue_loader_lib_template_compiler_index_id_data_v_04e133dc_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_select_color_space_vue__WEBPACK_IMPORTED_MODULE_1__["render"],
-  _node_modules_vue_loader_lib_template_compiler_index_id_data_v_04e133dc_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_select_color_space_vue__WEBPACK_IMPORTED_MODULE_1__["staticRenderFns"],
+var Component = Object(_node_modules_vue_loader_lib_runtime_component_normalizer__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  __vue_script__,
+  _node_modules_vue_loader_lib_template_compiler_index_id_data_v_04e133dc_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_select_color_space_vue__WEBPACK_IMPORTED_MODULE_0__["render"],
+  _node_modules_vue_loader_lib_template_compiler_index_id_data_v_04e133dc_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_select_color_space_vue__WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
@@ -12004,13 +11884,11 @@ if (false) {}
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_select_timing_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !babel-loader!../../node_modules/vue-loader/lib/selector?type=script&index=0!./select-timing.vue */ "./node_modules/@skpm/builder/node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/components/select-timing.vue");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_template_compiler_index_id_data_v_2d3743ba_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_select_timing_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../node_modules/vue-loader/lib/template-compiler/index?{"id":"data-v-2d3743ba","hasScoped":false,"optionsId":"0","buble":{"transforms":{}}}!../../node_modules/vue-loader/lib/selector?type=template&index=0!./select-timing.vue */ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-2d3743ba\",\"hasScoped\":false,\"optionsId\":\"0\",\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/components/select-timing.vue");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_component_normalizer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../node_modules/vue-loader/lib/runtime/component-normalizer */ "./node_modules/vue-loader/lib/runtime/component-normalizer.js");
+/* harmony import */ var _node_modules_vue_loader_lib_template_compiler_index_id_data_v_2d3743ba_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_select_timing_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../node_modules/vue-loader/lib/template-compiler/index?{"id":"data-v-2d3743ba","hasScoped":false,"optionsId":"0","buble":{"transforms":{}}}!../../node_modules/vue-loader/lib/selector?type=template&index=0!./select-timing.vue */ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-2d3743ba\",\"hasScoped\":false,\"optionsId\":\"0\",\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/components/select-timing.vue");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_component_normalizer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../node_modules/vue-loader/lib/runtime/component-normalizer */ "./node_modules/vue-loader/lib/runtime/component-normalizer.js");
 var disposed = false
 /* script */
-
-
+var __vue_script__ = null
 /* template */
 
 /* template functional */
@@ -12022,10 +11900,10 @@ var __vue_scopeId__ = null
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 
-var Component = Object(_node_modules_vue_loader_lib_runtime_component_normalizer__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_select_timing_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-  _node_modules_vue_loader_lib_template_compiler_index_id_data_v_2d3743ba_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_select_timing_vue__WEBPACK_IMPORTED_MODULE_1__["render"],
-  _node_modules_vue_loader_lib_template_compiler_index_id_data_v_2d3743ba_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_select_timing_vue__WEBPACK_IMPORTED_MODULE_1__["staticRenderFns"],
+var Component = Object(_node_modules_vue_loader_lib_runtime_component_normalizer__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  __vue_script__,
+  _node_modules_vue_loader_lib_template_compiler_index_id_data_v_2d3743ba_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_select_timing_vue__WEBPACK_IMPORTED_MODULE_0__["render"],
+  _node_modules_vue_loader_lib_template_compiler_index_id_data_v_2d3743ba_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_select_timing_vue__WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
@@ -12050,13 +11928,11 @@ if (false) {}
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_step_edit_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !babel-loader!../../node_modules/vue-loader/lib/selector?type=script&index=0!./step-edit.vue */ "./node_modules/@skpm/builder/node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/components/step-edit.vue");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_template_compiler_index_id_data_v_aeade52c_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_step_edit_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../node_modules/vue-loader/lib/template-compiler/index?{"id":"data-v-aeade52c","hasScoped":false,"optionsId":"0","buble":{"transforms":{}}}!../../node_modules/vue-loader/lib/selector?type=template&index=0!./step-edit.vue */ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-aeade52c\",\"hasScoped\":false,\"optionsId\":\"0\",\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/components/step-edit.vue");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_component_normalizer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../node_modules/vue-loader/lib/runtime/component-normalizer */ "./node_modules/vue-loader/lib/runtime/component-normalizer.js");
+/* harmony import */ var _node_modules_vue_loader_lib_template_compiler_index_id_data_v_aeade52c_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_step_edit_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../node_modules/vue-loader/lib/template-compiler/index?{"id":"data-v-aeade52c","hasScoped":false,"optionsId":"0","buble":{"transforms":{}}}!../../node_modules/vue-loader/lib/selector?type=template&index=0!./step-edit.vue */ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-aeade52c\",\"hasScoped\":false,\"optionsId\":\"0\",\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/components/step-edit.vue");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_component_normalizer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../node_modules/vue-loader/lib/runtime/component-normalizer */ "./node_modules/vue-loader/lib/runtime/component-normalizer.js");
 var disposed = false
 /* script */
-
-
+var __vue_script__ = null
 /* template */
 
 /* template functional */
@@ -12068,10 +11944,10 @@ var __vue_scopeId__ = null
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 
-var Component = Object(_node_modules_vue_loader_lib_runtime_component_normalizer__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_step_edit_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-  _node_modules_vue_loader_lib_template_compiler_index_id_data_v_aeade52c_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_step_edit_vue__WEBPACK_IMPORTED_MODULE_1__["render"],
-  _node_modules_vue_loader_lib_template_compiler_index_id_data_v_aeade52c_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_step_edit_vue__WEBPACK_IMPORTED_MODULE_1__["staticRenderFns"],
+var Component = Object(_node_modules_vue_loader_lib_runtime_component_normalizer__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  __vue_script__,
+  _node_modules_vue_loader_lib_template_compiler_index_id_data_v_aeade52c_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_step_edit_vue__WEBPACK_IMPORTED_MODULE_0__["render"],
+  _node_modules_vue_loader_lib_template_compiler_index_id_data_v_aeade52c_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_step_edit_vue__WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
@@ -12127,11 +12003,40 @@ new vue__WEBPACK_IMPORTED_MODULE_0__["default"]({
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.runtime.esm.js");
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-/* harmony import */ var _components_helpers_ease_map__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/helpers/ease-map */ "./resources/components/helpers/ease-map.js");
+/* harmony import */ var sketch_module_web_view_client__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! sketch-module-web-view/client */ "./node_modules/sketch-module-web-view/client.js");
+/* harmony import */ var sketch_module_web_view_client__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(sketch_module_web_view_client__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _components_helpers_ease_map__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/helpers/ease-map */ "./resources/components/helpers/ease-map.js");
+
 
 
 
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]);
+
+var rounded = function rounded(number) {
+  var precission = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 2;
+  return +number.toFixed(precission);
+};
+
+function xyxyString(state) {
+  return "".concat(rounded(state.gradient.ease1.x), ", ").concat(rounded(state.gradient.ease1.y), ", ").concat(rounded(state.gradient.ease2.x), ", ").concat(rounded(state.gradient.ease2.y));
+}
+
+function _updateLayerName(state) {
+  if (state.timingFunction.includes('ease')) {
+    sketch_module_web_view_client__WEBPACK_IMPORTED_MODULE_2___default()('updateName', "".concat(state.timingFunction, ";").concat(state.colorSpace));
+  } else if (state.timingFunction.includes('cubic-bezier')) {
+    var bezierFunc = "".concat(state.timingFunction, "(").concat(xyxyString(state), ")");
+    sketch_module_web_view_client__WEBPACK_IMPORTED_MODULE_2___default()('updateName', "".concat(bezierFunc, ";").concat(state.colorSpace));
+  }
+}
+
+function updateTimingFunction(state) {
+  var xyxy = xyxyString(state);
+  state.timingFunction = _components_helpers_ease_map__WEBPACK_IMPORTED_MODULE_3__["default"][xyxy] ? _components_helpers_ease_map__WEBPACK_IMPORTED_MODULE_3__["default"][xyxy] : 'cubic-bezier';
+
+  _updateLayerName(state);
+}
+
 /* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
   state: {
     startColor: '',
@@ -12163,17 +12068,33 @@ vue__WEBPACK_IMPORTED_MODULE_0__["default"].use(vuex__WEBPACK_IMPORTED_MODULE_1_
     mouseUp: function mouseUp(state) {
       state.mouseElement = '';
     },
-    updateXY: function updateXY(state, obj) {
-      if (obj.element.includes('ease')) {
-        state.gradient["".concat(obj.element)].x = obj.x;
-        state.gradient["".concat(obj.element)].y = obj.y;
-      }
-
-      var xyxy = "".concat(state.gradient.ease1.x, ", ").concat(state.gradient.ease1.y, ", ").concat(state.gradient.ease2.x, ", ").concat(state.gradient.ease2.y);
-      state.timingFunction = _components_helpers_ease_map__WEBPACK_IMPORTED_MODULE_2__["default"][xyxy] ? _components_helpers_ease_map__WEBPACK_IMPORTED_MODULE_2__["default"][xyxy] : 'cubic-bezier';
-    },
     parentBounding: function parentBounding(state, obj) {
       state.parentBounding = obj;
+    },
+    updateXY: function updateXY(state, obj) {
+      state.gradient["".concat(state.mouseElement)].x = obj.x;
+      state.gradient["".concat(state.mouseElement)].y = obj.y;
+      updateTimingFunction(state);
+    },
+    updateXYXYFromSketch: function updateXYXYFromSketch(state, bezierParams) {
+      /* eslint-disable */
+      state.gradient.ease1.x = bezierParams[0];
+      state.gradient.ease1.y = bezierParams[1];
+      state.gradient.ease2.x = bezierParams[2];
+      state.gradient.ease2.y = bezierParams[3];
+      /* eslint-enable */
+    },
+    updateXYXY: function updateXYXY(state) {
+      var xy = _components_helpers_ease_map__WEBPACK_IMPORTED_MODULE_3__["default"][state.timingFunction];
+      state.gradient.ease1.x = xy.x1;
+      state.gradient.ease1.y = xy.y1;
+      state.gradient.ease2.x = xy.x2;
+      state.gradient.ease2.y = xy.y2;
+
+      _updateLayerName(state);
+    },
+    updateLayerName: function updateLayerName(state) {
+      _updateLayerName(state);
     }
   }
 }));
