@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import pluginCall from 'sketch-module-web-view/client'
+import { cubicCoordinates } from 'easing-coordinates'
+import chroma from 'chroma-js'
 import easeMap from '../components/helpers/ease-map'
 
 Vue.use(Vuex)
@@ -11,13 +13,31 @@ function xyxyString(state) {
   return `${rounded(state.gradient.ease1.x)}, ${rounded(state.gradient.ease1.y)}, ${rounded(state.gradient.ease2.x)}, ${rounded(state.gradient.ease2.y)}`
 }
 
+function updateColorStops(state) {
+  const coordinates = cubicCoordinates(
+    state.gradient.ease1.x,
+    state.gradient.ease1.y,
+    state.gradient.ease2.x,
+    state.gradient.ease2.y,
+  )
+  const colorCoordinates = coordinates
+    .map(obj => ({
+      position: obj.x,
+      color: chroma.mix(state.startColor, state.stopColor, obj.y, state.colorSpace).rgba(),
+    }))
+  state.colorStopCoordinates = colorCoordinates
+  pluginCall('updateGradient', JSON.stringify(colorCoordinates))
+}
+
+
 function updateLayerName(state) {
-  if (state.timingFunction.includes('ease')) {
+  if (state.timingFunction.includes('ease') || state.timingFunction.includes('linear')) {
     pluginCall('updateName', `${state.timingFunction};${state.colorSpace}`)
   } else if (state.timingFunction.includes('cubic-bezier')) {
     const bezierFunc = `${state.timingFunction}(${xyxyString(state)})`
     pluginCall('updateName', `${bezierFunc};${state.colorSpace}`)
   }
+  updateColorStops(state)
 }
 
 function updateTimingFunction(state) {
@@ -68,12 +88,12 @@ export default new Vuex.Store({
       updateTimingFunction(state)
     },
     updateXYXYFromSketch(state, bezierParams) {
-      /* eslint-disable */
-      state.gradient.ease1.x = bezierParams[0]
-      state.gradient.ease1.y = bezierParams[1]
-      state.gradient.ease2.x = bezierParams[2]
-      state.gradient.ease2.y = bezierParams[3]
-      /* eslint-enable */
+      const xy = bezierParams || easeMap[state.timingFunction]
+      state.gradient.ease1.x = xy.x1
+      state.gradient.ease1.y = xy.y1
+      state.gradient.ease2.x = xy.x2
+      state.gradient.ease2.y = xy.y2
+      updateColorStops(state)
     },
     updateXYXY(state) {
       const xy = easeMap[state.timingFunction]

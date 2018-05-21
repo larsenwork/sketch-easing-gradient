@@ -20,7 +20,6 @@
         <select-color-space/>
       </div>
       <div
-        v-if="$store.state.timingFunction.includes('cubic') || $store.state.timingFunction.includes('ease')"
         class="c-gradientEditor-ease u-position-relative"
       >
         <div
@@ -30,17 +29,19 @@
           <easing-edit/>
         </div>
       </div>
-      <div
+      <!-- <div
         v-if="$store.state.timingFunction.includes('steps')"
       >
         <step-edit/>
-      </div>
+      </div> -->
+      <!-- For easy debugging... -->
       <div>
-        {{ $store.state.startColor }} <br>
-        {{ $store.state.timingFunction }} <br>
+        <!-- {{ $store.state.startColor }} <br>
         {{ $store.state.stopColor }} <br>
         {{ $store.state.colorSpace }} <br>
+        {{ $store.state.timingFunction }} <br>
         {{ $store.state.gradient }} <br>
+        {{ $store.state.colorStopCoordinates }} -->
       </div>
     </div>
   </div>
@@ -79,6 +80,10 @@ export default {
         stopColor,
         colorSpace,
       ] = JSON.parse(paramsAsString)
+      this.$store.state.startColor = startColor
+      this.$store.state.stopColor = stopColor
+      this.$store.state.colorSpace = colorSpace
+
       if (timingFunction.includes('cubic-bezier')) {
         this.$store.state.timingFunction = 'cubic-bezier'
         const bezierParams = timingFunction
@@ -86,15 +91,19 @@ export default {
           .split(',')
           .map(item => parseFloat(item))
         if (bezierParams.length === 4) {
-          this.$store.commit('updateXYXYFromSketch', bezierParams)
+          const params = {
+            x1: bezierParams[0],
+            y1: bezierParams[1],
+            x2: bezierParams[2],
+            y2: bezierParams[3],
+          }
+          this.$store.commit('updateXYXYFromSketch', params)
         }
       // } else if (timingFunction.includes('steps')) {
       } else {
         this.$store.state.timingFunction = timingFunction
+        this.$store.commit('updateXYXYFromSketch')
       }
-      this.$store.state.startColor = startColor
-      this.$store.state.stopColor = stopColor
-      this.$store.state.colorSpace = colorSpace
     }
   },
 }
@@ -107,6 +116,8 @@ html {
   border-radius: var(--spacer-xsmall);
   will-change: opacity;
   animation: fadeIn 0.5s ease both;
+  cursor: default !important;
+  -webkit-user-select: none;
 }
 
 #vue {

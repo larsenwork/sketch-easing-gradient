@@ -3,11 +3,22 @@ import BrowserWindow from 'sketch-module-web-view'
 const UI = require('sketch/ui') // eslint-disable-line
 const document = require('sketch/dom').getSelectedDocument() // eslint-disable-line
 
+const sketchColor = color => MSImmutableColor.colorWithRed_green_blue_alpha( // eslint-disable-line
+  color[0] / 255,
+  color[1] / 255,
+  color[2] / 255,
+  color[3],
+).newMutableCounterpart()
+
+const sketchStop = (position, color) => (
+  MSGradientStop.stopWithPosition_color_(position, sketchColor(color)) // eslint-disable-line
+)
+
 export default function (context) {
   const options = {
     identifier: 'easing-gradient',
     width: 400,
-    height: 300,
+    height: 275,
     frame: false,
     transparent: true,
     resizable: false,
@@ -27,6 +38,10 @@ export default function (context) {
         && selectedLayer.style.fills[0].fill === 'Gradient'
         && selectedLayer.style.fills[0].gradient.gradientType === 'Linear'
       ) {
+        const mutableGradient = mutableLayer.style()
+          .fills()
+          .firstObject()
+          .gradient()
         const gradientFill = selectedLayer.style.fills[0]
         const browserWindow = new BrowserWindow(options)
         const { webContents } = browserWindow
@@ -39,7 +54,7 @@ export default function (context) {
 
         // Close the window on blur
         browserWindow.once('blur', () => {
-          browserWindow.close()
+          // browserWindow.close()
         })
 
         // Handler for a call from web content's javascript
@@ -76,6 +91,13 @@ export default function (context) {
         webContents.on('updateName', (params) => {
           const nameWithOutParams = selectedLayer.name.split('🌈')[0].trim()
           mutableLayer.name = `${nameWithOutParams} 🌈${params}`
+        })
+
+        webContents.on('updateGradient', (stopsAsJSON) => {
+          const stops = JSON.parse(stopsAsJSON)
+          const sketchStops = stops
+            .map(obj => sketchStop(obj.stop, obj.color))
+          mutableGradient.setStops(sketchStops)
         })
 
         // // Handler to close the window
