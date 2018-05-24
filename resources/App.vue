@@ -167,7 +167,7 @@ export default {
 }
 
 .c-gradientEditor-ease {
-  padding: var(--spacer-xsmall);
+  padding: calc(var(--spacer-xsmall) / 2);
 }
 
 .c-gradientEditor-buttons {
