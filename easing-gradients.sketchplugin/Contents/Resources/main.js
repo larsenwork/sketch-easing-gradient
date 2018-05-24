@@ -24586,7 +24586,13 @@ function updateColorStops(state) {
     return "".concat(chroma_js__WEBPACK_IMPORTED_MODULE_4___default()(obj.color).css('hsl'), " ").concat(rounded(obj.position * 100), "%");
   });
   state.css = "linear-gradient(\n  ".concat(cssArray.join(',\n  '), "\n);");
-  sketch_module_web_view_client__WEBPACK_IMPORTED_MODULE_2___default()('updateGradient', JSON.stringify(colorCoordinates));
+  var sketchArray = colorCoordinates.map(function (obj) {
+    return {
+      position: obj.position,
+      color: chroma_js__WEBPACK_IMPORTED_MODULE_4___default()(obj.color).hex('rgba')
+    };
+  });
+  sketch_module_web_view_client__WEBPACK_IMPORTED_MODULE_2___default()('updateGradient', JSON.stringify(sketchArray));
 }
 
 function _updateLayerName(state) {

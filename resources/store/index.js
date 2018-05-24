@@ -27,7 +27,11 @@ function updateColorStops(state) {
     }))
   const cssArray = colorCoordinates.map(obj => `${chroma(obj.color).css('hsl')} ${rounded(obj.position * 100)}%`)
   state.css = `linear-gradient(\n  ${cssArray.join(',\n  ')}\n);`
-  pluginCall('updateGradient', JSON.stringify(colorCoordinates))
+  const sketchArray = colorCoordinates.map(obj => ({
+    position: obj.position,
+    color: chroma(obj.color).hex('rgba'),
+  }))
+  pluginCall('updateGradient', JSON.stringify(sketchArray))
 }
 
 
