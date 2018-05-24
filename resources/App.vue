@@ -29,21 +29,11 @@
           <easing-edit/>
         </div>
       </div>
-      <!-- <div
-        v-if="$store.state.timingFunction.includes('steps')"
-      >
-        <step-edit/>
-      </div> -->
+
       <!-- For easy debugging... -->
       <div
         class="c-gradientEditor-buttons"
       >
-        <!-- {{ $store.state.startColor }} <br>
-        {{ $store.state.stopColor }} <br>
-        {{ $store.state.colorSpace }} <br>
-        {{ $store.state.timingFunction }} <br>
-        {{ $store.state.gradient }} <br>
-        {{ $store.state.colorStopCoordinates }} -->
         <div>
           <div
             class="c-gradientEditor-label"
@@ -55,22 +45,33 @@
             @click="showMessage('CSS copied!')"
             v-clipboard:copy="$store.state.css"
           >
-            <clipboard-icon class="u-icon"></clipboard-icon>
+            <clipboard-icon
+              class="u-icon"
+            >
+            </clipboard-icon>
           </button>
         </div>
         <div class="u-flex">
-          <button 
+          <a
+            href=""
             class="u-input u-input--inline"
-            @click="openUrl('https://github.com/larsenwork/sketch-easing-gradient')"
+            @click.prevent="openUrl('https://github.com/larsenwork/sketch-easing-gradient#readme')"
           >
-            <github-icon class="u-icon"></github-icon>
-          </button>
-          <button 
+            <github-icon
+              class="u-icon"
+            >
+            </github-icon>
+          </a>
+          <a
+            href=""
             class="u-input u-input--inline u-marginLeft"
-            @click="openUrl('https://twitter.com/intent/follow?screen_name=larsenwork')"
+            @click.prevent="openUrl('https://twitter.com/intent/follow?screen_name=larsenwork')"
           >
-            <twitter-icon class="u-icon"></twitter-icon>
-          </button>
+            <twitter-icon
+              class="u-icon"
+            >
+            </twitter-icon>
+          </a>
         </div>
       </div>
     </div>

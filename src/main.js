@@ -21,6 +21,7 @@ export default function (context) {
     title: '🌈 Easing Gradient',
     width: 400,
     height: 300,
+    alwaysOnTop: true,
   }
 
   if (document) {
@@ -75,6 +76,7 @@ export default function (context) {
           webContents.executeJavaScript(`setGradientParams('${paramsAsString}')`)
         })
 
+        // Handler to update gradient
         webContents.on('updateName', (params) => {
           const nameWithOutParams = selectedLayer.name.split('🌈')[0].trim()
           mutableLayer.name = `${nameWithOutParams} 🌈${params}`
