@@ -9,17 +9,16 @@
   "bundleVersion": 1,
   "commands" : [
     {
+      "name" : "Ease Gradient",
+      "identifier" : "easing-gradient",
       "script" : "main.js",
-      "shortcut" : "command alt g",
-      "name" : "🌈 Easing Gradient",
-      "identifier" : "easing-gradient"
+      "shortcut" : "command alt g"
     }
   ],
   "menu" : {
-    "isRoot": true,
+    "title" : "🌈 Easing Gradient",
     "items" : [
       "easing-gradient"
-    ],
-    "title" : "easing-gradient"
+    ]
   }
 }

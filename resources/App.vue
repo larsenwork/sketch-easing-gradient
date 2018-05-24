@@ -35,20 +35,52 @@
         <step-edit/>
       </div> -->
       <!-- For easy debugging... -->
-      <div>
+      <div
+        class="c-gradientEditor-buttons"
+      >
         <!-- {{ $store.state.startColor }} <br>
         {{ $store.state.stopColor }} <br>
         {{ $store.state.colorSpace }} <br>
         {{ $store.state.timingFunction }} <br>
         {{ $store.state.gradient }} <br>
         {{ $store.state.colorStopCoordinates }} -->
+        <div>
+          <div
+            class="c-gradientEditor-label"
+          >
+            Copy CSS
+          </div>
+          <button 
+            class="u-input u-input--inline"
+            @click="showMessage('CSS copied!')"
+            v-clipboard:copy="$store.state.css"
+          >
+            <clipboard-icon class="u-icon"></clipboard-icon>
+          </button>
+        </div>
+        <div class="u-flex">
+          <button 
+            class="u-input u-input--inline"
+            @click="openUrl('https://github.com/larsenwork/sketch-easing-gradient')"
+          >
+            <github-icon class="u-icon"></github-icon>
+          </button>
+          <button 
+            class="u-input u-input--inline u-marginLeft"
+            @click="openUrl('https://twitter.com/intent/follow?screen_name=larsenwork')"
+          >
+            <twitter-icon class="u-icon"></twitter-icon>
+          </button>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-// import pluginCall from 'sketch-module-web-view/client'
+import { ClipboardIcon, GithubIcon, TwitterIcon } from 'vue-feather-icons'
+import pluginCall from 'sketch-module-web-view/client'
+
 import selectTiming from './components/select-timing.vue'
 import selectColorSpace from './components/select-color-space.vue'
 import easingEdit from './components/easing-edit.vue'
@@ -58,19 +90,22 @@ import stepEdit from './components/step-edit.vue'
 export default {
   name: 'app',
   components: {
-    'select-timing': selectTiming,
-    'select-color-space': selectColorSpace,
-    'easing-edit': easingEdit,
-    'easing-preview': easingPreview,
-    'step-edit': stepEdit,
+    selectTiming,
+    selectColorSpace,
+    easingEdit,
+    easingPreview,
+    stepEdit,
+    ClipboardIcon,
+    GithubIcon,
+    TwitterIcon,
   },
   methods: {
-    // log() {
-    //   pluginCall('nativeLog', 'From vue.js2!')
-    // },
-    // close() {
-    //   pluginCall('closeWindow')
-    // },
+    openUrl(url) {
+      pluginCall('openUrl', url)
+    },
+    showMessage(msg) {
+      pluginCall('showMessage', msg)
+    },
   },
   created() {
     window.setGradientParams = (paramsAsString) => {
@@ -97,12 +132,12 @@ export default {
             x2: bezierParams[2],
             y2: bezierParams[3],
           }
-          this.$store.commit('updateXYXYFromSketch', params)
+          this.$store.commit('updateXYXY', params)
         }
       // } else if (timingFunction.includes('steps')) {
       } else {
         this.$store.state.timingFunction = timingFunction
-        this.$store.commit('updateXYXYFromSketch')
+        this.$store.commit('updateXYXY')
       }
     }
   },
@@ -110,42 +145,12 @@ export default {
 </script>
 
 <style>
-html {
-  overflow: hidden;
-  background-color: hsla(0, 0%, 100%, 0.5);
-  border-radius: var(--spacer-xsmall);
-  will-change: opacity;
-  animation: fadeIn 0.5s ease both;
-  cursor: default !important;
-  -webkit-user-select: none;
-}
-
 #vue {
   font-family: -apple-system;
   -webkit-font-smoothing: antialiased;
   width: 100vw;
   height: 100vh;
   padding: var(--spacer-small);
-  will-change: transform;
-  animation: slideDown 0.5s ease both;
-}
-
-@keyframes slideDown {
-  from {
-    transform: translateY(calc(var(--spacer-xsmall) * -0.5));
-  }
-  to {
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
 }
 
 .c-gradientEditor-settings {
@@ -161,5 +166,11 @@ html {
 
 .c-gradientEditor-ease {
   padding: var(--spacer-xsmall);
+}
+
+.c-gradientEditor-buttons {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
 }
 </style>

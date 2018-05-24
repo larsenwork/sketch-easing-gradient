@@ -92,6 +92,10 @@
   margin-top: var(--lineHeight-margin-small);
 }
 
+.u-marginLeft {
+  margin-left: var(--lineHeight-margin-small);
+}
+
 .u-textUppercase {
   text-transform: uppercase;
 }
@@ -125,8 +129,21 @@
   outline: none;
 }
 
-.u-input.is-active {
+.u-input:active {
   box-shadow: var(--shadow--inset);
-  background-color: var(--color-themed-bg-dimmed);
-  transition: 0.2s var(--transitionFunction);
+  transition: 0.1s var(--transitionFunction);
+  transform: translateY(1px);
+}
+
+.u-input--inline {
+  width: auto;
+}
+
+.u-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.u-flex {
+  display: flex;
 }

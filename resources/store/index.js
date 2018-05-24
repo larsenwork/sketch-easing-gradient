@@ -23,9 +23,10 @@ function updateColorStops(state) {
   const colorCoordinates = coordinates
     .map(obj => ({
       position: obj.x,
-      color: chroma.mix(state.startColor, state.stopColor, obj.y, state.colorSpace).rgba(),
+      color: chroma.mix(state.startColor, state.stopColor, obj.y, state.colorSpace).rgba(false),
     }))
-  state.colorStopCoordinates = colorCoordinates
+  const cssArray = colorCoordinates.map(obj => `${chroma(obj.color).css('hsl')} ${rounded(obj.position * 100)}%`)
+  state.css = `linear-gradient(\n  ${cssArray.join(',\n  ')}\n);`
   pluginCall('updateGradient', JSON.stringify(colorCoordinates))
 }
 
@@ -56,7 +57,7 @@ export default new Vuex.Store({
     colorSpace: 'lrgb',
     parentBounding: {},
     mouseElement: '',
-    colorStopCoordinates: [],
+    css: '',
     gradient: {
       ease1: {
         x: 0.42,
@@ -87,16 +88,8 @@ export default new Vuex.Store({
       state.gradient[`${state.mouseElement}`].y = obj.y
       updateTimingFunction(state)
     },
-    updateXYXYFromSketch(state, bezierParams) {
+    updateXYXY(state, bezierParams) {
       const xy = bezierParams || easeMap[state.timingFunction]
-      state.gradient.ease1.x = xy.x1
-      state.gradient.ease1.y = xy.y1
-      state.gradient.ease2.x = xy.x2
-      state.gradient.ease2.y = xy.y2
-      updateColorStops(state)
-    },
-    updateXYXY(state) {
-      const xy = easeMap[state.timingFunction]
       state.gradient.ease1.x = xy.x1
       state.gradient.ease1.y = xy.y1
       state.gradient.ease2.x = xy.x2

@@ -12,7 +12,7 @@
   "skpm": {
     "name": "sketch-easing-gradients",
     "manifest": "src/manifest.json",
-    "main": "plugin.sketchplugin"
+    "main": "easing-gradients.sketchplugin"
   },
   "scripts": {
     "build": "skpm-build",
@@ -48,6 +48,8 @@
     "sketch-module-web-view": "^1.1.5",
     "throttleit": "^1.0.0",
     "vue": "^2.5.16",
+    "vue-clipboard2": "^0.1.1",
+    "vue-feather-icons": "^4.7.1",
     "vuex": "^3.0.1"
   },
   "author": "larsenwork <andreas@larsenwork.com>",
