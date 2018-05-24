@@ -144,6 +144,18 @@
   height: 16px;
 }
 
+.u-icon--chevronUp {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.u-icon--chevronDown {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
 .u-flex {
   display: flex;
 }

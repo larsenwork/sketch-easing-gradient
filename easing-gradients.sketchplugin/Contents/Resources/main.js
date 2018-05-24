@@ -176,6 +176,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 //
 //
 //
+//
+//
+//
 
 
 
@@ -186,14 +189,14 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'app',
   components: {
+    ClipboardIcon: vue_feather_icons__WEBPACK_IMPORTED_MODULE_0__["ClipboardIcon"],
+    GithubIcon: vue_feather_icons__WEBPACK_IMPORTED_MODULE_0__["GithubIcon"],
+    TwitterIcon: vue_feather_icons__WEBPACK_IMPORTED_MODULE_0__["TwitterIcon"],
     selectTiming: _components_select_timing_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
     selectColorSpace: _components_select_color_space_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
     easingEdit: _components_easing_edit_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
     easingPreview: _components_easing_preview_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
-    stepEdit: _components_step_edit_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
-    ClipboardIcon: vue_feather_icons__WEBPACK_IMPORTED_MODULE_0__["ClipboardIcon"],
-    GithubIcon: vue_feather_icons__WEBPACK_IMPORTED_MODULE_0__["GithubIcon"],
-    TwitterIcon: vue_feather_icons__WEBPACK_IMPORTED_MODULE_0__["TwitterIcon"]
+    stepEdit: _components_step_edit_vue__WEBPACK_IMPORTED_MODULE_6__["default"]
   },
   methods: {
     openUrl: function openUrl(url) {
@@ -350,6 +353,120 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   mixins: [_mixins_mouse__WEBPACK_IMPORTED_MODULE_0__["default"]]
+});
+
+/***/ }),
+
+/***/ "./node_modules/@skpm/builder/node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/components/select-chevrons.vue":
+/*!***************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/@skpm/builder/node_modules/babel-loader/lib!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/components/select-chevrons.vue ***!
+  \***************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue_feather_icons__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-feather-icons */ "./node_modules/vue-feather-icons/dist/vue-feather-icons.es.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    ChevronDownIcon: vue_feather_icons__WEBPACK_IMPORTED_MODULE_0__["ChevronDownIcon"],
+    ChevronUpIcon: vue_feather_icons__WEBPACK_IMPORTED_MODULE_0__["ChevronUpIcon"]
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/@skpm/builder/node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/components/select-color-space.vue":
+/*!******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/@skpm/builder/node_modules/babel-loader/lib!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/components/select-color-space.vue ***!
+  \******************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _select_chevrons_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./select-chevrons.vue */ "./resources/components/select-chevrons.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    selectChevrons: _select_chevrons_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/@skpm/builder/node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/components/select-timing.vue":
+/*!*************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/@skpm/builder/node_modules/babel-loader/lib!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/components/select-timing.vue ***!
+  \*************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _select_chevrons_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./select-chevrons.vue */ "./resources/components/select-chevrons.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    selectChevrons: _select_chevrons_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  }
 });
 
 /***/ }),
@@ -3319,6 +3436,25 @@ module.exports = function bezier (mX1, mY1, mX2, mY2) {
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/index.js!./resources/styles/base.css":
+/*!*************************************************************!*\
+  !*** ./node_modules/css-loader!./resources/styles/base.css ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "* {\n  -webkit-user-select: none;\n  cursor: default;\n  font-family: -apple-system;\n  -webkit-font-smoothing: antialiased;\n}\n\na,\na * {\n  cursor: pointer;\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/index.js!./resources/styles/main.css":
 /*!*************************************************************!*\
   !*** ./node_modules/css-loader!./resources/styles/main.css ***!
@@ -3331,9 +3467,10 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 exports.i(__webpack_require__(/*! -!../../node_modules/css-loader!./reset.css */ "./node_modules/css-loader/index.js!./resources/styles/reset.css"), "");
 exports.i(__webpack_require__(/*! -!../../node_modules/css-loader!./settings.css */ "./node_modules/css-loader/index.js!./resources/styles/settings.css"), "");
 exports.i(__webpack_require__(/*! -!../../node_modules/css-loader!./utilities.css */ "./node_modules/css-loader/index.js!./resources/styles/utilities.css"), "");
+exports.i(__webpack_require__(/*! -!../../node_modules/css-loader!./base.css */ "./node_modules/css-loader/index.js!./resources/styles/base.css"), "");
 
 // module
-exports.push([module.i, "\n", ""]);
+exports.push([module.i, "", ""]);
 
 // exports
 
@@ -3390,7 +3527,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, ".u-lineLength {\n  max-width: var(--lineLength-maxWidth);\n  margin-left: auto;\n  margin-right: auto;\n}\n\n/* Positioning */\n.u-position-relative {\n  position: relative;\n}\n\n.u-position-cover {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n}\n\n.u-container {\n  padding-right: var(--spacer-small);\n  padding-left: var(--spacer-small);\n  width: 100%;\n}\n\n.u-section {\n  margin-bottom: var(--lineHeight-margin-large);\n}\n\n.u-section:last-child {\n  margin-bottom: calc(var(--lineHeight-margin-large) + var(--lineHeight-margin-small));\n}\n\n.u-no-padding {\n  padding: 0 !important;\n}\n\n.u-knob {\n  border-radius: 50%;\n  width: calc(1.5 * var(--spacer-small));\n  height: calc(1.5 * var(--spacer-small));\n  position: absolute;\n  background-color: var(--color-bright);\n  box-shadow: var(--shadow);\n  transform: translate(-50%, -50%);\n}\n.u-knob:hover {\n  box-shadow: var(--shadow--hover);\n}\n\n.u-grid {\n  display: grid;\n  grid-gap: var(--spacer-small);\n}\n\n.u-aspect--1-1,\n.u-aspect--2-3 {\n  position: relative;\n  width: 100%;\n\n}\n\n.u-aspect--1-1::before,\n.u-aspect--2-3::before {\n  width: 100%;\n  content: '';\n  display: flex;\n}\n\n.u-aspect--2-1 > *,\n.u-aspect--2-3 > * {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n}\n\n.u-aspect--1-1::before {\n  padding-top: 100%;\n}\n\n.u-aspect--2-3::before {\n    padding-top: calc(100% * 2 / 3);\n}\n\n.u-marginBottom {\n  margin-bottom: var(--lineHeight-margin-small);\n}\n\n.u-marginTop {\n  margin-top: var(--lineHeight-margin-small);\n}\n\n.u-marginLeft {\n  margin-left: var(--lineHeight-margin-small);\n}\n\n.u-textUppercase {\n  text-transform: uppercase;\n}\n\n.u-textCapitalize {\n  text-transform: capitalize;\n}\n\n/* Inputs */\n.u-input {\n  -webkit-appearance: none;\n  display: flex;\n  background: var(--color-themed-bg);\n  color: var(--color-themed-fg);\n  font-size: inherit;\n  padding: var(--spacer-xsmall);\n  border-radius: var(--spacer-xsmall);\n  border-width: 0;\n  border-color: var(--color-themed-bg);\n  transition: var(--transition);\n  box-shadow: var(--shadow);\n  overflow: hidden;\n  width: 100%;\n}\n\n.u-input:hover {\n  box-shadow: var(--shadow--hover);\n}\n\n.u-input:focus {\n  outline: none;\n}\n\n.u-input:active {\n  box-shadow: var(--shadow--inset);\n  transition: 0.1s var(--transitionFunction);\n  transform: translateY(1px);\n}\n\n.u-input--inline {\n  width: auto;\n}\n\n.u-icon {\n  width: 16px;\n  height: 16px;\n}\n\n.u-flex {\n  display: flex;\n}", ""]);
+exports.push([module.i, ".u-lineLength {\n  max-width: var(--lineLength-maxWidth);\n  margin-left: auto;\n  margin-right: auto;\n}\n\n/* Positioning */\n.u-position-relative {\n  position: relative;\n}\n\n.u-position-cover {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n}\n\n.u-container {\n  padding-right: var(--spacer-small);\n  padding-left: var(--spacer-small);\n  width: 100%;\n}\n\n.u-section {\n  margin-bottom: var(--lineHeight-margin-large);\n}\n\n.u-section:last-child {\n  margin-bottom: calc(var(--lineHeight-margin-large) + var(--lineHeight-margin-small));\n}\n\n.u-no-padding {\n  padding: 0 !important;\n}\n\n.u-knob {\n  border-radius: 50%;\n  width: calc(1.5 * var(--spacer-small));\n  height: calc(1.5 * var(--spacer-small));\n  position: absolute;\n  background-color: var(--color-bright);\n  box-shadow: var(--shadow);\n  transform: translate(-50%, -50%);\n}\n.u-knob:hover {\n  box-shadow: var(--shadow--hover);\n}\n\n.u-grid {\n  display: grid;\n  grid-gap: var(--spacer-small);\n}\n\n.u-aspect--1-1,\n.u-aspect--2-3 {\n  position: relative;\n  width: 100%;\n\n}\n\n.u-aspect--1-1::before,\n.u-aspect--2-3::before {\n  width: 100%;\n  content: '';\n  display: flex;\n}\n\n.u-aspect--2-1 > *,\n.u-aspect--2-3 > * {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n}\n\n.u-aspect--1-1::before {\n  padding-top: 100%;\n}\n\n.u-aspect--2-3::before {\n    padding-top: calc(100% * 2 / 3);\n}\n\n.u-marginBottom {\n  margin-bottom: var(--lineHeight-margin-small);\n}\n\n.u-marginTop {\n  margin-top: var(--lineHeight-margin-small);\n}\n\n.u-marginLeft {\n  margin-left: var(--lineHeight-margin-small);\n}\n\n.u-textUppercase {\n  text-transform: uppercase;\n}\n\n.u-textCapitalize {\n  text-transform: capitalize;\n}\n\n/* Inputs */\n.u-input {\n  -webkit-appearance: none;\n  display: flex;\n  background: var(--color-themed-bg);\n  color: var(--color-themed-fg);\n  font-size: inherit;\n  padding: var(--spacer-xsmall);\n  border-radius: var(--spacer-xsmall);\n  border-width: 0;\n  border-color: var(--color-themed-bg);\n  transition: var(--transition);\n  box-shadow: var(--shadow);\n  overflow: hidden;\n  width: 100%;\n}\n\n.u-input:hover {\n  box-shadow: var(--shadow--hover);\n}\n\n.u-input:focus {\n  outline: none;\n}\n\n.u-input:active {\n  box-shadow: var(--shadow--inset);\n  transition: 0.1s var(--transitionFunction);\n  transform: translateY(1px);\n}\n\n.u-input--inline {\n  width: auto;\n}\n\n.u-icon {\n  width: 16px;\n  height: 16px;\n}\n\n.u-icon--chevronUp {\n  position: absolute;\n  right: 0;\n  top: 0;\n}\n\n.u-icon--chevronDown {\n  position: absolute;\n  right: 0;\n  bottom: 0;\n}\n\n.u-flex {\n  display: flex;\n}", ""]);
 
 // exports
 
@@ -3409,7 +3546,7 @@ exports = module.exports = __webpack_require__(/*! ../node_modules/css-loader/li
 
 
 // module
-exports.push([module.i, "\n#vue {\n  font-family: -apple-system;\n  -webkit-font-smoothing: antialiased;\n  width: 100vw;\n  height: 100vh;\n  padding: var(--spacer-small);\n}\n.c-gradientEditor-settings {\n  grid-template-columns: repeat(2, 1fr);\n}\n.c-gradientEditor-label {\n  display: block;\n  margin-bottom: var(--lineHeight-margin-xsmall);\n  font-weight: 700;\n  opacity: 0.7;\n}\n.c-gradientEditor-ease {\n  padding: var(--spacer-xsmall);\n}\n.c-gradientEditor-buttons {\n  display: flex;\n  align-items: flex-end;\n  justify-content: space-between;\n}\n", "", {"version":3,"sources":["/Users/andreaslarsen/Git/sketch-easing-gradient/resources/resources/App.vue"],"names":[],"mappings":";AAoJA;EACA,2BAAA;EACA,oCAAA;EACA,aAAA;EACA,cAAA;EACA,6BAAA;CACA;AAEA;EACA,sCAAA;CACA;AAEA;EACA,eAAA;EACA,+CAAA;EACA,iBAAA;EACA,aAAA;CACA;AAEA;EACA,8BAAA;CACA;AAEA;EACA,cAAA;EACA,sBAAA;EACA,+BAAA;CACA","file":"App.vue","sourcesContent":["<template>\n  <div id=\"vue\">\n    <div\n      class=\"c-gradientEditor-settings u-grid\"\n    >\n      <div>\n        <div\n          class=\"c-gradientEditor-label\"\n        >\n          Easing function\n        </div>\n        <select-timing/>\n      </div>\n      <div>\n        <div\n          class=\"c-gradientEditor-label\"\n        >\n          Color space\n        </div>\n        <select-color-space/>\n      </div>\n      <div\n        class=\"c-gradientEditor-ease u-position-relative\"\n      >\n        <div\n          class=\"u-aspect--1-1\"\n        >\n          <easing-preview/>\n          <easing-edit/>\n        </div>\n      </div>\n\n      <!-- For easy debugging... -->\n      <div\n        class=\"c-gradientEditor-buttons\"\n      >\n        <div>\n          <div\n            class=\"c-gradientEditor-label\"\n          >\n            Copy CSS\n          </div>\n          <button \n            class=\"u-input u-input--inline\"\n            @click=\"showMessage('CSS copied!')\"\n            v-clipboard:copy=\"$store.state.css\"\n          >\n            <clipboard-icon\n              class=\"u-icon\"\n            >\n            </clipboard-icon>\n          </button>\n        </div>\n        <div class=\"u-flex\">\n          <a\n            href=\"\"\n            class=\"u-input u-input--inline\"\n            @click.prevent=\"openUrl('https://github.com/larsenwork/sketch-easing-gradient#readme')\"\n          >\n            <github-icon\n              class=\"u-icon\"\n            >\n            </github-icon>\n          </a>\n          <a\n            href=\"\"\n            class=\"u-input u-input--inline u-marginLeft\"\n            @click.prevent=\"openUrl('https://twitter.com/intent/follow?screen_name=larsenwork')\"\n          >\n            <twitter-icon\n              class=\"u-icon\"\n            >\n            </twitter-icon>\n          </a>\n        </div>\n      </div>\n    </div>\n  </div>\n</template>\n\n<script>\nimport { ClipboardIcon, GithubIcon, TwitterIcon } from 'vue-feather-icons'\nimport pluginCall from 'sketch-module-web-view/client'\n\nimport selectTiming from './components/select-timing.vue'\nimport selectColorSpace from './components/select-color-space.vue'\nimport easingEdit from './components/easing-edit.vue'\nimport easingPreview from './components/easing-preview.vue'\nimport stepEdit from './components/step-edit.vue'\n\nexport default {\n  name: 'app',\n  components: {\n    selectTiming,\n    selectColorSpace,\n    easingEdit,\n    easingPreview,\n    stepEdit,\n    ClipboardIcon,\n    GithubIcon,\n    TwitterIcon,\n  },\n  methods: {\n    openUrl(url) {\n      pluginCall('openUrl', url)\n    },\n    showMessage(msg) {\n      pluginCall('showMessage', msg)\n    },\n  },\n  created() {\n    window.setGradientParams = (paramsAsString) => {\n      const [\n        startColor,\n        timingFunction,\n        stopColor,\n        colorSpace,\n      ] = JSON.parse(paramsAsString)\n      this.$store.state.startColor = startColor\n      this.$store.state.stopColor = stopColor\n      this.$store.state.colorSpace = colorSpace\n\n      if (timingFunction.includes('cubic-bezier')) {\n        this.$store.state.timingFunction = 'cubic-bezier'\n        const bezierParams = timingFunction\n          .match(/\\(([^)]+)\\)/)[1]\n          .split(',')\n          .map(item => parseFloat(item))\n        if (bezierParams.length === 4) {\n          const params = {\n            x1: bezierParams[0],\n            y1: bezierParams[1],\n            x2: bezierParams[2],\n            y2: bezierParams[3],\n          }\n          this.$store.commit('updateXYXY', params)\n        }\n      // } else if (timingFunction.includes('steps')) {\n      } else {\n        this.$store.state.timingFunction = timingFunction\n        this.$store.commit('updateXYXY')\n      }\n    }\n  },\n}\n</script>\n\n<style>\n#vue {\n  font-family: -apple-system;\n  -webkit-font-smoothing: antialiased;\n  width: 100vw;\n  height: 100vh;\n  padding: var(--spacer-small);\n}\n\n.c-gradientEditor-settings {\n  grid-template-columns: repeat(2, 1fr);\n}\n\n.c-gradientEditor-label {\n  display: block;\n  margin-bottom: var(--lineHeight-margin-xsmall);\n  font-weight: 700;\n  opacity: 0.7;\n}\n\n.c-gradientEditor-ease {\n  padding: var(--spacer-xsmall);\n}\n\n.c-gradientEditor-buttons {\n  display: flex;\n  align-items: flex-end;\n  justify-content: space-between;\n}\n</style>\n"],"sourceRoot":""}]);
+exports.push([module.i, "\n.c-gradientEditor {\n  width: 100vw;\n  height: 100vh;\n  padding: var(--spacer-small);\n}\n.c-gradientEditor-settings {\n  grid-template-columns: repeat(2, 1fr);\n}\n.c-gradientEditor-label {\n  display: block;\n  margin-bottom: var(--lineHeight-margin-xsmall);\n  font-weight: 700;\n  opacity: 0.7;\n}\n.c-gradientEditor-ease {\n  padding: var(--spacer-xsmall);\n}\n.c-gradientEditor-buttons {\n  display: flex;\n  align-items: flex-end;\n  justify-content: space-between;\n}\n", "", {"version":3,"sources":["/Users/andreaslarsen/Git/sketch-easing-gradient/resources/resources/App.vue"],"names":[],"mappings":";AAuJA;EACA,aAAA;EACA,cAAA;EACA,6BAAA;CACA;AAEA;EACA,sCAAA;CACA;AAEA;EACA,eAAA;EACA,+CAAA;EACA,iBAAA;EACA,aAAA;CACA;AAEA;EACA,8BAAA;CACA;AAEA;EACA,cAAA;EACA,sBAAA;EACA,+BAAA;CACA","file":"App.vue","sourcesContent":["<template>\n  <div\n    id=\"vue\" \n    class=\"c-gradientEditor\"\n  >\n    <div\n      class=\"c-gradientEditor-settings u-grid\"\n    >\n      <div>\n        <div\n          class=\"c-gradientEditor-label\"\n        >\n          Easing function\n        </div>\n        <select-timing/>\n      </div>\n      <div>\n        <div\n          class=\"c-gradientEditor-label\"\n        >\n          Color space\n        </div>\n        <select-color-space/>\n      </div>\n      <div\n        class=\"c-gradientEditor-ease u-position-relative\"\n      >\n        <div\n          class=\"u-aspect--1-1\"\n        >\n          <easing-preview/>\n          <easing-edit/>\n        </div>\n      </div>\n\n      <!-- For easy debugging... -->\n      <div\n        class=\"c-gradientEditor-buttons\"\n      >\n        <div>\n          <div\n            class=\"c-gradientEditor-label\"\n          >\n            Copy CSS\n          </div>\n          <button \n            class=\"u-input u-input--inline\"\n            @click=\"showMessage('CSS copied!')\"\n            v-clipboard:copy=\"$store.state.css\"\n          >\n            <clipboard-icon\n              class=\"u-icon\"\n            >\n            </clipboard-icon>\n          </button>\n        </div>\n        <div class=\"u-flex\">\n          <a\n            href=\"\"\n            class=\"u-input u-input--inline\"\n            @click.prevent=\"openUrl('https://github.com/larsenwork/sketch-easing-gradient#readme')\"\n          >\n            <github-icon\n              class=\"u-icon\"\n            >\n            </github-icon>\n          </a>\n          <a\n            href=\"\"\n            class=\"u-input u-input--inline u-marginLeft\"\n            @click.prevent=\"openUrl('https://twitter.com/intent/follow?screen_name=larsenwork')\"\n          >\n            <twitter-icon\n              class=\"u-icon\"\n            >\n            </twitter-icon>\n          </a>\n        </div>\n      </div>\n    </div>\n  </div>\n</template>\n\n<script>\nimport { ClipboardIcon, GithubIcon, TwitterIcon } from 'vue-feather-icons'\nimport pluginCall from 'sketch-module-web-view/client'\n\nimport selectTiming from './components/select-timing.vue'\nimport selectColorSpace from './components/select-color-space.vue'\nimport easingEdit from './components/easing-edit.vue'\nimport easingPreview from './components/easing-preview.vue'\nimport stepEdit from './components/step-edit.vue'\n\nexport default {\n  name: 'app',\n  components: {\n    ClipboardIcon,\n    GithubIcon,\n    TwitterIcon,\n    selectTiming,\n    selectColorSpace,\n    easingEdit,\n    easingPreview,\n    stepEdit,\n  },\n  methods: {\n    openUrl(url) {\n      pluginCall('openUrl', url)\n    },\n    showMessage(msg) {\n      pluginCall('showMessage', msg)\n    },\n  },\n  created() {\n    window.setGradientParams = (paramsAsString) => {\n      const [\n        startColor,\n        timingFunction,\n        stopColor,\n        colorSpace,\n      ] = JSON.parse(paramsAsString)\n      this.$store.state.startColor = startColor\n      this.$store.state.stopColor = stopColor\n      this.$store.state.colorSpace = colorSpace\n\n      if (timingFunction.includes('cubic-bezier')) {\n        this.$store.state.timingFunction = 'cubic-bezier'\n        const bezierParams = timingFunction\n          .match(/\\(([^)]+)\\)/)[1]\n          .split(',')\n          .map(item => parseFloat(item))\n        if (bezierParams.length === 4) {\n          const params = {\n            x1: bezierParams[0],\n            y1: bezierParams[1],\n            x2: bezierParams[2],\n            y2: bezierParams[3],\n          }\n          this.$store.commit('updateXYXY', params)\n        }\n      // } else if (timingFunction.includes('steps')) {\n      } else {\n        this.$store.state.timingFunction = timingFunction\n        this.$store.commit('updateXYXY')\n      }\n    }\n  },\n}\n</script>\n\n<style>\n.c-gradientEditor {\n  width: 100vw;\n  height: 100vh;\n  padding: var(--spacer-small);\n}\n\n.c-gradientEditor-settings {\n  grid-template-columns: repeat(2, 1fr);\n}\n\n.c-gradientEditor-label {\n  display: block;\n  margin-bottom: var(--lineHeight-margin-xsmall);\n  font-weight: 700;\n  opacity: 0.7;\n}\n\n.c-gradientEditor-ease {\n  padding: var(--spacer-xsmall);\n}\n\n.c-gradientEditor-buttons {\n  display: flex;\n  align-items: flex-end;\n  justify-content: space-between;\n}\n</style>\n"],"sourceRoot":""}]);
 
 // exports
 
@@ -3448,6 +3585,25 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 // module
 exports.push([module.i, "\n.c-easingPreview {\n  overflow: visible;\n}\n.c-easingPreview-path {\n  fill: none;\n  stroke-width: var(--stroke-medium);\n  stroke-linecap: round;\n  stroke: currentColor;\n  vector-effect: non-scaling-stroke;\n}\n", "", {"version":3,"sources":["/Users/andreaslarsen/Git/sketch-easing-gradient/resources/components/resources/components/easing-preview.vue"],"names":[],"mappings":";AAcA;EACA,kBAAA;CACA;AAEA;EACA,WAAA;EACA,mCAAA;EACA,sBAAA;EACA,qBAAA;EACA,kCAAA;CACA","file":"easing-preview.vue","sourcesContent":["<template>\n  <div>\n    <svg\n      class=\"c-easingPreview u-position-cover\"\n      viewBox=\"0 0 1 1\">\n      <path\n        :d=\"`M0 1C ${$store.state.gradient.ease1.x} ${1 - $store.state.gradient.ease1.y} ${$store.state.gradient.ease2.x} ${1 - $store.state.gradient.ease2.y} 1 0`\"\n        class=\"c-easingPreview-path\"\n      />\n    </svg>\n  </div>\n</template>\n\n<style>\n.c-easingPreview {\n  overflow: visible;\n}\n\n.c-easingPreview-path {\n  fill: none;\n  stroke-width: var(--stroke-medium);\n  stroke-linecap: round;\n  stroke: currentColor;\n  vector-effect: non-scaling-stroke;\n}\n</style>\n"],"sourceRoot":""}]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?sourceMap!./node_modules/vue-loader/lib/style-compiler/index.js?{\"optionsId\":\"0\",\"vue\":true,\"scoped\":false,\"sourceMap\":true}!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/components/select-chevrons.vue":
+/*!**************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader?sourceMap!./node_modules/vue-loader/lib/style-compiler?{"optionsId":"0","vue":true,"scoped":false,"sourceMap":true}!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/components/select-chevrons.vue ***!
+  \**************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(true);
+// imports
+
+
+// module
+exports.push([module.i, "\n.c-selectChevrons {\n  position: absolute;\n  right: 0;\n  top: 0;\n  height: 100%;\n}\n.c-selectChevrons-icon {\n  position: absolute;\n  right: calc(var(--spacer-xsmall) / 2);\n}\n.c-selectChevrons-icon:nth-child(1) {\n  top: calc(var(--spacer-xsmall) / 3);\n}\n.c-selectChevrons-icon:nth-child(2) {\n  bottom: calc(var(--spacer-xsmall) / 3);\n}\n", "", {"version":3,"sources":["/Users/andreaslarsen/Git/sketch-easing-gradient/resources/components/resources/components/select-chevrons.vue"],"names":[],"mappings":";AA2BA;EACA,mBAAA;EACA,SAAA;EACA,OAAA;EACA,aAAA;CACA;AAEA;EACA,mBAAA;EACA,sCAAA;CACA;AAEA;EACA,oCAAA;CACA;AAEA;EACA,uCAAA;CACA","file":"select-chevrons.vue","sourcesContent":["<template>\n  <div\n    class=\"c-selectChevrons\"\n  >\n    <chevron-up-icon\n      class=\"u-icon c-selectChevrons-icon\"\n    >\n    </chevron-up-icon>\n    <chevron-down-icon\n      class=\"u-icon c-selectChevrons-icon\"\n    >\n    </chevron-down-icon>\n  </div>\n</template>\n\n<script>\nimport { ChevronDownIcon, ChevronUpIcon } from 'vue-feather-icons'\n\nexport default {\n  components: {\n    ChevronDownIcon,\n    ChevronUpIcon,\n  },\n}\n</script>\n\n<style>\n.c-selectChevrons {\n  position: absolute;\n  right: 0;\n  top: 0;\n  height: 100%;\n}\n\n.c-selectChevrons-icon {\n  position: absolute;\n  right: calc(var(--spacer-xsmall) / 2);\n}\n\n.c-selectChevrons-icon:nth-child(1) {\n  top: calc(var(--spacer-xsmall) / 3);\n}\n\n.c-selectChevrons-icon:nth-child(2) {\n  bottom: calc(var(--spacer-xsmall) / 3);\n}\n</style>\n"],"sourceRoot":""}]);
 
 // exports
 
@@ -13876,51 +14032,60 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "select",
-    {
-      directives: [
-        {
-          name: "model",
-          rawName: "v-model",
-          value: _vm.$store.state.colorSpace,
-          expression: "$store.state.colorSpace"
-        }
-      ],
-      staticClass: "u-input",
-      on: {
-        change: [
-          function($event) {
-            var $$selectedVal = Array.prototype.filter
-              .call($event.target.options, function(o) {
-                return o.selected
-              })
-              .map(function(o) {
-                var val = "_value" in o ? o._value : o.value
-                return val
-              })
-            _vm.$set(
-              _vm.$store.state,
-              "colorSpace",
-              $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-            )
-          },
-          function($event) {
-            _vm.$store.commit("updateLayerName")
-          }
-        ]
-      }
-    },
+    "div",
+    { staticClass: "u-position-relative" },
     [
-      _c("option", [_vm._v("rgb")]),
+      _c("select-chevrons"),
       _vm._v(" "),
-      _c("option", [_vm._v("hsl")]),
-      _vm._v(" "),
-      _c("option", [_vm._v("lab")]),
-      _vm._v(" "),
-      _c("option", [_vm._v("lch")]),
-      _vm._v(" "),
-      _c("option", [_vm._v("lrgb")])
-    ]
+      _c(
+        "select",
+        {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.$store.state.colorSpace,
+              expression: "$store.state.colorSpace"
+            }
+          ],
+          staticClass: "u-input",
+          on: {
+            change: [
+              function($event) {
+                var $$selectedVal = Array.prototype.filter
+                  .call($event.target.options, function(o) {
+                    return o.selected
+                  })
+                  .map(function(o) {
+                    var val = "_value" in o ? o._value : o.value
+                    return val
+                  })
+                _vm.$set(
+                  _vm.$store.state,
+                  "colorSpace",
+                  $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                )
+              },
+              function($event) {
+                _vm.$store.commit("updateLayerName")
+              }
+            ]
+          }
+        },
+        [
+          _c("option", [_vm._v("rgb")]),
+          _vm._v(" "),
+          _c("option", [_vm._v("hsl")]),
+          _vm._v(" "),
+          _c("option", [_vm._v("lab")]),
+          _vm._v(" "),
+          _c("option", [_vm._v("lch")]),
+          _vm._v(" "),
+          _c("option", [_vm._v("lrgb")])
+        ]
+      )
+    ],
+    1
   )
 }
 var staticRenderFns = []
@@ -13946,53 +14111,95 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "select",
-    {
-      directives: [
-        {
-          name: "model",
-          rawName: "v-model",
-          value: _vm.$store.state.timingFunction,
-          expression: "$store.state.timingFunction"
-        }
-      ],
-      staticClass: "u-input",
-      on: {
-        change: [
-          function($event) {
-            var $$selectedVal = Array.prototype.filter
-              .call($event.target.options, function(o) {
-                return o.selected
-              })
-              .map(function(o) {
-                var val = "_value" in o ? o._value : o.value
-                return val
-              })
-            _vm.$set(
-              _vm.$store.state,
-              "timingFunction",
-              $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-            )
-          },
-          function($event) {
-            _vm.$store.commit("updateXYXY")
-          }
-        ]
-      }
-    },
+    "div",
+    { staticClass: "u-position-relative" },
     [
-      _c("option", [_vm._v("linear")]),
+      _c("select-chevrons"),
       _vm._v(" "),
-      _c("option", [_vm._v("ease")]),
+      _c(
+        "select",
+        {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.$store.state.timingFunction,
+              expression: "$store.state.timingFunction"
+            }
+          ],
+          staticClass: "u-input",
+          on: {
+            change: [
+              function($event) {
+                var $$selectedVal = Array.prototype.filter
+                  .call($event.target.options, function(o) {
+                    return o.selected
+                  })
+                  .map(function(o) {
+                    var val = "_value" in o ? o._value : o.value
+                    return val
+                  })
+                _vm.$set(
+                  _vm.$store.state,
+                  "timingFunction",
+                  $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                )
+              },
+              function($event) {
+                _vm.$store.commit("updateXYXY")
+              }
+            ]
+          }
+        },
+        [
+          _c("option", [_vm._v("linear")]),
+          _vm._v(" "),
+          _c("option", [_vm._v("ease")]),
+          _vm._v(" "),
+          _c("option", [_vm._v("ease-in")]),
+          _vm._v(" "),
+          _c("option", [_vm._v("ease-out")]),
+          _vm._v(" "),
+          _c("option", [_vm._v("ease-in-out")]),
+          _vm._v(" "),
+          _c("option", [_vm._v("cubic-bezier")])
+        ]
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+if (false) {}
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-3d952008\",\"hasScoped\":false,\"optionsId\":\"0\",\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/components/select-chevrons.vue":
+/*!*******************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-3d952008","hasScoped":false,"optionsId":"0","buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/components/select-chevrons.vue ***!
+  \*******************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "c-selectChevrons" },
+    [
+      _c("chevron-up-icon", { staticClass: "u-icon c-selectChevrons-icon" }),
       _vm._v(" "),
-      _c("option", [_vm._v("ease-in")]),
-      _vm._v(" "),
-      _c("option", [_vm._v("ease-out")]),
-      _vm._v(" "),
-      _c("option", [_vm._v("ease-in-out")]),
-      _vm._v(" "),
-      _c("option", [_vm._v("cubic-bezier")])
-    ]
+      _c("chevron-down-icon", { staticClass: "u-icon c-selectChevrons-icon" })
+    ],
+    1
   )
 }
 var staticRenderFns = []
@@ -14017,7 +14224,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { attrs: { id: "vue" } }, [
+  return _c("div", { staticClass: "c-gradientEditor", attrs: { id: "vue" } }, [
     _c("div", { staticClass: "c-gradientEditor-settings u-grid" }, [
       _c(
         "div",
@@ -14505,6 +14712,27 @@ if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
 var add = __webpack_require__(/*! ../../node_modules/vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js").default
 var update = add("404d94a7", content, false, {});
+// Hot Module Replacement
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/index.js?sourceMap!./node_modules/vue-loader/lib/style-compiler/index.js?{\"optionsId\":\"0\",\"vue\":true,\"scoped\":false,\"sourceMap\":true}!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/components/select-chevrons.vue":
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-style-loader!./node_modules/css-loader?sourceMap!./node_modules/vue-loader/lib/style-compiler?{"optionsId":"0","vue":true,"scoped":false,"sourceMap":true}!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/components/select-chevrons.vue ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(/*! !../../node_modules/css-loader?sourceMap!../../node_modules/vue-loader/lib/style-compiler?{"optionsId":"0","vue":true,"scoped":false,"sourceMap":true}!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./select-chevrons.vue */ "./node_modules/css-loader/index.js?sourceMap!./node_modules/vue-loader/lib/style-compiler/index.js?{\"optionsId\":\"0\",\"vue\":true,\"scoped\":false,\"sourceMap\":true}!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/components/select-chevrons.vue");
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var add = __webpack_require__(/*! ../../node_modules/vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js").default
+var update = add("04af5e51", content, false, {});
 // Hot Module Replacement
 if(false) {}
 
@@ -24093,6 +24321,56 @@ var throttleDuration = 1000 / 60;
 
 /***/ }),
 
+/***/ "./resources/components/select-chevrons.vue":
+/*!**************************************************!*\
+  !*** ./resources/components/select-chevrons.vue ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_select_chevrons_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !babel-loader!../../node_modules/vue-loader/lib/selector?type=script&index=0!./select-chevrons.vue */ "./node_modules/@skpm/builder/node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/components/select-chevrons.vue");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_template_compiler_index_id_data_v_3d952008_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_select_chevrons_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../node_modules/vue-loader/lib/template-compiler/index?{"id":"data-v-3d952008","hasScoped":false,"optionsId":"0","buble":{"transforms":{}}}!../../node_modules/vue-loader/lib/selector?type=template&index=0!./select-chevrons.vue */ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-3d952008\",\"hasScoped\":false,\"optionsId\":\"0\",\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/components/select-chevrons.vue");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_component_normalizer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../node_modules/vue-loader/lib/runtime/component-normalizer */ "./node_modules/vue-loader/lib/runtime/component-normalizer.js");
+var disposed = false
+function injectStyle (context) {
+  if (disposed) return
+  __webpack_require__(/*! !vue-style-loader!css-loader?sourceMap!../../node_modules/vue-loader/lib/style-compiler/index?{"optionsId":"0","vue":true,"scoped":false,"sourceMap":true}!../../node_modules/vue-loader/lib/selector?type=styles&index=0!./select-chevrons.vue */ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/index.js?sourceMap!./node_modules/vue-loader/lib/style-compiler/index.js?{\"optionsId\":\"0\",\"vue\":true,\"scoped\":false,\"sourceMap\":true}!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/components/select-chevrons.vue")
+}
+/* script */
+
+
+/* template */
+
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+
+var Component = Object(_node_modules_vue_loader_lib_runtime_component_normalizer__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_select_chevrons_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+  _node_modules_vue_loader_lib_template_compiler_index_id_data_v_3d952008_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_select_chevrons_vue__WEBPACK_IMPORTED_MODULE_1__["render"],
+  _node_modules_vue_loader_lib_template_compiler_index_id_data_v_3d952008_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_select_chevrons_vue__WEBPACK_IMPORTED_MODULE_1__["staticRenderFns"],
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/components/select-chevrons.vue"
+
+/* hot reload */
+if (false) {}
+
+/* harmony default export */ __webpack_exports__["default"] = (Component.exports);
+
+
+/***/ }),
+
 /***/ "./resources/components/select-color-space.vue":
 /*!*****************************************************!*\
   !*** ./resources/components/select-color-space.vue ***!
@@ -24102,11 +24380,13 @@ var throttleDuration = 1000 / 60;
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_template_compiler_index_id_data_v_04e133dc_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_select_color_space_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../node_modules/vue-loader/lib/template-compiler/index?{"id":"data-v-04e133dc","hasScoped":false,"optionsId":"0","buble":{"transforms":{}}}!../../node_modules/vue-loader/lib/selector?type=template&index=0!./select-color-space.vue */ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-04e133dc\",\"hasScoped\":false,\"optionsId\":\"0\",\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/components/select-color-space.vue");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_component_normalizer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../node_modules/vue-loader/lib/runtime/component-normalizer */ "./node_modules/vue-loader/lib/runtime/component-normalizer.js");
+/* harmony import */ var _babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_select_color_space_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !babel-loader!../../node_modules/vue-loader/lib/selector?type=script&index=0!./select-color-space.vue */ "./node_modules/@skpm/builder/node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/components/select-color-space.vue");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_template_compiler_index_id_data_v_04e133dc_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_select_color_space_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../node_modules/vue-loader/lib/template-compiler/index?{"id":"data-v-04e133dc","hasScoped":false,"optionsId":"0","buble":{"transforms":{}}}!../../node_modules/vue-loader/lib/selector?type=template&index=0!./select-color-space.vue */ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-04e133dc\",\"hasScoped\":false,\"optionsId\":\"0\",\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/components/select-color-space.vue");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_component_normalizer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../node_modules/vue-loader/lib/runtime/component-normalizer */ "./node_modules/vue-loader/lib/runtime/component-normalizer.js");
 var disposed = false
 /* script */
-var __vue_script__ = null
+
+
 /* template */
 
 /* template functional */
@@ -24118,10 +24398,10 @@ var __vue_scopeId__ = null
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 
-var Component = Object(_node_modules_vue_loader_lib_runtime_component_normalizer__WEBPACK_IMPORTED_MODULE_1__["default"])(
-  __vue_script__,
-  _node_modules_vue_loader_lib_template_compiler_index_id_data_v_04e133dc_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_select_color_space_vue__WEBPACK_IMPORTED_MODULE_0__["render"],
-  _node_modules_vue_loader_lib_template_compiler_index_id_data_v_04e133dc_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_select_color_space_vue__WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+var Component = Object(_node_modules_vue_loader_lib_runtime_component_normalizer__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_select_color_space_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+  _node_modules_vue_loader_lib_template_compiler_index_id_data_v_04e133dc_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_select_color_space_vue__WEBPACK_IMPORTED_MODULE_1__["render"],
+  _node_modules_vue_loader_lib_template_compiler_index_id_data_v_04e133dc_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_select_color_space_vue__WEBPACK_IMPORTED_MODULE_1__["staticRenderFns"],
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
@@ -24146,11 +24426,13 @@ if (false) {}
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_template_compiler_index_id_data_v_2d3743ba_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_select_timing_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../node_modules/vue-loader/lib/template-compiler/index?{"id":"data-v-2d3743ba","hasScoped":false,"optionsId":"0","buble":{"transforms":{}}}!../../node_modules/vue-loader/lib/selector?type=template&index=0!./select-timing.vue */ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-2d3743ba\",\"hasScoped\":false,\"optionsId\":\"0\",\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/components/select-timing.vue");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_component_normalizer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../node_modules/vue-loader/lib/runtime/component-normalizer */ "./node_modules/vue-loader/lib/runtime/component-normalizer.js");
+/* harmony import */ var _babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_select_timing_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !babel-loader!../../node_modules/vue-loader/lib/selector?type=script&index=0!./select-timing.vue */ "./node_modules/@skpm/builder/node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/components/select-timing.vue");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_template_compiler_index_id_data_v_2d3743ba_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_select_timing_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../node_modules/vue-loader/lib/template-compiler/index?{"id":"data-v-2d3743ba","hasScoped":false,"optionsId":"0","buble":{"transforms":{}}}!../../node_modules/vue-loader/lib/selector?type=template&index=0!./select-timing.vue */ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-2d3743ba\",\"hasScoped\":false,\"optionsId\":\"0\",\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/components/select-timing.vue");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_component_normalizer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../node_modules/vue-loader/lib/runtime/component-normalizer */ "./node_modules/vue-loader/lib/runtime/component-normalizer.js");
 var disposed = false
 /* script */
-var __vue_script__ = null
+
+
 /* template */
 
 /* template functional */
@@ -24162,10 +24444,10 @@ var __vue_scopeId__ = null
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 
-var Component = Object(_node_modules_vue_loader_lib_runtime_component_normalizer__WEBPACK_IMPORTED_MODULE_1__["default"])(
-  __vue_script__,
-  _node_modules_vue_loader_lib_template_compiler_index_id_data_v_2d3743ba_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_select_timing_vue__WEBPACK_IMPORTED_MODULE_0__["render"],
-  _node_modules_vue_loader_lib_template_compiler_index_id_data_v_2d3743ba_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_select_timing_vue__WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+var Component = Object(_node_modules_vue_loader_lib_runtime_component_normalizer__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_select_timing_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+  _node_modules_vue_loader_lib_template_compiler_index_id_data_v_2d3743ba_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_select_timing_vue__WEBPACK_IMPORTED_MODULE_1__["render"],
+  _node_modules_vue_loader_lib_template_compiler_index_id_data_v_2d3743ba_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_select_timing_vue__WEBPACK_IMPORTED_MODULE_1__["staticRenderFns"],
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,

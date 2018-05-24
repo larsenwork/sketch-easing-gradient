@@ -1,0 +1,11 @@
+* {
+  -webkit-user-select: none;
+  cursor: default;
+  font-family: -apple-system;
+  -webkit-font-smoothing: antialiased;
+}
+
+a,
+a * {
+  cursor: pointer;
+}

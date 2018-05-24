@@ -1,5 +1,8 @@
 <template>
-  <div id="vue">
+  <div
+    id="vue" 
+    class="c-gradientEditor"
+  >
     <div
       class="c-gradientEditor-settings u-grid"
     >
@@ -91,14 +94,14 @@ import stepEdit from './components/step-edit.vue'
 export default {
   name: 'app',
   components: {
+    ClipboardIcon,
+    GithubIcon,
+    TwitterIcon,
     selectTiming,
     selectColorSpace,
     easingEdit,
     easingPreview,
     stepEdit,
-    ClipboardIcon,
-    GithubIcon,
-    TwitterIcon,
   },
   methods: {
     openUrl(url) {
@@ -146,9 +149,7 @@ export default {
 </script>
 
 <style>
-#vue {
-  font-family: -apple-system;
-  -webkit-font-smoothing: antialiased;
+.c-gradientEditor {
   width: 100vw;
   height: 100vh;
   padding: var(--spacer-small);
