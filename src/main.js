@@ -1,9 +1,7 @@
 import BrowserWindow from 'sketch-module-web-view'
 
 const UI = require('sketch/ui') // eslint-disable-line import/no-unresolved
-const document = require('sketch/dom').getSelectedDocument() // eslint-disable-line import/no-unresolved
-
-const selection = document.selectedLayers
+const dom = require('sketch/dom') // eslint-disable-line import/no-unresolved
 
 const options = {
   identifier: 'easing-gradient',
@@ -13,22 +11,27 @@ const options = {
   alwaysOnTop: true,
 }
 
-export default function () {
+export function easeMe() {
+  const browserWindow = new BrowserWindow(options)
+
+  const selection = dom.getSelectedDocument().selectedLayers
+  const { webContents } = browserWindow
+
   if (selection && selection.length === 1) {
     const selectedLayer = selection.layers[0]
 
     if (selectedLayer.style.fills
       && selectedLayer.style.fills.length === 1
       && selectedLayer.style.fills[0].fill === 'Gradient'
-      && selectedLayer.style.fills[0].gradient.gradientType === 'Linear'
     ) {
-      const browserWindow = new BrowserWindow(options)
-      const { webContents } = browserWindow
-      const gradientFill = selectedLayer.style.fills[0]
-
       // Show the window when the page has loaded
-      browserWindow.once('ready-to-show', () => {
+      browserWindow.on('ready-to-show', () => {
         browserWindow.show()
+      })
+
+      // Close the window when we blur
+      browserWindow.once('blur', () => {
+        browserWindow.close()
       })
 
       webContents.on('did-finish-load', () => {
@@ -37,7 +40,7 @@ export default function () {
           .pop()
           .split(';')
           .map(item => item.trim())
-        const gradientStops = gradientFill.gradient.stops
+        const gradientStops = selectedLayer.style.fills[0].gradient.stops
         const gradientStopFirst = gradientStops[0]
         const gradientStopLast = gradientStops.pop()
         let gradientTiming = 'linear'
@@ -86,4 +89,8 @@ export default function () {
   } else {
     UI.message('🌈 ⚠️ Please select a layer')
   }
+}
+
+export function onSelectionChanged() {
+  log('changed') // eslint-disable-line no-undef
 }

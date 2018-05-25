@@ -12,6 +12,12 @@
       "name" : "🌈 Easing Gradient",
       "identifier" : "easing-gradient",
       "script" : "main.js",
+      "handlers" : {
+        "run": "easeMe",
+        "actions": {
+          "SelectionChanged.finish": "onSelectionChanged"
+        }
+      },
       "shortcut" : "command alt g"
     }
   ],
