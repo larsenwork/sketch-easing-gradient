@@ -14,10 +14,7 @@
       "identifier": "easing-gradient",
       "script": "main.js",
       "handlers": {
-        "run": "easeMe",
-        "actions": {
-          "SelectionChanged.finish": "onSelectionChanged"
-        }
+        "run": "easeMe"
       },
       "shortcut": "command alt g",
       "description":

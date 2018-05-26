@@ -87,6 +87,3 @@ export function easeMe() {
     UI.message('🌈 ⚠️ Please select a layer')
   }
 }
-export function onSelectionChanged() {
-  log('changed') // eslint-disable-line no-undef
-}
