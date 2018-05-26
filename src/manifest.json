@@ -13,9 +13,6 @@
       "name": "Easing Gradient",
       "identifier": "easing-gradient",
       "script": "main.js",
-      "handlers": {
-        "run": "easeMe"
-      },
       "shortcut": "command alt g",
       "description":
         "Create, edit and generate CSS. Make sure to select a layer with a gradient fill first.",

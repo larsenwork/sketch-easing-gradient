@@ -11,7 +11,7 @@ const options = {
   alwaysOnTop: true,
 }
 
-export function easeMe() {
+export default function() {
   const browserWindow = new BrowserWindow(options)
 
   const selection = dom.getSelectedDocument().selectedLayers
