@@ -1,6 +1,6 @@
 <template>
   <div
-    id="vue" 
+    id="vue"
     class="c-gradientEditor"
   >
     <div
@@ -37,13 +37,31 @@
       <div
         class="c-gradientEditor-buttons"
       >
+        <div
+          class="c-gradientEditor-slider u-marginBottom"
+        >
+          <div
+            class="c-gradientEditor-label u-no-margin"
+          >
+            Color Stops
+          </div>
+          <input
+            class="u-rtl"
+            type="range"
+            min="3"
+            max="25"
+            step="1"
+            v-model="$store.state.colorStops"
+            @input="$store.commit('updateLayerName')"
+          >
+        </div>
         <div>
           <div
             class="c-gradientEditor-label"
           >
             Copy CSS
           </div>
-          <button 
+          <button
             class="u-input u-input--inline"
             @click="showMessage('CSS copied!')"
             v-clipboard:copy="$store.state.css"
@@ -112,16 +130,18 @@ export default {
     },
   },
   created() {
-    window.setGradientParams = (paramsAsString) => {
+    window.setGradientParams = paramsAsString => {
       const [
         startColor,
         timingFunction,
         stopColor,
         colorSpace,
+        colorStops,
       ] = JSON.parse(paramsAsString)
       this.$store.state.startColor = startColor
       this.$store.state.stopColor = stopColor
       this.$store.state.colorSpace = colorSpace
+      this.$store.state.colorStops = colorStops
 
       if (timingFunction.includes('cubic-bezier')) {
         this.$store.state.timingFunction = 'cubic-bezier'
@@ -138,7 +158,7 @@ export default {
           }
           this.$store.commit('updateXYXY', params)
         }
-      // } else if (timingFunction.includes('steps')) {
+        // } else if (timingFunction.includes('steps')) {
       } else {
         this.$store.state.timingFunction = timingFunction
         this.$store.commit('updateXYXY')
@@ -172,7 +192,14 @@ export default {
 
 .c-gradientEditor-buttons {
   display: flex;
+  flex-wrap: wrap;
+  align-content: flex-end;
   align-items: flex-end;
   justify-content: space-between;
+}
+
+.c-gradientEditor-slider {
+  flex-basis: 100%;
+  flex-shrink: 0;
 }
 </style>

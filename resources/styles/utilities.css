@@ -28,11 +28,17 @@
 }
 
 .u-section:last-child {
-  margin-bottom: calc(var(--lineHeight-margin-large) + var(--lineHeight-margin-small));
+  margin-bottom: calc(
+    var(--lineHeight-margin-large) + var(--lineHeight-margin-small)
+  );
 }
 
 .u-no-padding {
   padding: 0 !important;
+}
+
+.u-no-margin {
+  margin: 0 !important;
 }
 
 .u-knob {
@@ -43,9 +49,10 @@
   background-color: var(--color-bright);
   box-shadow: var(--shadow);
   transform: translate(-50%, -50%);
-}
-.u-knob:hover {
-  box-shadow: var(--shadow--hover);
+
+  &:hover {
+    box-shadow: var(--shadow--hover);
+  }
 }
 
 .u-grid {
@@ -58,22 +65,19 @@
   position: relative;
   width: 100%;
 
-}
+  &::before {
+    width: 100%;
+    content: '';
+    display: flex;
+  }
 
-.u-aspect--1-1::before,
-.u-aspect--2-3::before {
-  width: 100%;
-  content: '';
-  display: flex;
-}
-
-.u-aspect--2-1 > *,
-.u-aspect--2-3 > * {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  & > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .u-aspect--1-1::before {
@@ -81,7 +85,7 @@
 }
 
 .u-aspect--2-3::before {
-    padding-top: calc(100% * 2 / 3);
+  padding-top: calc(100% * 2 / 3);
 }
 
 .u-marginBottom {
@@ -119,20 +123,20 @@
   box-shadow: var(--shadow);
   overflow: hidden;
   width: 100%;
-}
 
-.u-input:hover {
-  box-shadow: var(--shadow--hover);
-}
+  &:hover {
+    box-shadow: var(--shadow--hover);
+  }
 
-.u-input:focus {
-  outline: none;
-}
+  &:focus {
+    outline: none;
+  }
 
-.u-input:active {
-  box-shadow: var(--shadow--inset);
-  transition: 0.1s var(--transitionFunction);
-  transform: translateY(1px);
+  &:active {
+    box-shadow: var(--shadow--inset);
+    transition: 0.1s var(--transitionFunction);
+    transform: translateY(1px);
+  }
 }
 
 .u-input--inline {

@@ -1,3 +1,8 @@
+:root {
+  --knobSize: var(--spacer-small);
+  --trackStroke: var(--stroke-large);
+}
+
 * {
   -webkit-user-select: none;
   cursor: default;
@@ -8,4 +13,35 @@
 a,
 a * {
   cursor: pointer;
+}
+
+input[type='range'] {
+  -webkit-appearance: none;
+  width: 100%;
+
+  &:focus {
+    outline: none;
+  }
+
+  &::range-track {
+    background: var(--color-themed-fg);
+    width: 100%;
+    height: var(--trackStroke);
+    border-radius: calc(var(--trackStroke) / 2);
+    box-shadow: none;
+  }
+
+  &::range-thumb {
+    -webkit-appearance: none;
+    border-radius: 50%;
+    width: var(--knobSize);
+    height: var(--knobSize);
+    background-color: var(--color-bright);
+    box-shadow: var(--shadow);
+    margin-top: calc((var(--knobSize) - var(--trackStroke)) / -2);
+
+    &:hover {
+      box-shadow: var(--shadow--hover);
+    }
+  }
 }

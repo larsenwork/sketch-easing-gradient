@@ -18,13 +18,10 @@ module.exports = function(config) {
   config.module.rules.push({
     test: /\.(css)$/,
     use: [
-      {
-        loader: 'style-loader',
-      },
-      {
-        loader: 'css-loader',
-      },
-    ],
+      'style-loader',
+      { loader: 'css-loader', options: { importLoaders: 1 } },
+      'postcss-loader'
+    ]
   });
   config.module.rules.push({
     test: /\.(png|jpg|gif|svg|sketch)$/,

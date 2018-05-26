@@ -1,5 +1,5 @@
 <template>
-  <div 
+  <div
     class="u-position-relative"
   >
     <select-chevrons></select-chevrons>
@@ -8,7 +8,7 @@
       v-model="$store.state.timingFunction"
       @change="$store.commit('updateXYXY')"
     >
-      <!-- <option>steps</option> -->
+      <option>steps</option>
       <!-- <option disabled value="-"></option> -->
       <option>linear</option>
       <option>ease</option>
