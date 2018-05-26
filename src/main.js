@@ -32,7 +32,7 @@ export default function() {
 
       // Close the window when we blur
       browserWindow.once('blur', () => {
-        // browserWindow.close()
+        browserWindow.close()
       })
 
       webContents.on('did-finish-load', () => {
