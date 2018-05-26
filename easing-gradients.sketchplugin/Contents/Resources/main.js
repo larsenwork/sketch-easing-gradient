@@ -88,6 +88,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_easing_edit_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/easing-edit.vue */ "./resources/components/easing-edit.vue");
 /* harmony import */ var _components_easing_preview_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/easing-preview.vue */ "./resources/components/easing-preview.vue");
 /* harmony import */ var _components_step_edit_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/step-edit.vue */ "./resources/components/step-edit.vue");
+/* harmony import */ var _components_mixins_misc__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/mixins/misc */ "./resources/components/mixins/misc.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
@@ -197,6 +198,16 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -206,6 +217,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'app',
+  mixins: [_components_mixins_misc__WEBPACK_IMPORTED_MODULE_7__["default"]],
   components: {
     ClipboardIcon: vue_feather_icons__WEBPACK_IMPORTED_MODULE_0__["ClipboardIcon"],
     GithubIcon: vue_feather_icons__WEBPACK_IMPORTED_MODULE_0__["GithubIcon"],
@@ -279,6 +291,11 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mixins_mouse__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./mixins/mouse */ "./resources/components/mixins/mouse.js");
+/* harmony import */ var _mixins_misc__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./mixins/misc */ "./resources/components/mixins/misc.js");
+//
+//
+//
+//
 //
 //
 //
@@ -371,8 +388,45 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mixins: [_mixins_mouse__WEBPACK_IMPORTED_MODULE_0__["default"]]
+  mixins: [_mixins_mouse__WEBPACK_IMPORTED_MODULE_0__["default"], _mixins_misc__WEBPACK_IMPORTED_MODULE_1__["default"]]
+});
+
+/***/ }),
+
+/***/ "./node_modules/@skpm/builder/node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/components/easing-preview.vue":
+/*!**************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/@skpm/builder/node_modules/babel-loader/lib!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/components/easing-preview.vue ***!
+  \**************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _mixins_misc__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./mixins/misc */ "./resources/components/mixins/misc.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  mixins: [_mixins_misc__WEBPACK_IMPORTED_MODULE_0__["default"]]
 });
 
 /***/ }),
@@ -4960,7 +5014,7 @@ exports = module.exports = __webpack_require__(/*! ../node_modules/css-loader/li
 
 
 // module
-exports.push([module.i, "\n.c-gradientEditor {\n  width: 100vw;\n  height: 100vh;\n  padding: var(--spacer-small);\n}\n.c-gradientEditor-settings {\n  grid-template-columns: repeat(2, 1fr);\n}\n.c-gradientEditor-label {\n  display: block;\n  margin-bottom: var(--lineHeight-margin-xsmall);\n  font-weight: 700;\n  opacity: 0.7;\n}\n.c-gradientEditor-ease {\n  padding: calc(var(--spacer-xsmall) / 2);\n}\n.c-gradientEditor-buttons {\n  display: flex;\n  flex-wrap: wrap;\n  align-content: flex-end;\n  align-items: flex-end;\n  justify-content: space-between;\n}\n.c-gradientEditor-slider {\n  flex-basis: 100%;\n  flex-shrink: 0;\n}\n", "", {"version":3,"sources":["/Users/andreaslarsen/Git/sketch-easing-gradient/resources/resources/App.vue"],"names":[],"mappings":";AA2KA;EACA,aAAA;EACA,cAAA;EACA,6BAAA;CACA;AAEA;EACA,sCAAA;CACA;AAEA;EACA,eAAA;EACA,+CAAA;EACA,iBAAA;EACA,aAAA;CACA;AAEA;EACA,wCAAA;CACA;AAEA;EACA,cAAA;EACA,gBAAA;EACA,wBAAA;EACA,sBAAA;EACA,+BAAA;CACA;AAEA;EACA,iBAAA;EACA,eAAA;CACA","file":"App.vue","sourcesContent":["<template>\n  <div\n    id=\"vue\"\n    class=\"c-gradientEditor\"\n  >\n    <div\n      class=\"c-gradientEditor-settings u-grid\"\n    >\n      <div>\n        <div\n          class=\"c-gradientEditor-label\"\n        >\n          Easing function\n        </div>\n        <select-timing/>\n      </div>\n      <div>\n        <div\n          class=\"c-gradientEditor-label\"\n        >\n          Color space\n        </div>\n        <select-color-space/>\n      </div>\n      <div\n        class=\"c-gradientEditor-ease u-position-relative\"\n      >\n        <div\n          class=\"u-aspect--1-1\"\n        >\n          <easing-preview/>\n          <easing-edit/>\n        </div>\n      </div>\n\n      <!-- For easy debugging... -->\n      <div\n        class=\"c-gradientEditor-buttons\"\n      >\n        <div\n          class=\"c-gradientEditor-slider u-marginBottom\"\n        >\n          <div\n            class=\"c-gradientEditor-label u-no-margin\"\n          >\n            Color Stops\n          </div>\n          <input\n            class=\"u-rtl\"\n            type=\"range\"\n            min=\"3\"\n            max=\"25\"\n            step=\"1\"\n            v-model=\"$store.state.colorStops\"\n            @input=\"$store.commit('updateLayerName')\"\n          >\n        </div>\n        <div>\n          <div\n            class=\"c-gradientEditor-label\"\n          >\n            Copy CSS\n          </div>\n          <button\n            class=\"u-input u-input--inline\"\n            @click=\"showMessage('CSS copied!')\"\n            v-clipboard:copy=\"$store.state.css\"\n          >\n            <clipboard-icon\n              class=\"u-icon\"\n            >\n            </clipboard-icon>\n          </button>\n        </div>\n        <div class=\"u-flex\">\n          <a\n            href=\"\"\n            class=\"u-input u-input--inline\"\n            @click.prevent=\"openUrl('https://github.com/larsenwork/sketch-easing-gradient#readme')\"\n          >\n            <github-icon\n              class=\"u-icon\"\n            >\n            </github-icon>\n          </a>\n          <a\n            href=\"\"\n            class=\"u-input u-input--inline u-marginLeft\"\n            @click.prevent=\"openUrl('https://twitter.com/intent/follow?screen_name=larsenwork')\"\n          >\n            <twitter-icon\n              class=\"u-icon\"\n            >\n            </twitter-icon>\n          </a>\n        </div>\n      </div>\n    </div>\n  </div>\n</template>\n\n<script>\nimport { ClipboardIcon, GithubIcon, TwitterIcon } from 'vue-feather-icons'\nimport pluginCall from 'sketch-module-web-view/client'\n\nimport selectTiming from './components/select-timing.vue'\nimport selectColorSpace from './components/select-color-space.vue'\nimport easingEdit from './components/easing-edit.vue'\nimport easingPreview from './components/easing-preview.vue'\nimport stepEdit from './components/step-edit.vue'\n\nexport default {\n  name: 'app',\n  components: {\n    ClipboardIcon,\n    GithubIcon,\n    TwitterIcon,\n    selectTiming,\n    selectColorSpace,\n    easingEdit,\n    easingPreview,\n    stepEdit,\n  },\n  methods: {\n    openUrl(url) {\n      pluginCall('openUrl', url)\n    },\n    showMessage(msg) {\n      pluginCall('showMessage', msg)\n    },\n  },\n  created() {\n    window.setGradientParams = paramsAsString => {\n      const [\n        startColor,\n        timingFunction,\n        stopColor,\n        colorSpace,\n        colorStops,\n      ] = JSON.parse(paramsAsString)\n      this.$store.state.startColor = startColor\n      this.$store.state.stopColor = stopColor\n      this.$store.state.colorSpace = colorSpace\n      this.$store.state.colorStops = colorStops\n\n      if (timingFunction.includes('cubic-bezier')) {\n        this.$store.state.timingFunction = 'cubic-bezier'\n        const bezierParams = timingFunction\n          .match(/\\(([^)]+)\\)/)[1]\n          .split(',')\n          .map(item => parseFloat(item))\n        if (bezierParams.length === 4) {\n          const params = {\n            x1: bezierParams[0],\n            y1: bezierParams[1],\n            x2: bezierParams[2],\n            y2: bezierParams[3],\n          }\n          this.$store.commit('updateXYXY', params)\n        }\n        // } else if (timingFunction.includes('steps')) {\n      } else {\n        this.$store.state.timingFunction = timingFunction\n        this.$store.commit('updateXYXY')\n      }\n    }\n  },\n}\n</script>\n\n<style>\n.c-gradientEditor {\n  width: 100vw;\n  height: 100vh;\n  padding: var(--spacer-small);\n}\n\n.c-gradientEditor-settings {\n  grid-template-columns: repeat(2, 1fr);\n}\n\n.c-gradientEditor-label {\n  display: block;\n  margin-bottom: var(--lineHeight-margin-xsmall);\n  font-weight: 700;\n  opacity: 0.7;\n}\n\n.c-gradientEditor-ease {\n  padding: calc(var(--spacer-xsmall) / 2);\n}\n\n.c-gradientEditor-buttons {\n  display: flex;\n  flex-wrap: wrap;\n  align-content: flex-end;\n  align-items: flex-end;\n  justify-content: space-between;\n}\n\n.c-gradientEditor-slider {\n  flex-basis: 100%;\n  flex-shrink: 0;\n}\n</style>\n"],"sourceRoot":""}]);
+exports.push([module.i, "\n.c-gradientEditor {\n  width: 100vw;\n  height: 100vh;\n  padding: var(--spacer-small);\n}\n.c-gradientEditor-settings {\n  grid-template-columns: repeat(2, 1fr);\n}\n.c-gradientEditor-label {\n  display: block;\n  margin-bottom: var(--lineHeight-margin-xsmall);\n  font-weight: 700;\n  opacity: 0.7;\n}\n.c-gradientEditor-ease {\n  padding: calc(var(--spacer-xsmall) / 2);\n}\n.c-gradientEditor-buttons {\n  display: flex;\n  flex-wrap: wrap;\n  align-content: space-between;\n  align-items: flex-end;\n  justify-content: space-between;\n}\n.c-gradientEditor-slider {\n  flex-basis: 100%;\n  flex-shrink: 0;\n}\n", "", {"version":3,"sources":["/Users/andreaslarsen/Git/sketch-easing-gradient/resources/resources/App.vue"],"names":[],"mappings":";AAsLA;EACA,aAAA;EACA,cAAA;EACA,6BAAA;CACA;AAEA;EACA,sCAAA;CACA;AAEA;EACA,eAAA;EACA,+CAAA;EACA,iBAAA;EACA,aAAA;CACA;AAEA;EACA,wCAAA;CACA;AAEA;EACA,cAAA;EACA,gBAAA;EACA,6BAAA;EACA,sBAAA;EACA,+BAAA;CACA;AAEA;EACA,iBAAA;EACA,eAAA;CACA","file":"App.vue","sourcesContent":["<template>\n  <div\n    id=\"vue\"\n    class=\"c-gradientEditor\"\n  >\n    <div\n      class=\"c-gradientEditor-settings u-grid\"\n    >\n      <div>\n        <div\n          class=\"c-gradientEditor-label\"\n        >\n          Easing function\n        </div>\n        <select-timing/>\n      </div>\n      <div>\n        <div\n          class=\"c-gradientEditor-label\"\n        >\n          Color space\n        </div>\n        <select-color-space/>\n      </div>\n      <div\n        class=\"c-gradientEditor-ease u-position-relative\"\n      >\n        <div\n          class=\"u-aspect--1-1\"\n        >\n          <easing-preview/>\n          <easing-edit/>\n        </div>\n      </div>\n\n      <div class=\"u-aspect--1-1\">\n        <div\n          class=\"c-gradientEditor-buttons\"\n        >\n          <div\n            class=\"c-gradientEditor-slider u-marginBottom\"\n          >\n            <div\n              v-if=\"isSteps\"\n            >\n              <step-edit/>\n            </div>\n            <div\n              v-else\n            >\n              <div\n                class=\"c-gradientEditor-label u-no-margin\"\n              >\n                Color Stops\n              </div>\n              <input\n                type=\"range\"\n                min=\"3\"\n                max=\"25\"\n                step=\"1\"\n                v-model=\"$store.state.colorStops\"\n                @input=\"$store.commit('updateLayerName')\"\n              >\n            </div>\n          </div>\n          <div>\n            <div\n              class=\"c-gradientEditor-label\"\n            >\n              Copy CSS\n            </div>\n            <button\n              class=\"u-input u-input--inline\"\n              @click=\"showMessage('CSS copied!')\"\n              v-clipboard:copy=\"$store.state.css\"\n            >\n              <clipboard-icon\n                class=\"u-icon\"\n              >\n              </clipboard-icon>\n            </button>\n          </div>\n          <div class=\"u-flex\">\n            <a\n              href=\"\"\n              class=\"u-input u-input--inline\"\n              @click.prevent=\"openUrl('https://github.com/larsenwork/sketch-easing-gradient#readme')\"\n            >\n              <github-icon\n                class=\"u-icon\"\n              >\n              </github-icon>\n            </a>\n            <a\n              href=\"\"\n              class=\"u-input u-input--inline u-marginLeft\"\n              @click.prevent=\"openUrl('https://twitter.com/intent/follow?screen_name=larsenwork')\"\n            >\n              <twitter-icon\n                class=\"u-icon\"\n              >\n              </twitter-icon>\n            </a>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</template>\n\n<script>\nimport { ClipboardIcon, GithubIcon, TwitterIcon } from 'vue-feather-icons'\nimport pluginCall from 'sketch-module-web-view/client'\n\nimport selectTiming from './components/select-timing.vue'\nimport selectColorSpace from './components/select-color-space.vue'\nimport easingEdit from './components/easing-edit.vue'\nimport easingPreview from './components/easing-preview.vue'\nimport stepEdit from './components/step-edit.vue'\nimport misc from './components/mixins/misc'\n\nexport default {\n  name: 'app',\n  mixins: [misc],\n  components: {\n    ClipboardIcon,\n    GithubIcon,\n    TwitterIcon,\n    selectTiming,\n    selectColorSpace,\n    easingEdit,\n    easingPreview,\n    stepEdit,\n  },\n  methods: {\n    openUrl(url) {\n      pluginCall('openUrl', url)\n    },\n    showMessage(msg) {\n      pluginCall('showMessage', msg)\n    },\n  },\n  created() {\n    window.setGradientParams = paramsAsString => {\n      const [\n        startColor,\n        timingFunction,\n        stopColor,\n        colorSpace,\n        colorStops,\n      ] = JSON.parse(paramsAsString)\n      this.$store.state.startColor = startColor\n      this.$store.state.stopColor = stopColor\n      this.$store.state.colorSpace = colorSpace\n      this.$store.state.colorStops = colorStops\n\n      if (timingFunction.includes('cubic-bezier')) {\n        this.$store.state.timingFunction = 'cubic-bezier'\n        const bezierParams = timingFunction\n          .match(/\\(([^)]+)\\)/)[1]\n          .split(',')\n          .map(item => parseFloat(item))\n        if (bezierParams.length === 4) {\n          const params = {\n            x1: bezierParams[0],\n            y1: bezierParams[1],\n            x2: bezierParams[2],\n            y2: bezierParams[3],\n          }\n          this.$store.commit('updateXYXY', params)\n        }\n        // } else if (timingFunction.includes('steps')) {\n      } else {\n        this.$store.state.timingFunction = timingFunction\n        this.$store.commit('updateXYXY')\n      }\n    }\n  },\n}\n</script>\n\n<style>\n.c-gradientEditor {\n  width: 100vw;\n  height: 100vh;\n  padding: var(--spacer-small);\n}\n\n.c-gradientEditor-settings {\n  grid-template-columns: repeat(2, 1fr);\n}\n\n.c-gradientEditor-label {\n  display: block;\n  margin-bottom: var(--lineHeight-margin-xsmall);\n  font-weight: 700;\n  opacity: 0.7;\n}\n\n.c-gradientEditor-ease {\n  padding: calc(var(--spacer-xsmall) / 2);\n}\n\n.c-gradientEditor-buttons {\n  display: flex;\n  flex-wrap: wrap;\n  align-content: space-between;\n  align-items: flex-end;\n  justify-content: space-between;\n}\n\n.c-gradientEditor-slider {\n  flex-basis: 100%;\n  flex-shrink: 0;\n}\n</style>\n"],"sourceRoot":""}]);
 
 // exports
 
@@ -4979,7 +5033,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, "\n.c-easingEdit {\n  /* Placeholder */\n}\n.c-easingEdit-toggle {\n  margin-top: var(--spacer-xsmall);\n  margin-left: var(--spacer-xsmall);\n}\n.c-easingEdit-lines {\n  overflow: visible;\n  z-index: -1;\n}\n.c-easingEdit-line,\n.c-easingEdit-helpLine {\n  stroke-width: var(--stroke-medium);\n  stroke-linecap: round;\n  stroke-linejoin: round;\n  vector-effect: non-scaling-stroke;\n}\n.c-easingEdit-line {\n  stroke: var(--color-themed-fg);\n}\n.c-easingEdit-helpLine {\n  stroke: var(--color-themed-fg-50);\n  fill: none;\n}\n.c-easingEdit-thinLine {\n  fill: none;\n  stroke-width: var(--stroke-small);\n  stroke: var(--color-themed-fg-50);\n  vector-effect: non-scaling-stroke;\n}\n", "", {"version":3,"sources":["/Users/andreaslarsen/Git/sketch-easing-gradient/resources/components/resources/components/easing-edit.vue"],"names":[],"mappings":";AAoGA;EACA,iBAAA;CACA;AAEA;EACA,iCAAA;EACA,kCAAA;CACA;AAEA;EACA,kBAAA;EACA,YAAA;CACA;AAEA;;EAEA,mCAAA;EACA,sBAAA;EACA,uBAAA;EACA,kCAAA;CACA;AAEA;EACA,+BAAA;CACA;AAEA;EACA,kCAAA;EACA,WAAA;CACA;AAEA;EACA,WAAA;EACA,kCAAA;EACA,kCAAA;EACA,kCAAA;CACA","file":"easing-edit.vue","sourcesContent":["<template>\n  <div\n    class=\"c-easingEdit u-position-cover\"\n    @touchmove=\"move\"\n    @touchend.prevent=\"up\"\n  >\n    <svg\n      class=\"c-easingEdit-lines u-position-cover\"\n      viewBox=\"0 0 1 1\"\n    >\n      <line\n        class=\"c-easingEdit-thinLine\"\n        x1=\".25\"\n        y1=\"0\"\n        x2=\".25\"\n        y2=\"1\"\n      />\n      <line\n        class=\"c-easingEdit-thinLine\"\n        x1=\".5\"\n        y1=\"0\"\n        x2=\".5\"\n        y2=\"1\"\n      />\n      <line\n        class=\"c-easingEdit-thinLine\"\n        x1=\".75\"\n        y1=\"0\"\n        x2=\".75\"\n        y2=\"1\"\n      />\n      <line\n        class=\"c-easingEdit-thinLine\"\n        x1=\"0\"\n        y1=\".25\"\n        x2=\"1\"\n        y2=\".25\"\n      />\n      <line\n        class=\"c-easingEdit-thinLine\"\n        x1=\"0\"\n        y1=\".5\"\n        x2=\"1\"\n        y2=\".5\"\n      />\n      <line\n        class=\"c-easingEdit-thinLine\"\n        x1=\"0\"\n        y1=\".75\"\n        x2=\"1\"\n        y2=\".75\"\n      />\n      <rect\n        class=\"c-easingEdit-helpLine\"\n        x=\"0\"\n        y=\"0\"\n        width=\"1\"\n        height=\"1\"\n      />\n      <line\n        v-if=\"$store.state.gradient.ease1.x > 0 || $store.state.gradient.ease1.y > 0\"\n        :x2=\"$store.state.gradient.ease1.x\"\n        :y2=\"1 - $store.state.gradient.ease1.y\"\n        class=\"c-easingEdit-line\"\n        x1=\"0\"\n        y1=\"1\"\n      />\n      <line\n        v-if=\"$store.state.gradient.ease2.x < 1 || $store.state.gradient.ease2.y < 1\"\n        :x2=\"$store.state.gradient.ease2.x\"\n        :y2=\"1 - $store.state.gradient.ease2.y\"\n        class=\"c-easingEdit-line\"\n        x1=\"1\"\n        y1=\"0\"\n      />\n    </svg>\n    <div\n      :style=\"`left: ${$store.state.gradient.ease1.x * 100}%; top: ${100 - $store.state.gradient.ease1.y * 100}%`\"\n      class=\"u-knob\"\n      @mousedown=\"down($event, 'ease1')\"\n      @touchstart.prevent=\"down($event, 'ease1')\"\n    />\n    <div\n      :style=\"`left: ${$store.state.gradient.ease2.x * 100}%; top: ${100 - $store.state.gradient.ease2.y * 100}%`\"\n      class=\"u-knob\"\n      @mousedown=\"down($event, 'ease2')\"\n      @touchstart.prevent=\"down($event, 'ease2')\"\n    />\n  </div>\n</template>\n\n<script>\nimport mouse from './mixins/mouse'\n\nexport default {\n  mixins: [mouse],\n}\n</script>\n\n<style>\n.c-easingEdit {\n  /* Placeholder */\n}\n\n.c-easingEdit-toggle {\n  margin-top: var(--spacer-xsmall);\n  margin-left: var(--spacer-xsmall);\n}\n\n.c-easingEdit-lines {\n  overflow: visible;\n  z-index: -1;\n}\n\n.c-easingEdit-line,\n.c-easingEdit-helpLine {\n  stroke-width: var(--stroke-medium);\n  stroke-linecap: round;\n  stroke-linejoin: round;\n  vector-effect: non-scaling-stroke;\n}\n\n.c-easingEdit-line {\n  stroke: var(--color-themed-fg);\n}\n\n.c-easingEdit-helpLine {\n  stroke: var(--color-themed-fg-50);\n  fill: none;\n}\n\n.c-easingEdit-thinLine {\n  fill: none;\n  stroke-width: var(--stroke-small);\n  stroke: var(--color-themed-fg-50);\n  vector-effect: non-scaling-stroke;\n}\n</style>\n"],"sourceRoot":""}]);
+exports.push([module.i, "\n.c-easingEdit {\n  /* Placeholder */\n}\n.c-easingEdit-toggle {\n  margin-top: var(--spacer-xsmall);\n  margin-left: var(--spacer-xsmall);\n}\n.c-easingEdit-lines {\n  overflow: visible;\n  z-index: -1;\n}\n.c-easingEdit-line,\n.c-easingEdit-helpLine {\n  stroke-width: var(--stroke-medium);\n  stroke-linecap: round;\n  stroke-linejoin: round;\n  vector-effect: non-scaling-stroke;\n}\n.c-easingEdit-line {\n  stroke: var(--color-themed-fg);\n}\n.c-easingEdit-helpLine {\n  stroke: var(--color-themed-fg-50);\n  fill: none;\n}\n.c-easingEdit-thinLine {\n  fill: none;\n  stroke-width: var(--stroke-small);\n  stroke: var(--color-themed-fg-50);\n  vector-effect: non-scaling-stroke;\n}\n", "", {"version":3,"sources":["/Users/andreaslarsen/Git/sketch-easing-gradient/resources/components/resources/components/easing-edit.vue"],"names":[],"mappings":";AAyGA;EACA,iBAAA;CACA;AAEA;EACA,iCAAA;EACA,kCAAA;CACA;AAEA;EACA,kBAAA;EACA,YAAA;CACA;AAEA;;EAEA,mCAAA;EACA,sBAAA;EACA,uBAAA;EACA,kCAAA;CACA;AAEA;EACA,+BAAA;CACA;AAEA;EACA,kCAAA;EACA,WAAA;CACA;AAEA;EACA,WAAA;EACA,kCAAA;EACA,kCAAA;EACA,kCAAA;CACA","file":"easing-edit.vue","sourcesContent":["<template>\n  <div\n    class=\"c-easingEdit u-position-cover\"\n    @touchmove=\"move\"\n    @touchend.prevent=\"up\"\n  >\n    <svg\n      class=\"c-easingEdit-lines u-position-cover\"\n      viewBox=\"0 0 1 1\"\n    >\n      <line\n        class=\"c-easingEdit-thinLine\"\n        x1=\".25\"\n        y1=\"0\"\n        x2=\".25\"\n        y2=\"1\"\n      />\n      <line\n        class=\"c-easingEdit-thinLine\"\n        x1=\".5\"\n        y1=\"0\"\n        x2=\".5\"\n        y2=\"1\"\n      />\n      <line\n        class=\"c-easingEdit-thinLine\"\n        x1=\".75\"\n        y1=\"0\"\n        x2=\".75\"\n        y2=\"1\"\n      />\n      <line\n        class=\"c-easingEdit-thinLine\"\n        x1=\"0\"\n        y1=\".25\"\n        x2=\"1\"\n        y2=\".25\"\n      />\n      <line\n        class=\"c-easingEdit-thinLine\"\n        x1=\"0\"\n        y1=\".5\"\n        x2=\"1\"\n        y2=\".5\"\n      />\n      <line\n        class=\"c-easingEdit-thinLine\"\n        x1=\"0\"\n        y1=\".75\"\n        x2=\"1\"\n        y2=\".75\"\n      />\n      <rect\n        class=\"c-easingEdit-helpLine\"\n        x=\"0\"\n        y=\"0\"\n        width=\"1\"\n        height=\"1\"\n      />\n      <g v-if=\"!isSteps\">\n        <line\n          v-if=\"$store.state.gradient.ease1.x > 0 || $store.state.gradient.ease1.y > 0\"\n          :x2=\"$store.state.gradient.ease1.x\"\n          :y2=\"1 - $store.state.gradient.ease1.y\"\n          class=\"c-easingEdit-line\"\n          x1=\"0\"\n          y1=\"1\"\n        />\n        <line\n          v-if=\"$store.state.gradient.ease2.x < 1 || $store.state.gradient.ease2.y < 1\"\n          :x2=\"$store.state.gradient.ease2.x\"\n          :y2=\"1 - $store.state.gradient.ease2.y\"\n          class=\"c-easingEdit-line\"\n          x1=\"1\"\n          y1=\"0\"\n        />\n      </g>\n    </svg>\n    <div\n      v-if=\"!isSteps\"\n      :style=\"`left: ${$store.state.gradient.ease1.x * 100}%; top: ${100 - $store.state.gradient.ease1.y * 100}%`\"\n      class=\"u-knob\"\n      @mousedown=\"down($event, 'ease1')\"\n      @touchstart.prevent=\"down($event, 'ease1')\"\n    />\n    <div\n      v-if=\"!isSteps\"\n      :style=\"`left: ${$store.state.gradient.ease2.x * 100}%; top: ${100 - $store.state.gradient.ease2.y * 100}%`\"\n      class=\"u-knob\"\n      @mousedown=\"down($event, 'ease2')\"\n      @touchstart.prevent=\"down($event, 'ease2')\"\n    />\n  </div>\n</template>\n\n<script>\nimport mouse from './mixins/mouse'\nimport misc from './mixins/misc'\n\nexport default {\n  mixins: [mouse, misc],\n}\n</script>\n\n<style>\n.c-easingEdit {\n  /* Placeholder */\n}\n\n.c-easingEdit-toggle {\n  margin-top: var(--spacer-xsmall);\n  margin-left: var(--spacer-xsmall);\n}\n\n.c-easingEdit-lines {\n  overflow: visible;\n  z-index: -1;\n}\n\n.c-easingEdit-line,\n.c-easingEdit-helpLine {\n  stroke-width: var(--stroke-medium);\n  stroke-linecap: round;\n  stroke-linejoin: round;\n  vector-effect: non-scaling-stroke;\n}\n\n.c-easingEdit-line {\n  stroke: var(--color-themed-fg);\n}\n\n.c-easingEdit-helpLine {\n  stroke: var(--color-themed-fg-50);\n  fill: none;\n}\n\n.c-easingEdit-thinLine {\n  fill: none;\n  stroke-width: var(--stroke-small);\n  stroke: var(--color-themed-fg-50);\n  vector-effect: non-scaling-stroke;\n}\n</style>\n"],"sourceRoot":""}]);
 
 // exports
 
@@ -4998,7 +5052,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, "\n.c-easingPreview {\n  overflow: visible;\n}\n.c-easingPreview-path {\n  fill: none;\n  stroke-width: var(--stroke-medium);\n  stroke-linecap: round;\n  stroke: currentColor;\n  vector-effect: non-scaling-stroke;\n}\n", "", {"version":3,"sources":["/Users/andreaslarsen/Git/sketch-easing-gradient/resources/components/resources/components/easing-preview.vue"],"names":[],"mappings":";AAcA;EACA,kBAAA;CACA;AAEA;EACA,WAAA;EACA,mCAAA;EACA,sBAAA;EACA,qBAAA;EACA,kCAAA;CACA","file":"easing-preview.vue","sourcesContent":["<template>\n  <div>\n    <svg\n      class=\"c-easingPreview u-position-cover\"\n      viewBox=\"0 0 1 1\">\n      <path\n        :d=\"`M0 1C ${$store.state.gradient.ease1.x} ${1 - $store.state.gradient.ease1.y} ${$store.state.gradient.ease2.x} ${1 - $store.state.gradient.ease2.y} 1 0`\"\n        class=\"c-easingPreview-path\"\n      />\n    </svg>\n  </div>\n</template>\n\n<style>\n.c-easingPreview {\n  overflow: visible;\n}\n\n.c-easingPreview-path {\n  fill: none;\n  stroke-width: var(--stroke-medium);\n  stroke-linecap: round;\n  stroke: currentColor;\n  vector-effect: non-scaling-stroke;\n}\n</style>\n"],"sourceRoot":""}]);
+exports.push([module.i, "\n.c-easingPreview {\n  overflow: visible;\n}\n.c-easingPreview-path {\n  fill: none;\n  stroke-width: var(--stroke-medium);\n  stroke-linecap: round;\n  stroke: currentColor;\n  vector-effect: non-scaling-stroke;\n}\n", "", {"version":3,"sources":["/Users/andreaslarsen/Git/sketch-easing-gradient/resources/components/resources/components/easing-preview.vue"],"names":[],"mappings":";AA4BA;EACA,kBAAA;CACA;AAEA;EACA,WAAA;EACA,mCAAA;EACA,sBAAA;EACA,qBAAA;EACA,kCAAA;CACA","file":"easing-preview.vue","sourcesContent":["<template>\n  <div>\n    <svg\n      class=\"c-easingPreview u-position-cover\"\n      viewBox=\"0 0 1 1\">\n      <polyline\n        v-if=\"isSteps\"\n        :points=\"$store.state.polyLineString\"\n        class=\"c-easingPreview-path\"\n      />\n      <path\n        v-else\n        :d=\"`M0 1C ${$store.state.gradient.ease1.x} ${1 - $store.state.gradient.ease1.y} ${$store.state.gradient.ease2.x} ${1 - $store.state.gradient.ease2.y} 1 0`\"\n        class=\"c-easingPreview-path\"\n      />\n    </svg>\n  </div>\n</template>\n\n<script>\nimport misc from './mixins/misc'\n\nexport default {\n  mixins: [misc],\n}\n</script>\n\n<style>\n.c-easingPreview {\n  overflow: visible;\n}\n\n.c-easingPreview-path {\n  fill: none;\n  stroke-width: var(--stroke-medium);\n  stroke-linecap: round;\n  stroke: currentColor;\n  vector-effect: non-scaling-stroke;\n}\n</style>\n"],"sourceRoot":""}]);
 
 // exports
 
@@ -15517,8 +15571,6 @@ var render = function() {
           }
         },
         [
-          _c("option", [_vm._v("steps")]),
-          _vm._v(" "),
           _c("option", [_vm._v("linear")]),
           _vm._v(" "),
           _c("option", [_vm._v("ease")]),
@@ -15529,7 +15581,9 @@ var render = function() {
           _vm._v(" "),
           _c("option", [_vm._v("ease-in-out")]),
           _vm._v(" "),
-          _c("option", [_vm._v("cubic-bezier")])
+          _c("option", [_vm._v("cubic-bezier")]),
+          _vm._v(" "),
+          _c("option", [_vm._v("steps")])
         ]
       )
     ],
@@ -15626,100 +15680,111 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "c-gradientEditor-buttons" }, [
-        _c("div", { staticClass: "c-gradientEditor-slider u-marginBottom" }, [
-          _c("div", { staticClass: "c-gradientEditor-label u-no-margin" }, [
-            _vm._v("\n          Color Stops\n        ")
+      _c("div", { staticClass: "u-aspect--1-1" }, [
+        _c("div", { staticClass: "c-gradientEditor-buttons" }, [
+          _c("div", { staticClass: "c-gradientEditor-slider u-marginBottom" }, [
+            _vm.isSteps
+              ? _c("div", [_c("step-edit")], 1)
+              : _c("div", [
+                  _c(
+                    "div",
+                    { staticClass: "c-gradientEditor-label u-no-margin" },
+                    [_vm._v("\n              Color Stops\n            ")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.$store.state.colorStops,
+                        expression: "$store.state.colorStops"
+                      }
+                    ],
+                    attrs: { type: "range", min: "3", max: "25", step: "1" },
+                    domProps: { value: _vm.$store.state.colorStops },
+                    on: {
+                      input: function($event) {
+                        _vm.$store.commit("updateLayerName")
+                      },
+                      __r: function($event) {
+                        _vm.$set(
+                          _vm.$store.state,
+                          "colorStops",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  })
+                ])
           ]),
           _vm._v(" "),
-          _c("input", {
-            directives: [
+          _c("div", [
+            _c("div", { staticClass: "c-gradientEditor-label" }, [
+              _vm._v("\n            Copy CSS\n          ")
+            ]),
+            _vm._v(" "),
+            _c(
+              "button",
               {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.$store.state.colorStops,
-                expression: "$store.state.colorStops"
-              }
-            ],
-            staticClass: "u-rtl",
-            attrs: { type: "range", min: "3", max: "25", step: "1" },
-            domProps: { value: _vm.$store.state.colorStops },
-            on: {
-              input: function($event) {
-                _vm.$store.commit("updateLayerName")
+                directives: [
+                  {
+                    name: "clipboard",
+                    rawName: "v-clipboard:copy",
+                    value: _vm.$store.state.css,
+                    expression: "$store.state.css",
+                    arg: "copy"
+                  }
+                ],
+                staticClass: "u-input u-input--inline",
+                on: {
+                  click: function($event) {
+                    _vm.showMessage("CSS copied!")
+                  }
+                }
               },
-              __r: function($event) {
-                _vm.$set(_vm.$store.state, "colorStops", $event.target.value)
-              }
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _c("div", { staticClass: "c-gradientEditor-label" }, [
-            _vm._v("\n          Copy CSS\n        ")
+              [_c("clipboard-icon", { staticClass: "u-icon" })],
+              1
+            )
           ]),
           _vm._v(" "),
-          _c(
-            "button",
-            {
-              directives: [
-                {
-                  name: "clipboard",
-                  rawName: "v-clipboard:copy",
-                  value: _vm.$store.state.css,
-                  expression: "$store.state.css",
-                  arg: "copy"
+          _c("div", { staticClass: "u-flex" }, [
+            _c(
+              "a",
+              {
+                staticClass: "u-input u-input--inline",
+                attrs: { href: "" },
+                on: {
+                  click: function($event) {
+                    $event.preventDefault()
+                    _vm.openUrl(
+                      "https://github.com/larsenwork/sketch-easing-gradient#readme"
+                    )
+                  }
                 }
-              ],
-              staticClass: "u-input u-input--inline",
-              on: {
-                click: function($event) {
-                  _vm.showMessage("CSS copied!")
+              },
+              [_c("github-icon", { staticClass: "u-icon" })],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass: "u-input u-input--inline u-marginLeft",
+                attrs: { href: "" },
+                on: {
+                  click: function($event) {
+                    $event.preventDefault()
+                    _vm.openUrl(
+                      "https://twitter.com/intent/follow?screen_name=larsenwork"
+                    )
+                  }
                 }
-              }
-            },
-            [_c("clipboard-icon", { staticClass: "u-icon" })],
-            1
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "u-flex" }, [
-          _c(
-            "a",
-            {
-              staticClass: "u-input u-input--inline",
-              attrs: { href: "" },
-              on: {
-                click: function($event) {
-                  $event.preventDefault()
-                  _vm.openUrl(
-                    "https://github.com/larsenwork/sketch-easing-gradient#readme"
-                  )
-                }
-              }
-            },
-            [_c("github-icon", { staticClass: "u-icon" })],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "a",
-            {
-              staticClass: "u-input u-input--inline u-marginLeft",
-              attrs: { href: "" },
-              on: {
-                click: function($event) {
-                  $event.preventDefault()
-                  _vm.openUrl(
-                    "https://twitter.com/intent/follow?screen_name=larsenwork"
-                  )
-                }
-              }
-            },
-            [_c("twitter-icon", { staticClass: "u-icon" })],
-            1
-          )
+              },
+              [_c("twitter-icon", { staticClass: "u-icon" })],
+              1
+            )
+          ])
         ])
       ])
     ])
@@ -15754,7 +15819,13 @@ var render = function() {
         staticClass: "c-gradientEditor-label",
         attrs: { for: "c-gradientEditor-input-steps-number" }
       },
-      [_vm._v("\n    Steps number (2-100)\n  ")]
+      [
+        _vm._v(
+          "\n    Steps count (" +
+            _vm._s(_vm.$store.state.gradient.steps.number) +
+            ")\n  "
+        )
+      ]
     ),
     _vm._v(" "),
     _c("input", {
@@ -15766,22 +15837,14 @@ var render = function() {
           expression: "$store.state.gradient.steps.number"
         }
       ],
-      staticClass: "u-marginBottom u-input",
-      attrs: {
-        id: "c-gradientEditor-input-steps-number",
-        type: "number",
-        min: "2",
-        max: "100"
-      },
+      staticClass: "u-marginBottom",
+      attrs: { type: "range", min: "2", max: "25", step: "1" },
       domProps: { value: _vm.$store.state.gradient.steps.number },
       on: {
-        keypress: function($event) {
-          _vm.isNumber($event)
-        },
         input: function($event) {
-          if ($event.target.composing) {
-            return
-          }
+          _vm.$store.commit("updateLayerName")
+        },
+        __r: function($event) {
           _vm.$set(
             _vm.$store.state.gradient.steps,
             "number",
@@ -15789,63 +15852,7 @@ var render = function() {
           )
         }
       }
-    }),
-    _vm._v(" "),
-    _c(
-      "label",
-      {
-        staticClass: "c-gradientEditor-label",
-        attrs: { for: "c-gradientEditor-input-steps-number" }
-      },
-      [_vm._v("\n    Steps skip\n  ")]
-    ),
-    _vm._v(" "),
-    _c(
-      "select",
-      {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.$store.state.gradient.steps.skip,
-            expression: "$store.state.gradient.steps.skip"
-          }
-        ],
-        staticClass: "u-input",
-        attrs: { id: "c-gradientEditor-input-steps-number" },
-        on: {
-          change: [
-            function($event) {
-              var $$selectedVal = Array.prototype.filter
-                .call($event.target.options, function(o) {
-                  return o.selected
-                })
-                .map(function(o) {
-                  var val = "_value" in o ? o._value : o.value
-                  return val
-                })
-              _vm.$set(
-                _vm.$store.state.gradient.steps,
-                "skip",
-                $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-              )
-            },
-            function($event) {
-              _vm.$store.commit("updateLayerName")
-            }
-          ]
-        }
-      },
-      [
-        _c("option", [_vm._v("skip-none")]),
-        _vm._v(" "),
-        _c("option", [_vm._v("skip-both")]),
-        _vm._v(" "),
-        _c("option", [_vm._v("skip-start")]),
-        _vm._v(" "),
-        _c("option", [_vm._v("skip-end")])
-      ]
-    )
+    })
   ])
 }
 var staticRenderFns = []
@@ -15925,71 +15932,79 @@ var render = function() {
             attrs: { x: "0", y: "0", width: "1", height: "1" }
           }),
           _vm._v(" "),
-          _vm.$store.state.gradient.ease1.x > 0 ||
-          _vm.$store.state.gradient.ease1.y > 0
-            ? _c("line", {
-                staticClass: "c-easingEdit-line",
-                attrs: {
-                  x2: _vm.$store.state.gradient.ease1.x,
-                  y2: 1 - _vm.$store.state.gradient.ease1.y,
-                  x1: "0",
-                  y1: "1"
-                }
-              })
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.$store.state.gradient.ease2.x < 1 ||
-          _vm.$store.state.gradient.ease2.y < 1
-            ? _c("line", {
-                staticClass: "c-easingEdit-line",
-                attrs: {
-                  x2: _vm.$store.state.gradient.ease2.x,
-                  y2: 1 - _vm.$store.state.gradient.ease2.y,
-                  x1: "1",
-                  y1: "0"
-                }
-              })
+          !_vm.isSteps
+            ? _c("g", [
+                _vm.$store.state.gradient.ease1.x > 0 ||
+                _vm.$store.state.gradient.ease1.y > 0
+                  ? _c("line", {
+                      staticClass: "c-easingEdit-line",
+                      attrs: {
+                        x2: _vm.$store.state.gradient.ease1.x,
+                        y2: 1 - _vm.$store.state.gradient.ease1.y,
+                        x1: "0",
+                        y1: "1"
+                      }
+                    })
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.$store.state.gradient.ease2.x < 1 ||
+                _vm.$store.state.gradient.ease2.y < 1
+                  ? _c("line", {
+                      staticClass: "c-easingEdit-line",
+                      attrs: {
+                        x2: _vm.$store.state.gradient.ease2.x,
+                        y2: 1 - _vm.$store.state.gradient.ease2.y,
+                        x1: "1",
+                        y1: "0"
+                      }
+                    })
+                  : _vm._e()
+              ])
             : _vm._e()
         ]
       ),
       _vm._v(" "),
-      _c("div", {
-        staticClass: "u-knob",
-        style:
-          "left: " +
-          _vm.$store.state.gradient.ease1.x * 100 +
-          "%; top: " +
-          (100 - _vm.$store.state.gradient.ease1.y * 100) +
-          "%",
-        on: {
-          mousedown: function($event) {
-            _vm.down($event, "ease1")
-          },
-          touchstart: function($event) {
-            $event.preventDefault()
-            _vm.down($event, "ease1")
-          }
-        }
-      }),
+      !_vm.isSteps
+        ? _c("div", {
+            staticClass: "u-knob",
+            style:
+              "left: " +
+              _vm.$store.state.gradient.ease1.x * 100 +
+              "%; top: " +
+              (100 - _vm.$store.state.gradient.ease1.y * 100) +
+              "%",
+            on: {
+              mousedown: function($event) {
+                _vm.down($event, "ease1")
+              },
+              touchstart: function($event) {
+                $event.preventDefault()
+                _vm.down($event, "ease1")
+              }
+            }
+          })
+        : _vm._e(),
       _vm._v(" "),
-      _c("div", {
-        staticClass: "u-knob",
-        style:
-          "left: " +
-          _vm.$store.state.gradient.ease2.x * 100 +
-          "%; top: " +
-          (100 - _vm.$store.state.gradient.ease2.y * 100) +
-          "%",
-        on: {
-          mousedown: function($event) {
-            _vm.down($event, "ease2")
-          },
-          touchstart: function($event) {
-            $event.preventDefault()
-            _vm.down($event, "ease2")
-          }
-        }
-      })
+      !_vm.isSteps
+        ? _c("div", {
+            staticClass: "u-knob",
+            style:
+              "left: " +
+              _vm.$store.state.gradient.ease2.x * 100 +
+              "%; top: " +
+              (100 - _vm.$store.state.gradient.ease2.y * 100) +
+              "%",
+            on: {
+              mousedown: function($event) {
+                _vm.down($event, "ease2")
+              },
+              touchstart: function($event) {
+                $event.preventDefault()
+                _vm.down($event, "ease2")
+              }
+            }
+          })
+        : _vm._e()
     ]
   )
 }
@@ -16023,21 +16038,26 @@ var render = function() {
         attrs: { viewBox: "0 0 1 1" }
       },
       [
-        _c("path", {
-          staticClass: "c-easingPreview-path",
-          attrs: {
-            d:
-              "M0 1C " +
-              _vm.$store.state.gradient.ease1.x +
-              " " +
-              (1 - _vm.$store.state.gradient.ease1.y) +
-              " " +
-              _vm.$store.state.gradient.ease2.x +
-              " " +
-              (1 - _vm.$store.state.gradient.ease2.y) +
-              " 1 0"
-          }
-        })
+        _vm.isSteps
+          ? _c("polyline", {
+              staticClass: "c-easingPreview-path",
+              attrs: { points: _vm.$store.state.polyLineString }
+            })
+          : _c("path", {
+              staticClass: "c-easingPreview-path",
+              attrs: {
+                d:
+                  "M0 1C " +
+                  _vm.$store.state.gradient.ease1.x +
+                  " " +
+                  (1 - _vm.$store.state.gradient.ease1.y) +
+                  " " +
+                  _vm.$store.state.gradient.ease2.x +
+                  " " +
+                  (1 - _vm.$store.state.gradient.ease2.y) +
+                  " 1 0"
+              }
+            })
       ]
     )
   ])
@@ -25568,15 +25588,17 @@ if (false) {}
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_template_compiler_index_id_data_v_feb8dd92_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_easing_preview_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../node_modules/vue-loader/lib/template-compiler/index?{"id":"data-v-feb8dd92","hasScoped":false,"optionsId":"0","buble":{"transforms":{}}}!../../node_modules/vue-loader/lib/selector?type=template&index=0!./easing-preview.vue */ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-feb8dd92\",\"hasScoped\":false,\"optionsId\":\"0\",\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/components/easing-preview.vue");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_component_normalizer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../node_modules/vue-loader/lib/runtime/component-normalizer */ "./node_modules/vue-loader/lib/runtime/component-normalizer.js");
+/* harmony import */ var _babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_easing_preview_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !babel-loader!../../node_modules/vue-loader/lib/selector?type=script&index=0!./easing-preview.vue */ "./node_modules/@skpm/builder/node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/components/easing-preview.vue");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_template_compiler_index_id_data_v_feb8dd92_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_easing_preview_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../node_modules/vue-loader/lib/template-compiler/index?{"id":"data-v-feb8dd92","hasScoped":false,"optionsId":"0","buble":{"transforms":{}}}!../../node_modules/vue-loader/lib/selector?type=template&index=0!./easing-preview.vue */ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-feb8dd92\",\"hasScoped\":false,\"optionsId\":\"0\",\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/components/easing-preview.vue");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_component_normalizer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../node_modules/vue-loader/lib/runtime/component-normalizer */ "./node_modules/vue-loader/lib/runtime/component-normalizer.js");
 var disposed = false
 function injectStyle (context) {
   if (disposed) return
   __webpack_require__(/*! !vue-style-loader!css-loader?sourceMap!../../node_modules/vue-loader/lib/style-compiler/index?{"optionsId":"0","vue":true,"scoped":false,"sourceMap":true}!../../node_modules/vue-loader/lib/selector?type=styles&index=0!./easing-preview.vue */ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/index.js?sourceMap!./node_modules/vue-loader/lib/style-compiler/index.js?{\"optionsId\":\"0\",\"vue\":true,\"scoped\":false,\"sourceMap\":true}!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/components/easing-preview.vue")
 }
 /* script */
-var __vue_script__ = null
+
+
 /* template */
 
 /* template functional */
@@ -25588,10 +25610,10 @@ var __vue_scopeId__ = null
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 
-var Component = Object(_node_modules_vue_loader_lib_runtime_component_normalizer__WEBPACK_IMPORTED_MODULE_1__["default"])(
-  __vue_script__,
-  _node_modules_vue_loader_lib_template_compiler_index_id_data_v_feb8dd92_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_easing_preview_vue__WEBPACK_IMPORTED_MODULE_0__["render"],
-  _node_modules_vue_loader_lib_template_compiler_index_id_data_v_feb8dd92_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_easing_preview_vue__WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+var Component = Object(_node_modules_vue_loader_lib_runtime_component_normalizer__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_easing_preview_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+  _node_modules_vue_loader_lib_template_compiler_index_id_data_v_feb8dd92_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_easing_preview_vue__WEBPACK_IMPORTED_MODULE_1__["render"],
+  _node_modules_vue_loader_lib_template_compiler_index_id_data_v_feb8dd92_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_easing_preview_vue__WEBPACK_IMPORTED_MODULE_1__["staticRenderFns"],
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
@@ -25652,6 +25674,25 @@ __webpack_require__.r(__webpack_exports__);
   '0.42, 0, 1, 1': 'ease-in',
   '0.25, 0.1, 0.25, 1': 'ease',
   '0.25, 0.25, 0.75, 0.75': 'linear'
+});
+
+/***/ }),
+
+/***/ "./resources/components/mixins/misc.js":
+/*!*********************************************!*\
+  !*** ./resources/components/mixins/misc.js ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  computed: {
+    isSteps: function isSteps() {
+      return this.$store.state.timingFunction.includes('steps');
+    }
+  }
 });
 
 /***/ }),
@@ -25968,9 +26009,32 @@ function xyxyString(state) {
   return "".concat(rounded(state.gradient.ease1.x), ", ").concat(rounded(state.gradient.ease1.y), ", ").concat(rounded(state.gradient.ease2.x), ", ").concat(rounded(state.gradient.ease2.y));
 }
 
+function polyLineString(coordinates) {
+  // Add potentially missing coordinates for svg rendering purposes
+  coordinates.unshift({
+    x: 0,
+    y: 0
+  });
+  coordinates.push({
+    x: 1,
+    y: 1
+  });
+  return coordinates.map(function (obj) {
+    return "".concat(obj.x, ",").concat(1 - obj.y);
+  }).join(' ');
+}
+
 function updateColorStops(state) {
-  var coordinates = Object(easing_coordinates__WEBPACK_IMPORTED_MODULE_3__["cubicCoordinates"])(state.gradient.ease1.x, state.gradient.ease1.y, state.gradient.ease2.x, state.gradient.ease2.y, state.colorStops - 1 // -1 because it takes steps and not stops
-  );
+  var coordinates = [];
+
+  if (state.timingFunction.includes('steps')) {
+    coordinates = Object(easing_coordinates__WEBPACK_IMPORTED_MODULE_3__["stepsCoordinates"])(state.gradient.steps.number, state.gradient.steps.skip);
+  } else {
+    coordinates = Object(easing_coordinates__WEBPACK_IMPORTED_MODULE_3__["cubicCoordinates"])(state.gradient.ease1.x, state.gradient.ease1.y, state.gradient.ease2.x, state.gradient.ease2.y, state.colorStops - 1 // -1 because it takes steps and not stops
+    );
+  }
+
+  state.polyLineString = polyLineString(coordinates);
   var colorCoordinates = coordinates.map(function (obj) {
     return {
       position: obj.x,
@@ -25996,6 +26060,8 @@ function _updateLayerName(state) {
   } else if (state.timingFunction.includes('cubic-bezier')) {
     var bezierFunc = "".concat(state.timingFunction, "(").concat(xyxyString(state), ")");
     sketch_module_web_view_client__WEBPACK_IMPORTED_MODULE_2___default()('updateName', "".concat(bezierFunc, ";").concat(state.colorSpace, ";").concat(state.colorStops));
+  } else if (state.timingFunction.includes('steps')) {
+    sketch_module_web_view_client__WEBPACK_IMPORTED_MODULE_2___default()('updateName', "".concat(state.timingFunction, "(").concat(state.gradient.steps.number, ", ").concat(state.gradient.steps.skip, ");").concat(state.colorSpace));
   }
 
   updateColorStops(state);
@@ -26014,6 +26080,7 @@ function updateTimingFunction(state) {
     stopColor: '',
     timingFunction: '',
     colorSpace: 'lrgb',
+    polyLineString: [],
     parentBounding: {},
     mouseElement: '',
     css: '',
@@ -26049,11 +26116,13 @@ function updateTimingFunction(state) {
       updateTimingFunction(state);
     },
     updateXYXY: function updateXYXY(state, bezierParams) {
-      var xy = bezierParams || _components_helpers_ease_map__WEBPACK_IMPORTED_MODULE_5__["default"][state.timingFunction];
-      state.gradient.ease1.x = xy.x1;
-      state.gradient.ease1.y = xy.y1;
-      state.gradient.ease2.x = xy.x2;
-      state.gradient.ease2.y = xy.y2;
+      if (!state.timingFunction.includes('steps')) {
+        var xy = bezierParams || _components_helpers_ease_map__WEBPACK_IMPORTED_MODULE_5__["default"][state.timingFunction];
+        state.gradient.ease1.x = xy.x1;
+        state.gradient.ease1.y = xy.y1;
+        state.gradient.ease2.x = xy.x2;
+        state.gradient.ease2.y = xy.y2;
+      }
 
       _updateLayerName(state);
     },

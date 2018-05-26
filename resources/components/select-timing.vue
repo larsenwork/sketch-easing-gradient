@@ -8,7 +8,6 @@
       v-model="$store.state.timingFunction"
       @change="$store.commit('updateXYXY')"
     >
-      <option>steps</option>
       <!-- <option disabled value="-"></option> -->
       <option>linear</option>
       <option>ease</option>
@@ -16,6 +15,7 @@
       <option>ease-out</option>
       <option>ease-in-out</option>
       <option>cubic-bezier</option>
+      <option>steps</option>
     </select>
   </div>
 </template>
@@ -25,7 +25,7 @@ import selectChevrons from './select-chevrons.vue'
 
 export default {
   components: {
-    selectChevrons
-  }
+    selectChevrons,
+  },
 }
 </script>

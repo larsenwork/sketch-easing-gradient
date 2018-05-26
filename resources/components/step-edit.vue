@@ -4,18 +4,18 @@
       for="c-gradientEditor-input-steps-number"
       class="c-gradientEditor-label"
     >
-      Steps number (2-100)
+      Steps count ({{$store.state.gradient.steps.number}})
     </label>
     <input
-      id="c-gradientEditor-input-steps-number"
-      v-model="$store.state.gradient.steps.number"
-      class="u-marginBottom u-input"
-      type="number"
+      class="u-marginBottom"
+      type="range"
       min="2"
-      max="100"
-      @keypress="isNumber($event)"
+      max="25"
+      step="1"
+      v-model="$store.state.gradient.steps.number"
+      @input="$store.commit('updateLayerName')"
     >
-    <label
+    <!-- <label
       for="c-gradientEditor-input-steps-number"
       class="c-gradientEditor-label"
     >
@@ -31,6 +31,6 @@
       <option>skip-both</option>
       <option>skip-start</option>
       <option>skip-end</option>
-    </select>
+    </select> -->
   </div>
 </template>

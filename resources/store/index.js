@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import pluginCall from 'sketch-module-web-view/client'
-import { cubicCoordinates } from 'easing-coordinates'
+import { cubicCoordinates, stepsCoordinates } from 'easing-coordinates'
 import chroma from 'chroma-js'
 import easeMap from '../components/helpers/ease-map'
 
@@ -15,14 +15,30 @@ function xyxyString(state) {
   )}, ${rounded(state.gradient.ease2.x)}, ${rounded(state.gradient.ease2.y)}`
 }
 
+function polyLineString(coordinates) {
+  // Add potentially missing coordinates for svg rendering purposes
+  coordinates.unshift({ x: 0, y: 0 })
+  coordinates.push({ x: 1, y: 1 })
+  return coordinates.map(obj => `${obj.x},${1 - obj.y}`).join(' ')
+}
+
 function updateColorStops(state) {
-  const coordinates = cubicCoordinates(
-    state.gradient.ease1.x,
-    state.gradient.ease1.y,
-    state.gradient.ease2.x,
-    state.gradient.ease2.y,
-    state.colorStops - 1 // -1 because it takes steps and not stops
-  )
+  let coordinates = []
+  if (state.timingFunction.includes('steps')) {
+    coordinates = stepsCoordinates(
+      state.gradient.steps.number,
+      state.gradient.steps.skip
+    )
+  } else {
+    coordinates = cubicCoordinates(
+      state.gradient.ease1.x,
+      state.gradient.ease1.y,
+      state.gradient.ease2.x,
+      state.gradient.ease2.y,
+      state.colorStops - 1 // -1 because it takes steps and not stops
+    )
+  }
+  state.polyLineString = polyLineString(coordinates)
   const colorCoordinates = coordinates.map(obj => ({
     position: obj.x,
     color: chroma
@@ -55,6 +71,13 @@ function updateLayerName(state) {
       'updateName',
       `${bezierFunc};${state.colorSpace};${state.colorStops}`
     )
+  } else if (state.timingFunction.includes('steps')) {
+    pluginCall(
+      'updateName',
+      `${state.timingFunction}(${state.gradient.steps.number}, ${
+        state.gradient.steps.skip
+      });${state.colorSpace}`
+    )
   }
   updateColorStops(state)
 }
@@ -71,6 +94,7 @@ export default new Vuex.Store({
     stopColor: '',
     timingFunction: '',
     colorSpace: 'lrgb',
+    polyLineString: [],
     parentBounding: {},
     mouseElement: '',
     css: '',
@@ -106,11 +130,13 @@ export default new Vuex.Store({
       updateTimingFunction(state)
     },
     updateXYXY(state, bezierParams) {
-      const xy = bezierParams || easeMap[state.timingFunction]
-      state.gradient.ease1.x = xy.x1
-      state.gradient.ease1.y = xy.y1
-      state.gradient.ease2.x = xy.x2
-      state.gradient.ease2.y = xy.y2
+      if (!state.timingFunction.includes('steps')) {
+        const xy = bezierParams || easeMap[state.timingFunction]
+        state.gradient.ease1.x = xy.x1
+        state.gradient.ease1.y = xy.y1
+        state.gradient.ease2.x = xy.x2
+        state.gradient.ease2.y = xy.y2
+      }
       updateLayerName(state)
     },
     updateLayerName(state) {

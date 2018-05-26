@@ -33,66 +33,75 @@
         </div>
       </div>
 
-      <!-- For easy debugging... -->
-      <div
-        class="c-gradientEditor-buttons"
-      >
+      <div class="u-aspect--1-1">
         <div
-          class="c-gradientEditor-slider u-marginBottom"
+          class="c-gradientEditor-buttons"
         >
           <div
-            class="c-gradientEditor-label u-no-margin"
+            class="c-gradientEditor-slider u-marginBottom"
           >
-            Color Stops
+            <div
+              v-if="isSteps"
+            >
+              <step-edit/>
+            </div>
+            <div
+              v-else
+            >
+              <div
+                class="c-gradientEditor-label u-no-margin"
+              >
+                Color Stops
+              </div>
+              <input
+                type="range"
+                min="3"
+                max="25"
+                step="1"
+                v-model="$store.state.colorStops"
+                @input="$store.commit('updateLayerName')"
+              >
+            </div>
           </div>
-          <input
-            class="u-rtl"
-            type="range"
-            min="3"
-            max="25"
-            step="1"
-            v-model="$store.state.colorStops"
-            @input="$store.commit('updateLayerName')"
-          >
-        </div>
-        <div>
-          <div
-            class="c-gradientEditor-label"
-          >
-            Copy CSS
+          <div>
+            <div
+              class="c-gradientEditor-label"
+            >
+              Copy CSS
+            </div>
+            <button
+              class="u-input u-input--inline"
+              @click="showMessage('CSS copied!')"
+              v-clipboard:copy="$store.state.css"
+            >
+              <clipboard-icon
+                class="u-icon"
+              >
+              </clipboard-icon>
+            </button>
           </div>
-          <button
-            class="u-input u-input--inline"
-            @click="showMessage('CSS copied!')"
-            v-clipboard:copy="$store.state.css"
-          >
-            <clipboard-icon
-              class="u-icon"
+          <div class="u-flex">
+            <a
+              href=""
+              class="u-input u-input--inline"
+              @click.prevent="openUrl('https://github.com/larsenwork/sketch-easing-gradient#readme')"
             >
-            </clipboard-icon>
-          </button>
-        </div>
-        <div class="u-flex">
-          <a
-            href=""
-            class="u-input u-input--inline"
-            @click.prevent="openUrl('https://github.com/larsenwork/sketch-easing-gradient#readme')"
-          >
-            <github-icon
-              class="u-icon"
+              <github-icon
+                class="u-icon"
+              >
+              </github-icon>
+            </a>
+            <a
+              href=""
+              class="u-input u-input--inline u-marginLeft"
+              @click.prevent="openUrl('https://twitter.com/intent/follow?screen_name=larsenwork')"
             >
-            </github-icon>
-          </a>
-          <a
-            href=""
-            class="u-input u-input--inline u-marginLeft"
-            @click.prevent="openUrl('https://twitter.com/intent/follow?screen_name=larsenwork')"
-          >
-            <twitter-icon
-              class="u-icon"
-            >
-            </twitter-icon>
-          </a>
+              <twitter-icon
+                class="u-icon"
+              >
+              </twitter-icon>
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -108,9 +117,11 @@ import selectColorSpace from './components/select-color-space.vue'
 import easingEdit from './components/easing-edit.vue'
 import easingPreview from './components/easing-preview.vue'
 import stepEdit from './components/step-edit.vue'
+import misc from './components/mixins/misc'
 
 export default {
   name: 'app',
+  mixins: [misc],
   components: {
     ClipboardIcon,
     GithubIcon,
@@ -193,7 +204,7 @@ export default {
 .c-gradientEditor-buttons {
   display: flex;
   flex-wrap: wrap;
-  align-content: flex-end;
+  align-content: space-between;
   align-items: flex-end;
   justify-content: space-between;
 }

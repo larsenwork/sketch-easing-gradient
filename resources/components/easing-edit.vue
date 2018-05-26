@@ -57,30 +57,34 @@
         width="1"
         height="1"
       />
-      <line
-        v-if="$store.state.gradient.ease1.x > 0 || $store.state.gradient.ease1.y > 0"
-        :x2="$store.state.gradient.ease1.x"
-        :y2="1 - $store.state.gradient.ease1.y"
-        class="c-easingEdit-line"
-        x1="0"
-        y1="1"
-      />
-      <line
-        v-if="$store.state.gradient.ease2.x < 1 || $store.state.gradient.ease2.y < 1"
-        :x2="$store.state.gradient.ease2.x"
-        :y2="1 - $store.state.gradient.ease2.y"
-        class="c-easingEdit-line"
-        x1="1"
-        y1="0"
-      />
+      <g v-if="!isSteps">
+        <line
+          v-if="$store.state.gradient.ease1.x > 0 || $store.state.gradient.ease1.y > 0"
+          :x2="$store.state.gradient.ease1.x"
+          :y2="1 - $store.state.gradient.ease1.y"
+          class="c-easingEdit-line"
+          x1="0"
+          y1="1"
+        />
+        <line
+          v-if="$store.state.gradient.ease2.x < 1 || $store.state.gradient.ease2.y < 1"
+          :x2="$store.state.gradient.ease2.x"
+          :y2="1 - $store.state.gradient.ease2.y"
+          class="c-easingEdit-line"
+          x1="1"
+          y1="0"
+        />
+      </g>
     </svg>
     <div
+      v-if="!isSteps"
       :style="`left: ${$store.state.gradient.ease1.x * 100}%; top: ${100 - $store.state.gradient.ease1.y * 100}%`"
       class="u-knob"
       @mousedown="down($event, 'ease1')"
       @touchstart.prevent="down($event, 'ease1')"
     />
     <div
+      v-if="!isSteps"
       :style="`left: ${$store.state.gradient.ease2.x * 100}%; top: ${100 - $store.state.gradient.ease2.y * 100}%`"
       class="u-knob"
       @mousedown="down($event, 'ease2')"
@@ -91,9 +95,10 @@
 
 <script>
 import mouse from './mixins/mouse'
+import misc from './mixins/misc'
 
 export default {
-  mixins: [mouse],
+  mixins: [mouse, misc],
 }
 </script>
 
