@@ -1,7 +1,7 @@
 {
   "name" : "easing-gradient",
-  "description" : "Control the color mix of your gradients with easing functions.",
-  "version" : "0.1",
+  "description": "Supercharge your gradients in Sketch with no-linear color mix and custom color spaces",
+  "version": "0.2.0",
   "identifier" : "com.larsenwork.sketch.easing-gradient",
   "author": "@larsenwork",
   "authorEmail" : "andreas@larsenwork.com",
