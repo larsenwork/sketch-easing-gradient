@@ -119,6 +119,8 @@ import easingPreview from './components/easing-preview.vue'
 import stepEdit from './components/step-edit.vue'
 import misc from './components/mixins/misc'
 
+const getParensInsides = str => str.match(/\(([^)]+)\)/)[1].split(',')
+
 export default {
   name: 'app',
   mixins: [misc],
@@ -156,20 +158,21 @@ export default {
 
       if (timingFunction.includes('cubic-bezier')) {
         this.$store.state.timingFunction = 'cubic-bezier'
-        const bezierParams = timingFunction
-          .match(/\(([^)]+)\)/)[1]
-          .split(',')
-          .map(item => parseFloat(item))
+        const bezierParams = getParensInsides(timingFunction)
         if (bezierParams.length === 4) {
           const params = {
-            x1: bezierParams[0],
-            y1: bezierParams[1],
-            x2: bezierParams[2],
-            y2: bezierParams[3],
+            x1: parseFloat(bezierParams[0]),
+            y1: parseFloat(bezierParams[1]),
+            x2: parseFloat(bezierParams[2]),
+            y2: parseFloat(bezierParams[3]),
           }
           this.$store.commit('updateXYXY', params)
         }
-        // } else if (timingFunction.includes('steps')) {
+      } else if (timingFunction.includes('steps')) {
+        this.$store.state.timingFunction = 'steps'
+        const stepsParams = getParensInsides(timingFunction)
+        this.$store.state.gradient.steps.number = stepsParams[0]
+        this.$store.commit('updateLayerName')
       } else {
         this.$store.state.timingFunction = timingFunction
         this.$store.commit('updateXYXY')

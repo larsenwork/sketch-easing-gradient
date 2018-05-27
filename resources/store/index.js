@@ -17,8 +17,6 @@ function xyxyString(state) {
 
 function polyLineString(coordinates) {
   // Add potentially missing coordinates for svg rendering purposes
-  coordinates.unshift({ x: 0, y: 0 })
-  coordinates.push({ x: 1, y: 1 })
   return coordinates.map(obj => `${obj.x},${1 - obj.y}`).join(' ')
 }
 
@@ -29,6 +27,7 @@ function updateColorStops(state) {
       state.gradient.steps.number,
       state.gradient.steps.skip
     )
+    state.polyLineString = polyLineString(coordinates)
   } else {
     coordinates = cubicCoordinates(
       state.gradient.ease1.x,
@@ -38,7 +37,6 @@ function updateColorStops(state) {
       state.colorStops - 1 // -1 because it takes steps and not stops
     )
   }
-  state.polyLineString = polyLineString(coordinates)
   const colorCoordinates = coordinates.map(obj => ({
     position: obj.x,
     color: chroma

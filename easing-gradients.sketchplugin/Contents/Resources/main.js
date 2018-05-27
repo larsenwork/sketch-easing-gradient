@@ -215,6 +215,11 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
+var getParensInsides = function getParensInsides(str) {
+  return str.match(/\(([^)]+)\)/)[1].split(',');
+};
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'app',
   mixins: [_components_mixins_misc__WEBPACK_IMPORTED_MODULE_7__["default"]],
@@ -255,21 +260,24 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
       if (timingFunction.includes('cubic-bezier')) {
         _this.$store.state.timingFunction = 'cubic-bezier';
-        var bezierParams = timingFunction.match(/\(([^)]+)\)/)[1].split(',').map(function (item) {
-          return parseFloat(item);
-        });
+        var bezierParams = getParensInsides(timingFunction);
 
         if (bezierParams.length === 4) {
           var params = {
-            x1: bezierParams[0],
-            y1: bezierParams[1],
-            x2: bezierParams[2],
-            y2: bezierParams[3]
+            x1: parseFloat(bezierParams[0]),
+            y1: parseFloat(bezierParams[1]),
+            x2: parseFloat(bezierParams[2]),
+            y2: parseFloat(bezierParams[3])
           };
 
           _this.$store.commit('updateXYXY', params);
-        } // } else if (timingFunction.includes('steps')) {
+        }
+      } else if (timingFunction.includes('steps')) {
+        _this.$store.state.timingFunction = 'steps';
+        var stepsParams = getParensInsides(timingFunction);
+        _this.$store.state.gradient.steps.number = stepsParams[0];
 
+        _this.$store.commit('updateLayerName');
       } else {
         _this.$store.state.timingFunction = timingFunction;
 
@@ -5014,7 +5022,7 @@ exports = module.exports = __webpack_require__(/*! ../node_modules/css-loader/li
 
 
 // module
-exports.push([module.i, "\n.c-gradientEditor {\n  width: 100vw;\n  height: 100vh;\n  padding: var(--spacer-small);\n}\n.c-gradientEditor-settings {\n  grid-template-columns: repeat(2, 1fr);\n}\n.c-gradientEditor-label {\n  display: block;\n  margin-bottom: var(--lineHeight-margin-xsmall);\n  font-weight: 700;\n  opacity: 0.7;\n}\n.c-gradientEditor-ease {\n  padding: calc(var(--spacer-xsmall) / 2);\n}\n.c-gradientEditor-buttons {\n  display: flex;\n  flex-wrap: wrap;\n  align-content: space-between;\n  align-items: flex-end;\n  justify-content: space-between;\n}\n.c-gradientEditor-slider {\n  flex-basis: 100%;\n  flex-shrink: 0;\n}\n", "", {"version":3,"sources":["/Users/andreaslarsen/Git/sketch-easing-gradient/resources/resources/App.vue"],"names":[],"mappings":";AAsLA;EACA,aAAA;EACA,cAAA;EACA,6BAAA;CACA;AAEA;EACA,sCAAA;CACA;AAEA;EACA,eAAA;EACA,+CAAA;EACA,iBAAA;EACA,aAAA;CACA;AAEA;EACA,wCAAA;CACA;AAEA;EACA,cAAA;EACA,gBAAA;EACA,6BAAA;EACA,sBAAA;EACA,+BAAA;CACA;AAEA;EACA,iBAAA;EACA,eAAA;CACA","file":"App.vue","sourcesContent":["<template>\n  <div\n    id=\"vue\"\n    class=\"c-gradientEditor\"\n  >\n    <div\n      class=\"c-gradientEditor-settings u-grid\"\n    >\n      <div>\n        <div\n          class=\"c-gradientEditor-label\"\n        >\n          Easing function\n        </div>\n        <select-timing/>\n      </div>\n      <div>\n        <div\n          class=\"c-gradientEditor-label\"\n        >\n          Color space\n        </div>\n        <select-color-space/>\n      </div>\n      <div\n        class=\"c-gradientEditor-ease u-position-relative\"\n      >\n        <div\n          class=\"u-aspect--1-1\"\n        >\n          <easing-preview/>\n          <easing-edit/>\n        </div>\n      </div>\n\n      <div class=\"u-aspect--1-1\">\n        <div\n          class=\"c-gradientEditor-buttons\"\n        >\n          <div\n            class=\"c-gradientEditor-slider u-marginBottom\"\n          >\n            <div\n              v-if=\"isSteps\"\n            >\n              <step-edit/>\n            </div>\n            <div\n              v-else\n            >\n              <div\n                class=\"c-gradientEditor-label u-no-margin\"\n              >\n                Color Stops\n              </div>\n              <input\n                type=\"range\"\n                min=\"3\"\n                max=\"25\"\n                step=\"1\"\n                v-model=\"$store.state.colorStops\"\n                @input=\"$store.commit('updateLayerName')\"\n              >\n            </div>\n          </div>\n          <div>\n            <div\n              class=\"c-gradientEditor-label\"\n            >\n              Copy CSS\n            </div>\n            <button\n              class=\"u-input u-input--inline\"\n              @click=\"showMessage('CSS copied!')\"\n              v-clipboard:copy=\"$store.state.css\"\n            >\n              <clipboard-icon\n                class=\"u-icon\"\n              >\n              </clipboard-icon>\n            </button>\n          </div>\n          <div class=\"u-flex\">\n            <a\n              href=\"\"\n              class=\"u-input u-input--inline\"\n              @click.prevent=\"openUrl('https://github.com/larsenwork/sketch-easing-gradient#readme')\"\n            >\n              <github-icon\n                class=\"u-icon\"\n              >\n              </github-icon>\n            </a>\n            <a\n              href=\"\"\n              class=\"u-input u-input--inline u-marginLeft\"\n              @click.prevent=\"openUrl('https://twitter.com/intent/follow?screen_name=larsenwork')\"\n            >\n              <twitter-icon\n                class=\"u-icon\"\n              >\n              </twitter-icon>\n            </a>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</template>\n\n<script>\nimport { ClipboardIcon, GithubIcon, TwitterIcon } from 'vue-feather-icons'\nimport pluginCall from 'sketch-module-web-view/client'\n\nimport selectTiming from './components/select-timing.vue'\nimport selectColorSpace from './components/select-color-space.vue'\nimport easingEdit from './components/easing-edit.vue'\nimport easingPreview from './components/easing-preview.vue'\nimport stepEdit from './components/step-edit.vue'\nimport misc from './components/mixins/misc'\n\nexport default {\n  name: 'app',\n  mixins: [misc],\n  components: {\n    ClipboardIcon,\n    GithubIcon,\n    TwitterIcon,\n    selectTiming,\n    selectColorSpace,\n    easingEdit,\n    easingPreview,\n    stepEdit,\n  },\n  methods: {\n    openUrl(url) {\n      pluginCall('openUrl', url)\n    },\n    showMessage(msg) {\n      pluginCall('showMessage', msg)\n    },\n  },\n  created() {\n    window.setGradientParams = paramsAsString => {\n      const [\n        startColor,\n        timingFunction,\n        stopColor,\n        colorSpace,\n        colorStops,\n      ] = JSON.parse(paramsAsString)\n      this.$store.state.startColor = startColor\n      this.$store.state.stopColor = stopColor\n      this.$store.state.colorSpace = colorSpace\n      this.$store.state.colorStops = colorStops\n\n      if (timingFunction.includes('cubic-bezier')) {\n        this.$store.state.timingFunction = 'cubic-bezier'\n        const bezierParams = timingFunction\n          .match(/\\(([^)]+)\\)/)[1]\n          .split(',')\n          .map(item => parseFloat(item))\n        if (bezierParams.length === 4) {\n          const params = {\n            x1: bezierParams[0],\n            y1: bezierParams[1],\n            x2: bezierParams[2],\n            y2: bezierParams[3],\n          }\n          this.$store.commit('updateXYXY', params)\n        }\n        // } else if (timingFunction.includes('steps')) {\n      } else {\n        this.$store.state.timingFunction = timingFunction\n        this.$store.commit('updateXYXY')\n      }\n    }\n  },\n}\n</script>\n\n<style>\n.c-gradientEditor {\n  width: 100vw;\n  height: 100vh;\n  padding: var(--spacer-small);\n}\n\n.c-gradientEditor-settings {\n  grid-template-columns: repeat(2, 1fr);\n}\n\n.c-gradientEditor-label {\n  display: block;\n  margin-bottom: var(--lineHeight-margin-xsmall);\n  font-weight: 700;\n  opacity: 0.7;\n}\n\n.c-gradientEditor-ease {\n  padding: calc(var(--spacer-xsmall) / 2);\n}\n\n.c-gradientEditor-buttons {\n  display: flex;\n  flex-wrap: wrap;\n  align-content: space-between;\n  align-items: flex-end;\n  justify-content: space-between;\n}\n\n.c-gradientEditor-slider {\n  flex-basis: 100%;\n  flex-shrink: 0;\n}\n</style>\n"],"sourceRoot":""}]);
+exports.push([module.i, "\n.c-gradientEditor {\n  width: 100vw;\n  height: 100vh;\n  padding: var(--spacer-small);\n}\n.c-gradientEditor-settings {\n  grid-template-columns: repeat(2, 1fr);\n}\n.c-gradientEditor-label {\n  display: block;\n  margin-bottom: var(--lineHeight-margin-xsmall);\n  font-weight: 700;\n  opacity: 0.7;\n}\n.c-gradientEditor-ease {\n  padding: calc(var(--spacer-xsmall) / 2);\n}\n.c-gradientEditor-buttons {\n  display: flex;\n  flex-wrap: wrap;\n  align-content: space-between;\n  align-items: flex-end;\n  justify-content: space-between;\n}\n.c-gradientEditor-slider {\n  flex-basis: 100%;\n  flex-shrink: 0;\n}\n", "", {"version":3,"sources":["/Users/andreaslarsen/Git/sketch-easing-gradient/resources/resources/App.vue"],"names":[],"mappings":";AAyLA;EACA,aAAA;EACA,cAAA;EACA,6BAAA;CACA;AAEA;EACA,sCAAA;CACA;AAEA;EACA,eAAA;EACA,+CAAA;EACA,iBAAA;EACA,aAAA;CACA;AAEA;EACA,wCAAA;CACA;AAEA;EACA,cAAA;EACA,gBAAA;EACA,6BAAA;EACA,sBAAA;EACA,+BAAA;CACA;AAEA;EACA,iBAAA;EACA,eAAA;CACA","file":"App.vue","sourcesContent":["<template>\n  <div\n    id=\"vue\"\n    class=\"c-gradientEditor\"\n  >\n    <div\n      class=\"c-gradientEditor-settings u-grid\"\n    >\n      <div>\n        <div\n          class=\"c-gradientEditor-label\"\n        >\n          Easing function\n        </div>\n        <select-timing/>\n      </div>\n      <div>\n        <div\n          class=\"c-gradientEditor-label\"\n        >\n          Color space\n        </div>\n        <select-color-space/>\n      </div>\n      <div\n        class=\"c-gradientEditor-ease u-position-relative\"\n      >\n        <div\n          class=\"u-aspect--1-1\"\n        >\n          <easing-preview/>\n          <easing-edit/>\n        </div>\n      </div>\n\n      <div class=\"u-aspect--1-1\">\n        <div\n          class=\"c-gradientEditor-buttons\"\n        >\n          <div\n            class=\"c-gradientEditor-slider u-marginBottom\"\n          >\n            <div\n              v-if=\"isSteps\"\n            >\n              <step-edit/>\n            </div>\n            <div\n              v-else\n            >\n              <div\n                class=\"c-gradientEditor-label u-no-margin\"\n              >\n                Color Stops\n              </div>\n              <input\n                type=\"range\"\n                min=\"3\"\n                max=\"25\"\n                step=\"1\"\n                v-model=\"$store.state.colorStops\"\n                @input=\"$store.commit('updateLayerName')\"\n              >\n            </div>\n          </div>\n          <div>\n            <div\n              class=\"c-gradientEditor-label\"\n            >\n              Copy CSS\n            </div>\n            <button\n              class=\"u-input u-input--inline\"\n              @click=\"showMessage('CSS copied!')\"\n              v-clipboard:copy=\"$store.state.css\"\n            >\n              <clipboard-icon\n                class=\"u-icon\"\n              >\n              </clipboard-icon>\n            </button>\n          </div>\n          <div class=\"u-flex\">\n            <a\n              href=\"\"\n              class=\"u-input u-input--inline\"\n              @click.prevent=\"openUrl('https://github.com/larsenwork/sketch-easing-gradient#readme')\"\n            >\n              <github-icon\n                class=\"u-icon\"\n              >\n              </github-icon>\n            </a>\n            <a\n              href=\"\"\n              class=\"u-input u-input--inline u-marginLeft\"\n              @click.prevent=\"openUrl('https://twitter.com/intent/follow?screen_name=larsenwork')\"\n            >\n              <twitter-icon\n                class=\"u-icon\"\n              >\n              </twitter-icon>\n            </a>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</template>\n\n<script>\nimport { ClipboardIcon, GithubIcon, TwitterIcon } from 'vue-feather-icons'\nimport pluginCall from 'sketch-module-web-view/client'\n\nimport selectTiming from './components/select-timing.vue'\nimport selectColorSpace from './components/select-color-space.vue'\nimport easingEdit from './components/easing-edit.vue'\nimport easingPreview from './components/easing-preview.vue'\nimport stepEdit from './components/step-edit.vue'\nimport misc from './components/mixins/misc'\n\nconst getParensInsides = str => str.match(/\\(([^)]+)\\)/)[1].split(',')\n\nexport default {\n  name: 'app',\n  mixins: [misc],\n  components: {\n    ClipboardIcon,\n    GithubIcon,\n    TwitterIcon,\n    selectTiming,\n    selectColorSpace,\n    easingEdit,\n    easingPreview,\n    stepEdit,\n  },\n  methods: {\n    openUrl(url) {\n      pluginCall('openUrl', url)\n    },\n    showMessage(msg) {\n      pluginCall('showMessage', msg)\n    },\n  },\n  created() {\n    window.setGradientParams = paramsAsString => {\n      const [\n        startColor,\n        timingFunction,\n        stopColor,\n        colorSpace,\n        colorStops,\n      ] = JSON.parse(paramsAsString)\n      this.$store.state.startColor = startColor\n      this.$store.state.stopColor = stopColor\n      this.$store.state.colorSpace = colorSpace\n      this.$store.state.colorStops = colorStops\n\n      if (timingFunction.includes('cubic-bezier')) {\n        this.$store.state.timingFunction = 'cubic-bezier'\n        const bezierParams = getParensInsides(timingFunction)\n        if (bezierParams.length === 4) {\n          const params = {\n            x1: parseFloat(bezierParams[0]),\n            y1: parseFloat(bezierParams[1]),\n            x2: parseFloat(bezierParams[2]),\n            y2: parseFloat(bezierParams[3]),\n          }\n          this.$store.commit('updateXYXY', params)\n        }\n      } else if (timingFunction.includes('steps')) {\n        this.$store.state.timingFunction = 'steps'\n        const stepsParams = getParensInsides(timingFunction)\n        this.$store.state.gradient.steps.number = stepsParams[0]\n        this.$store.commit('updateLayerName')\n      } else {\n        this.$store.state.timingFunction = timingFunction\n        this.$store.commit('updateXYXY')\n      }\n    }\n  },\n}\n</script>\n\n<style>\n.c-gradientEditor {\n  width: 100vw;\n  height: 100vh;\n  padding: var(--spacer-small);\n}\n\n.c-gradientEditor-settings {\n  grid-template-columns: repeat(2, 1fr);\n}\n\n.c-gradientEditor-label {\n  display: block;\n  margin-bottom: var(--lineHeight-margin-xsmall);\n  font-weight: 700;\n  opacity: 0.7;\n}\n\n.c-gradientEditor-ease {\n  padding: calc(var(--spacer-xsmall) / 2);\n}\n\n.c-gradientEditor-buttons {\n  display: flex;\n  flex-wrap: wrap;\n  align-content: space-between;\n  align-items: flex-end;\n  justify-content: space-between;\n}\n\n.c-gradientEditor-slider {\n  flex-basis: 100%;\n  flex-shrink: 0;\n}\n</style>\n"],"sourceRoot":""}]);
 
 // exports
 
@@ -26011,30 +26019,23 @@ function xyxyString(state) {
 
 function polyLineString(coordinates) {
   // Add potentially missing coordinates for svg rendering purposes
-  coordinates.unshift({
-    x: 0,
-    y: 0
-  });
-  coordinates.push({
-    x: 1,
-    y: 1
-  });
   return coordinates.map(function (obj) {
     return "".concat(obj.x, ",").concat(1 - obj.y);
   }).join(' ');
 }
 
 function updateColorStops(state) {
+  console.log('updateColorStops');
   var coordinates = [];
 
   if (state.timingFunction.includes('steps')) {
     coordinates = Object(easing_coordinates__WEBPACK_IMPORTED_MODULE_3__["stepsCoordinates"])(state.gradient.steps.number, state.gradient.steps.skip);
+    state.polyLineString = polyLineString(coordinates);
   } else {
     coordinates = Object(easing_coordinates__WEBPACK_IMPORTED_MODULE_3__["cubicCoordinates"])(state.gradient.ease1.x, state.gradient.ease1.y, state.gradient.ease2.x, state.gradient.ease2.y, state.colorStops - 1 // -1 because it takes steps and not stops
     );
   }
 
-  state.polyLineString = polyLineString(coordinates);
   var colorCoordinates = coordinates.map(function (obj) {
     return {
       position: obj.x,
@@ -26055,6 +26056,8 @@ function updateColorStops(state) {
 }
 
 function _updateLayerName(state) {
+  console.log('updateLayerName');
+
   if (state.timingFunction.includes('ease') || state.timingFunction.includes('linear')) {
     sketch_module_web_view_client__WEBPACK_IMPORTED_MODULE_2___default()('updateName', "".concat(state.timingFunction, ";").concat(state.colorSpace, ";").concat(state.colorStops));
   } else if (state.timingFunction.includes('cubic-bezier')) {

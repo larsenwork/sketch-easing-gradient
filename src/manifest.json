@@ -2,7 +2,8 @@
   "name": "easing-gradient",
   "description":
     "Supercharge your gradients in Sketch with no-linear color mix and custom color spaces",
-  "version": "0.2.0",
+  "icon": "icons/sketch.png",
+  "version": "0.4.0",
   "identifier": "com.larsenwork.sketch.easing-gradient",
   "author": "@larsenwork",
   "authorEmail": "andreas@larsenwork.com",
@@ -10,13 +11,13 @@
   "bundleVersion": 1,
   "commands": [
     {
-      "name": "Easing Gradient",
-      "identifier": "easing-gradient",
       "script": "main.js",
       "shortcut": "command alt g",
+      "identifier": "easing-gradient",
       "description":
         "Create, edit and generate CSS. Make sure to select a layer with a gradient fill first.",
-      "icon": "icons/runner.png"
+      "icon": "icons/runner.png",
+      "name": "Easing Gradient"
     }
   ],
   "menu": {
