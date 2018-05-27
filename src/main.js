@@ -50,7 +50,6 @@ export default function() {
 
       // Handler to update gradient of gradient layer
       webContents.on('updateGradient', stopsAsJSON => {
-        log(JSON.parse(stopsAsJSON))
         selectedLayer.style.fills[0].gradient.stops = JSON.parse(stopsAsJSON)
       })
 
