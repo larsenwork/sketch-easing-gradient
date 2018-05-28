@@ -3,7 +3,6 @@
   "description":
     "Supercharge your gradients in Sketch with no-linear color mix and custom color spaces",
   "icon": "icons/sketch.png",
-  "version": "0.4.0",
   "identifier": "com.larsenwork.sketch.easing-gradient",
   "author": "@larsenwork",
   "authorEmail": "andreas@larsenwork.com",
