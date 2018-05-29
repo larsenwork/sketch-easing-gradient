@@ -5,13 +5,11 @@
 With Sketch Runner, just go to the `install` command and search for `Easing Gradient`.
 Or download the [latest release pkg](https://github.com/larsenwork/sketch-easing-gradient/releases) (not the .zip)
 
-## Demo
-
 ![Spotify](https://github.com/larsenwork/sketch-easing-gradient/blob/master/docs/readme/banner_demo.png?raw=true)
 ![Ease](https://github.com/larsenwork/sketch-easing-gradient/blob/master/docs/readme/banner_ease.png?raw=true)
 ![Steps](https://github.com/larsenwork/sketch-easing-gradient/blob/master/docs/readme/banner_steps.png?raw=true)
 
-## Learn more
+## More
 
 Documentation, online editor, link to postCSS plugin and more on [larsenwork.com/easing-gradients](https://larsenwork.com/easing-gradients/)
 
