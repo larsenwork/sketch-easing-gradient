@@ -1,11 +1,10 @@
-![Sketch Easing Gradient](https://github.com/larsenwork/sketch-easing-gradient/blob/master/docs/readme/banner.png?raw=true)
+![Sketch Easing Gradient](https://github.com/larsenwork/sketch-easing-gradient/blob/master/docs/readme/banner_big.png?raw=true)
 
 ## Install
 
 With Sketch Runner, just go to the `install` command and search for `Easing Gradient`.
 Or download the [latest release pkg](https://github.com/larsenwork/sketch-easing-gradient/releases) (not the .zip)
 
-![Spotify](https://github.com/larsenwork/sketch-easing-gradient/blob/master/docs/readme/banner_demo.png?raw=true)
 ![Ease](https://github.com/larsenwork/sketch-easing-gradient/blob/master/docs/readme/banner_ease.png?raw=true)
 ![Steps](https://github.com/larsenwork/sketch-easing-gradient/blob/master/docs/readme/banner_steps.png?raw=true)
 
