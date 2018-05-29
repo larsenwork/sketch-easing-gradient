@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 import pluginCall from 'sketch-module-web-view/client'
 import { cubicCoordinates, stepsCoordinates } from 'easing-coordinates'
 import chroma from 'chroma-js'
-import easeMap from '../components/helpers/ease-map'
+import { easeMap, easeMapAdvanced } from '../components/helpers/ease-map'
 
 Vue.use(Vuex)
 
@@ -56,18 +56,21 @@ function updateColorStops(state) {
 
 function updateLayerName(state) {
   if (
+    state.timingFunction.includes('cubic-bezier') ||
+    (state.timingFunction.includes('ease-') && state.timingFunctionAdvanced)
+  ) {
+    const bezierFunc = `cubic-bezier(${xyxyString(state)})`
+    pluginCall(
+      'updateName',
+      `${bezierFunc};${state.colorSpace};${state.colorStops}`
+    )
+  } else if (
     state.timingFunction.includes('ease') ||
     state.timingFunction.includes('linear')
   ) {
     pluginCall(
       'updateName',
       `${state.timingFunction};${state.colorSpace};${state.colorStops}`
-    )
-  } else if (state.timingFunction.includes('cubic-bezier')) {
-    const bezierFunc = `${state.timingFunction}(${xyxyString(state)})`
-    pluginCall(
-      'updateName',
-      `${bezierFunc};${state.colorSpace};${state.colorStops}`
     )
   } else if (state.timingFunction.includes('steps')) {
     pluginCall(
@@ -82,6 +85,7 @@ function updateLayerName(state) {
 
 function updateTimingFunction(state) {
   const xyxy = xyxyString(state)
+  // TODO: Add some array.find logic here...
   state.timingFunction = easeMap[xyxy] ? easeMap[xyxy] : 'cubic-bezier'
   updateLayerName(state)
 }
@@ -91,6 +95,7 @@ export default new Vuex.Store({
     startColor: '',
     stopColor: '',
     timingFunction: '',
+    timingFunctionAdvanced: '',
     colorSpace: 'lrgb',
     polyLineString: [],
     parentBounding: {},
@@ -129,7 +134,20 @@ export default new Vuex.Store({
     },
     updateXYXY(state, bezierParams) {
       if (!state.timingFunction.includes('steps')) {
-        const xy = bezierParams || easeMap[state.timingFunction]
+        let xy
+        if (bezierParams) {
+          xy = bezierParams
+        } else if (
+          state.timingFunction.includes('ease-') &&
+          state.timingFunctionAdvanced
+        ) {
+          xy =
+            easeMapAdvanced[
+              `${state.timingFunction}-${state.timingFunctionAdvanced}`
+            ]
+        } else {
+          xy = easeMap[state.timingFunction]
+        }
         state.gradient.ease1.x = xy.x1
         state.gradient.ease1.y = xy.y1
         state.gradient.ease2.x = xy.x2

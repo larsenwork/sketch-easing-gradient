@@ -84,11 +84,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var sketch_module_web_view_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! sketch-module-web-view/client */ "./node_modules/sketch-module-web-view/client.js");
 /* harmony import */ var sketch_module_web_view_client__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(sketch_module_web_view_client__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _components_select_timing_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/select-timing.vue */ "./resources/components/select-timing.vue");
-/* harmony import */ var _components_select_color_space_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/select-color-space.vue */ "./resources/components/select-color-space.vue");
-/* harmony import */ var _components_easing_edit_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/easing-edit.vue */ "./resources/components/easing-edit.vue");
-/* harmony import */ var _components_easing_preview_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/easing-preview.vue */ "./resources/components/easing-preview.vue");
-/* harmony import */ var _components_step_edit_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/step-edit.vue */ "./resources/components/step-edit.vue");
-/* harmony import */ var _components_mixins_misc__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/mixins/misc */ "./resources/components/mixins/misc.js");
+/* harmony import */ var _components_select_timing_advanced_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/select-timing-advanced.vue */ "./resources/components/select-timing-advanced.vue");
+/* harmony import */ var _components_select_color_space_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/select-color-space.vue */ "./resources/components/select-color-space.vue");
+/* harmony import */ var _components_easing_edit_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/easing-edit.vue */ "./resources/components/easing-edit.vue");
+/* harmony import */ var _components_easing_preview_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/easing-preview.vue */ "./resources/components/easing-preview.vue");
+/* harmony import */ var _components_social_stuff_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/social-stuff.vue */ "./resources/components/social-stuff.vue");
+/* harmony import */ var _components_step_edit_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/step-edit.vue */ "./resources/components/step-edit.vue");
+/* harmony import */ var _components_stop_edit_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/stop-edit.vue */ "./resources/components/stop-edit.vue");
+/* harmony import */ var _components_mixins_misc__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/mixins/misc */ "./resources/components/mixins/misc.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
@@ -161,52 +164,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
+
+
 
 
 
@@ -222,21 +182,19 @@ var getParensInsides = function getParensInsides(str) {
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'app',
-  mixins: [_components_mixins_misc__WEBPACK_IMPORTED_MODULE_7__["default"]],
+  mixins: [_components_mixins_misc__WEBPACK_IMPORTED_MODULE_10__["default"]],
   components: {
     ClipboardIcon: vue_feather_icons__WEBPACK_IMPORTED_MODULE_0__["ClipboardIcon"],
-    GithubIcon: vue_feather_icons__WEBPACK_IMPORTED_MODULE_0__["GithubIcon"],
-    TwitterIcon: vue_feather_icons__WEBPACK_IMPORTED_MODULE_0__["TwitterIcon"],
     selectTiming: _components_select_timing_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-    selectColorSpace: _components_select_color_space_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
-    easingEdit: _components_easing_edit_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
-    easingPreview: _components_easing_preview_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
-    stepEdit: _components_step_edit_vue__WEBPACK_IMPORTED_MODULE_6__["default"]
+    selectTimingAdvanced: _components_select_timing_advanced_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+    selectColorSpace: _components_select_color_space_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
+    easingEdit: _components_easing_edit_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
+    easingPreview: _components_easing_preview_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
+    socialStuff: _components_social_stuff_vue__WEBPACK_IMPORTED_MODULE_7__["default"],
+    stepEdit: _components_step_edit_vue__WEBPACK_IMPORTED_MODULE_8__["default"],
+    stopEdit: _components_stop_edit_vue__WEBPACK_IMPORTED_MODULE_9__["default"]
   },
   methods: {
-    openUrl: function openUrl(url) {
-      sketch_module_web_view_client__WEBPACK_IMPORTED_MODULE_1___default()('openUrl', url);
-    },
     showMessage: function showMessage(msg) {
       sketch_module_web_view_client__WEBPACK_IMPORTED_MODULE_1___default()('showMessage', msg);
     }
@@ -503,10 +461,77 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     selectChevrons: _select_chevrons_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/@skpm/builder/node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/components/select-timing-advanced.vue":
+/*!**********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/@skpm/builder/node_modules/babel-loader/lib!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/components/select-timing-advanced.vue ***!
+  \**********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _select_chevrons_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./select-chevrons.vue */ "./resources/components/select-chevrons.vue");
+/* harmony import */ var _helpers_ease_map__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./helpers/ease-map */ "./resources/components/helpers/ease-map.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    selectChevrons: _select_chevrons_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  data: function data() {
+    return {
+      easeMapAdvancedTypes: _helpers_ease_map__WEBPACK_IMPORTED_MODULE_1__["easeMapAdvancedTypes"]
+    };
+  },
+  computed: {
+    isEasy: function isEasy() {
+      return this.$store.state.timingFunction.includes('ease-');
+    }
   }
 });
 
@@ -544,10 +569,74 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     selectChevrons: _select_chevrons_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  computed: {
+    isEasy: function isEasy() {
+      return this.$store.state.timingFunction.includes('ease-');
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/@skpm/builder/node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/components/social-stuff.vue":
+/*!************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/@skpm/builder/node_modules/babel-loader/lib!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/components/social-stuff.vue ***!
+  \************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue_feather_icons__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-feather-icons */ "./node_modules/vue-feather-icons/dist/vue-feather-icons.es.js");
+/* harmony import */ var sketch_module_web_view_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! sketch-module-web-view/client */ "./node_modules/sketch-module-web-view/client.js");
+/* harmony import */ var sketch_module_web_view_client__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(sketch_module_web_view_client__WEBPACK_IMPORTED_MODULE_1__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    GithubIcon: vue_feather_icons__WEBPACK_IMPORTED_MODULE_0__["GithubIcon"],
+    TwitterIcon: vue_feather_icons__WEBPACK_IMPORTED_MODULE_0__["TwitterIcon"]
+  },
+  methods: {
+    openUrl: function openUrl(url) {
+      sketch_module_web_view_client__WEBPACK_IMPORTED_MODULE_1___default()('openUrl', url);
+    }
   }
 });
 
@@ -5003,7 +5092,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, ".u-lineLength {\n  max-width: var(--lineLength-maxWidth);\n  margin-left: auto;\n  margin-right: auto;\n}\n\n/* Positioning */\n.u-position-relative {\n  position: relative;\n}\n\n.u-position-cover {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n}\n\n.u-container {\n  padding-right: var(--spacer-small);\n  padding-left: var(--spacer-small);\n  width: 100%;\n}\n\n.u-section {\n  margin-bottom: var(--lineHeight-margin-large);\n}\n\n.u-section:last-child {\n  margin-bottom: calc(\n    var(--lineHeight-margin-large) + var(--lineHeight-margin-small)\n  );\n}\n\n.u-no-padding {\n  padding: 0 !important;\n}\n\n.u-no-margin {\n  margin: 0 !important;\n}\n\n.u-knob {\n  border-radius: 50%;\n  width: calc(1.5 * var(--spacer-small));\n  height: calc(1.5 * var(--spacer-small));\n  position: absolute;\n  background-color: var(--color-bright);\n  box-shadow: var(--shadow);\n  transform: translate(-50%, -50%);\n}\n\n.u-knob:hover {\n    box-shadow: var(--shadow--hover);\n  }\n\n.u-grid {\n  display: grid;\n  grid-gap: var(--spacer-small);\n}\n\n.u-aspect--1-1,\n.u-aspect--2-3 {\n  position: relative;\n  width: 100%;\n}\n\n.u-aspect--1-1::before, .u-aspect--2-3::before {\n    width: 100%;\n    content: '';\n    display: flex;\n  }\n\n.u-aspect--1-1 > *, .u-aspect--2-3 > * {\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n  }\n\n.u-aspect--1-1::before {\n  padding-top: 100%;\n}\n\n.u-aspect--2-3::before {\n  padding-top: calc(100% * 2 / 3);\n}\n\n.u-marginBottom {\n  margin-bottom: var(--lineHeight-margin-small);\n}\n\n.u-marginTop {\n  margin-top: var(--lineHeight-margin-small);\n}\n\n.u-marginLeft {\n  margin-left: var(--lineHeight-margin-small);\n}\n\n.u-textUppercase {\n  text-transform: uppercase;\n}\n\n.u-textCapitalize {\n  text-transform: capitalize;\n}\n\n/* Inputs */\n.u-input {\n  -webkit-appearance: none;\n  display: flex;\n  background: var(--color-themed-bg);\n  color: var(--color-themed-fg);\n  font-size: inherit;\n  padding: var(--spacer-xsmall);\n  border-radius: var(--spacer-xsmall);\n  border-width: 0;\n  border-color: var(--color-themed-bg);\n  transition: var(--transition);\n  box-shadow: var(--shadow);\n  overflow: hidden;\n  width: 100%;\n}\n.u-input:hover {\n    box-shadow: var(--shadow--hover);\n  }\n.u-input:focus {\n    outline: none;\n  }\n.u-input:active {\n    box-shadow: var(--shadow--inset);\n    transition: 0.1s var(--transitionFunction);\n    transform: translateY(1px);\n  }\n\n.u-input--inline {\n  width: auto;\n}\n\n.u-icon {\n  width: 16px;\n  height: 16px;\n}\n\n.u-icon--chevronUp {\n  position: absolute;\n  right: 0;\n  top: 0;\n}\n\n.u-icon--chevronDown {\n  position: absolute;\n  right: 0;\n  bottom: 0;\n}\n\n.u-flex {\n  display: flex;\n}\n", ""]);
+exports.push([module.i, ".u-lineLength {\n  max-width: var(--lineLength-maxWidth);\n  margin-left: auto;\n  margin-right: auto;\n}\n\n/* Positioning */\n.u-position-relative {\n  position: relative;\n}\n\n.u-position-cover {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n}\n\n.u-container {\n  padding-right: var(--spacer-small);\n  padding-left: var(--spacer-small);\n  width: 100%;\n}\n\n.u-section {\n  margin-bottom: var(--lineHeight-margin-large);\n}\n\n.u-section:last-child {\n  margin-bottom: calc(\n    var(--lineHeight-margin-large) + var(--lineHeight-margin-small)\n  );\n}\n\n.u-no-padding {\n  padding: 0 !important;\n}\n\n.u-no-margin {\n  margin: 0 !important;\n}\n\n.u-knob {\n  border-radius: 50%;\n  width: calc(1.5 * var(--spacer-small));\n  height: calc(1.5 * var(--spacer-small));\n  position: absolute;\n  background-color: var(--color-bright);\n  box-shadow: var(--shadow);\n  transform: translate(-50%, -50%);\n}\n\n.u-knob:hover {\n    box-shadow: var(--shadow--hover);\n  }\n\n.u-grid {\n  display: grid;\n  grid-gap: var(--spacer-small);\n}\n\n.u-aspect--1-1,\n.u-aspect--2-3 {\n  position: relative;\n  width: 100%;\n}\n\n.u-aspect--1-1::before, .u-aspect--2-3::before {\n    width: 100%;\n    content: '';\n    display: flex;\n  }\n\n.u-aspect--1-1 > *, .u-aspect--2-3 > * {\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n  }\n\n.u-aspect--1-1::before {\n  padding-top: 100%;\n}\n\n.u-aspect--2-3::before {\n  padding-top: calc(100% * 2 / 3);\n}\n\n.u-marginBottom {\n  margin-bottom: var(--lineHeight-margin-small);\n}\n\n.u-marginTop {\n  margin-top: var(--lineHeight-margin-small);\n}\n\n.u-marginLeft {\n  margin-left: var(--lineHeight-margin-small);\n}\n\n.u-textUppercase {\n  text-transform: uppercase;\n}\n\n.u-textCapitalize {\n  text-transform: capitalize;\n}\n\n/* Inputs */\n.u-input {\n  -webkit-appearance: none;\n  display: flex;\n  background: var(--color-themed-bg);\n  color: var(--color-themed-fg);\n  font-size: inherit;\n  padding: var(--spacer-xsmall);\n  border-radius: var(--spacer-xsmall);\n  border-width: 0;\n  border-color: var(--color-themed-bg);\n  transition: var(--transition);\n  box-shadow: var(--shadow);\n  overflow: hidden;\n  width: 100%;\n}\n.u-input:hover {\n    box-shadow: var(--shadow--hover);\n  }\n.u-input:focus {\n    outline: none;\n  }\n.u-input:active {\n    box-shadow: var(--shadow--inset);\n    transition: 0.1s var(--transitionFunction);\n    transform: translateY(1px);\n  }\n.u-input:disabled {\n    opacity: var(--opacity-mid);\n  }\n\n.u-input--inline {\n  width: auto;\n}\n\n.u-input-label {\n  display: block;\n  margin-bottom: var(--lineHeight-margin-xsmall);\n  font-weight: 700;\n  opacity: 0.7;\n}\n\n/* Icons */\n.u-icon {\n  width: 16px;\n  height: 16px;\n}\n\n.u-icon--chevronUp {\n  position: absolute;\n  right: 0;\n  top: 0;\n}\n\n.u-icon--chevronDown {\n  position: absolute;\n  right: 0;\n  bottom: 0;\n}\n\n.u-flex {\n  display: flex;\n}\n", ""]);
 
 // exports
 
@@ -5022,7 +5111,7 @@ exports = module.exports = __webpack_require__(/*! ../node_modules/css-loader/li
 
 
 // module
-exports.push([module.i, "\n.c-gradientEditor {\n  width: 100vw;\n  height: 100vh;\n  padding: var(--spacer-small);\n}\n.c-gradientEditor-settings {\n  grid-template-columns: repeat(2, 1fr);\n}\n.c-gradientEditor-label {\n  display: block;\n  margin-bottom: var(--lineHeight-margin-xsmall);\n  font-weight: 700;\n  opacity: 0.7;\n}\n.c-gradientEditor-ease {\n  padding: calc(var(--spacer-xsmall) / 2);\n}\n.c-gradientEditor-buttons {\n  display: flex;\n  flex-wrap: wrap;\n  align-content: space-between;\n  align-items: flex-end;\n  justify-content: space-between;\n}\n.c-gradientEditor-slider {\n  flex-basis: 100%;\n  flex-shrink: 0;\n}\n", "", {"version":3,"sources":["/Users/andreaslarsen/Git/sketch-easing-gradient/resources/resources/App.vue"],"names":[],"mappings":";AAyLA;EACA,aAAA;EACA,cAAA;EACA,6BAAA;CACA;AAEA;EACA,sCAAA;CACA;AAEA;EACA,eAAA;EACA,+CAAA;EACA,iBAAA;EACA,aAAA;CACA;AAEA;EACA,wCAAA;CACA;AAEA;EACA,cAAA;EACA,gBAAA;EACA,6BAAA;EACA,sBAAA;EACA,+BAAA;CACA;AAEA;EACA,iBAAA;EACA,eAAA;CACA","file":"App.vue","sourcesContent":["<template>\n  <div\n    id=\"vue\"\n    class=\"c-gradientEditor\"\n  >\n    <div\n      class=\"c-gradientEditor-settings u-grid\"\n    >\n      <div>\n        <div\n          class=\"c-gradientEditor-label\"\n        >\n          Easing function\n        </div>\n        <select-timing/>\n      </div>\n      <div>\n        <div\n          class=\"c-gradientEditor-label\"\n        >\n          Color space\n        </div>\n        <select-color-space/>\n      </div>\n      <div\n        class=\"c-gradientEditor-ease u-position-relative\"\n      >\n        <div\n          class=\"u-aspect--1-1\"\n        >\n          <easing-preview/>\n          <easing-edit/>\n        </div>\n      </div>\n\n      <div class=\"u-aspect--1-1\">\n        <div\n          class=\"c-gradientEditor-buttons\"\n        >\n          <div\n            class=\"c-gradientEditor-slider u-marginBottom\"\n          >\n            <div\n              v-if=\"isSteps\"\n            >\n              <step-edit/>\n            </div>\n            <div\n              v-else\n            >\n              <div\n                class=\"c-gradientEditor-label u-no-margin\"\n              >\n                Color Stops\n              </div>\n              <input\n                type=\"range\"\n                min=\"3\"\n                max=\"25\"\n                step=\"1\"\n                v-model=\"$store.state.colorStops\"\n                @input=\"$store.commit('updateLayerName')\"\n              >\n            </div>\n          </div>\n          <div>\n            <div\n              class=\"c-gradientEditor-label\"\n            >\n              Copy CSS\n            </div>\n            <button\n              class=\"u-input u-input--inline\"\n              @click=\"showMessage('CSS copied!')\"\n              v-clipboard:copy=\"$store.state.css\"\n            >\n              <clipboard-icon\n                class=\"u-icon\"\n              >\n              </clipboard-icon>\n            </button>\n          </div>\n          <div class=\"u-flex\">\n            <a\n              href=\"\"\n              class=\"u-input u-input--inline\"\n              @click.prevent=\"openUrl('https://github.com/larsenwork/sketch-easing-gradient#readme')\"\n            >\n              <github-icon\n                class=\"u-icon\"\n              >\n              </github-icon>\n            </a>\n            <a\n              href=\"\"\n              class=\"u-input u-input--inline u-marginLeft\"\n              @click.prevent=\"openUrl('https://twitter.com/intent/follow?screen_name=larsenwork')\"\n            >\n              <twitter-icon\n                class=\"u-icon\"\n              >\n              </twitter-icon>\n            </a>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</template>\n\n<script>\nimport { ClipboardIcon, GithubIcon, TwitterIcon } from 'vue-feather-icons'\nimport pluginCall from 'sketch-module-web-view/client'\n\nimport selectTiming from './components/select-timing.vue'\nimport selectColorSpace from './components/select-color-space.vue'\nimport easingEdit from './components/easing-edit.vue'\nimport easingPreview from './components/easing-preview.vue'\nimport stepEdit from './components/step-edit.vue'\nimport misc from './components/mixins/misc'\n\nconst getParensInsides = str => str.match(/\\(([^)]+)\\)/)[1].split(',')\n\nexport default {\n  name: 'app',\n  mixins: [misc],\n  components: {\n    ClipboardIcon,\n    GithubIcon,\n    TwitterIcon,\n    selectTiming,\n    selectColorSpace,\n    easingEdit,\n    easingPreview,\n    stepEdit,\n  },\n  methods: {\n    openUrl(url) {\n      pluginCall('openUrl', url)\n    },\n    showMessage(msg) {\n      pluginCall('showMessage', msg)\n    },\n  },\n  created() {\n    window.setGradientParams = paramsAsString => {\n      const [\n        startColor,\n        timingFunction,\n        stopColor,\n        colorSpace,\n        colorStops,\n      ] = JSON.parse(paramsAsString)\n      this.$store.state.startColor = startColor\n      this.$store.state.stopColor = stopColor\n      this.$store.state.colorSpace = colorSpace\n      this.$store.state.colorStops = colorStops\n\n      if (timingFunction.includes('cubic-bezier')) {\n        this.$store.state.timingFunction = 'cubic-bezier'\n        const bezierParams = getParensInsides(timingFunction)\n        if (bezierParams.length === 4) {\n          const params = {\n            x1: parseFloat(bezierParams[0]),\n            y1: parseFloat(bezierParams[1]),\n            x2: parseFloat(bezierParams[2]),\n            y2: parseFloat(bezierParams[3]),\n          }\n          this.$store.commit('updateXYXY', params)\n        }\n      } else if (timingFunction.includes('steps')) {\n        this.$store.state.timingFunction = 'steps'\n        const stepsParams = getParensInsides(timingFunction)\n        this.$store.state.gradient.steps.number = stepsParams[0]\n        this.$store.commit('updateLayerName')\n      } else {\n        this.$store.state.timingFunction = timingFunction\n        this.$store.commit('updateXYXY')\n      }\n    }\n  },\n}\n</script>\n\n<style>\n.c-gradientEditor {\n  width: 100vw;\n  height: 100vh;\n  padding: var(--spacer-small);\n}\n\n.c-gradientEditor-settings {\n  grid-template-columns: repeat(2, 1fr);\n}\n\n.c-gradientEditor-label {\n  display: block;\n  margin-bottom: var(--lineHeight-margin-xsmall);\n  font-weight: 700;\n  opacity: 0.7;\n}\n\n.c-gradientEditor-ease {\n  padding: calc(var(--spacer-xsmall) / 2);\n}\n\n.c-gradientEditor-buttons {\n  display: flex;\n  flex-wrap: wrap;\n  align-content: space-between;\n  align-items: flex-end;\n  justify-content: space-between;\n}\n\n.c-gradientEditor-slider {\n  flex-basis: 100%;\n  flex-shrink: 0;\n}\n</style>\n"],"sourceRoot":""}]);
+exports.push([module.i, "\n.c-gradientEditor {\n  width: 100vw;\n  height: 100vh;\n  padding: var(--spacer-small);\n}\n.c-gradientEditor-rowOne {\n  grid-template-columns: repeat(3, 1fr);\n  margin-bottom: var(--spacer-small);\n}\n.c-gradientEditor-rowTwo {\n  grid-template-columns: repeat(2, 1fr);\n}\n.c-gradientEditor-ease {\n  padding: calc(var(--spacer-xsmall) / 2);\n}\n.c-gradientEditor-buttons {\n  display: flex;\n  flex-wrap: wrap;\n  align-content: space-between;\n  align-items: flex-end;\n  justify-content: space-between;\n}\n.c-gradientEditor-slider {\n  flex-basis: 100%;\n  flex-shrink: 0;\n}\n", "", {"version":3,"sources":["/Users/andreaslarsen/Git/sketch-easing-gradient/resources/resources/App.vue"],"names":[],"mappings":";AA4IA;EACA,aAAA;EACA,cAAA;EACA,6BAAA;CACA;AAEA;EACA,sCAAA;EACA,mCAAA;CACA;AAEA;EACA,sCAAA;CACA;AAEA;EACA,wCAAA;CACA;AAEA;EACA,cAAA;EACA,gBAAA;EACA,6BAAA;EACA,sBAAA;EACA,+BAAA;CACA;AAEA;EACA,iBAAA;EACA,eAAA;CACA","file":"App.vue","sourcesContent":["<template>\n  <div\n    id=\"vue\"\n    class=\"c-gradientEditor\"\n  >\n    <div\n      class=\"c-gradientEditor-rowOne u-grid\"\n    >\n      <select-timing/>\n      <select-timing-advanced/>\n      <select-color-space/>\n    </div>\n    <div\n      class=\"c-gradientEditor-rowTwo u-grid\"\n    >\n      <div\n        class=\"c-gradientEditor-ease u-position-relative\"\n      >\n        <div\n          class=\"u-aspect--1-1\"\n        >\n          <easing-preview/>\n          <easing-edit/>\n        </div>\n      </div>\n\n      <div class=\"u-aspect--1-1\">\n        <div\n          class=\"c-gradientEditor-buttons\"\n        >\n          <div\n            class=\"c-gradientEditor-slider u-marginBottom\"\n          >\n            <step-edit\n              v-if=\"isSteps\"\n            />\n            <stop-edit\n              v-else\n            />\n          </div>\n          <div>\n            <div\n              class=\"u-input-label\"\n            >\n              Copy CSS\n            </div>\n            <button\n              class=\"u-input u-input--inline\"\n              @click=\"showMessage('CSS copied!')\"\n              v-clipboard:copy=\"$store.state.css\"\n            >\n              <clipboard-icon\n                class=\"u-icon\"\n              >\n              </clipboard-icon>\n            </button>\n          </div>\n          <social-stuff/>\n        </div>\n      </div>\n    </div>\n  </div>\n</template>\n\n<script>\nimport { ClipboardIcon } from 'vue-feather-icons'\nimport pluginCall from 'sketch-module-web-view/client'\n\nimport selectTiming from './components/select-timing.vue'\nimport selectTimingAdvanced from './components/select-timing-advanced.vue'\nimport selectColorSpace from './components/select-color-space.vue'\nimport easingEdit from './components/easing-edit.vue'\nimport easingPreview from './components/easing-preview.vue'\nimport socialStuff from './components/social-stuff.vue'\nimport stepEdit from './components/step-edit.vue'\nimport stopEdit from './components/stop-edit.vue'\nimport misc from './components/mixins/misc'\n\nconst getParensInsides = str => str.match(/\\(([^)]+)\\)/)[1].split(',')\n\nexport default {\n  name: 'app',\n  mixins: [misc],\n  components: {\n    ClipboardIcon,\n    selectTiming,\n    selectTimingAdvanced,\n    selectColorSpace,\n    easingEdit,\n    easingPreview,\n    socialStuff,\n    stepEdit,\n    stopEdit,\n  },\n  methods: {\n    showMessage(msg) {\n      pluginCall('showMessage', msg)\n    },\n  },\n  created() {\n    window.setGradientParams = paramsAsString => {\n      const [\n        startColor,\n        timingFunction,\n        stopColor,\n        colorSpace,\n        colorStops,\n      ] = JSON.parse(paramsAsString)\n      this.$store.state.startColor = startColor\n      this.$store.state.stopColor = stopColor\n      this.$store.state.colorSpace = colorSpace\n      this.$store.state.colorStops = colorStops\n\n      if (timingFunction.includes('cubic-bezier')) {\n        this.$store.state.timingFunction = 'cubic-bezier'\n        const bezierParams = getParensInsides(timingFunction)\n        if (bezierParams.length === 4) {\n          const params = {\n            x1: parseFloat(bezierParams[0]),\n            y1: parseFloat(bezierParams[1]),\n            x2: parseFloat(bezierParams[2]),\n            y2: parseFloat(bezierParams[3]),\n          }\n          this.$store.commit('updateXYXY', params)\n        }\n      } else if (timingFunction.includes('steps')) {\n        this.$store.state.timingFunction = 'steps'\n        const stepsParams = getParensInsides(timingFunction)\n        this.$store.state.gradient.steps.number = stepsParams[0]\n        this.$store.commit('updateLayerName')\n      } else {\n        this.$store.state.timingFunction = timingFunction\n        this.$store.commit('updateXYXY')\n      }\n    }\n  },\n}\n</script>\n\n<style>\n.c-gradientEditor {\n  width: 100vw;\n  height: 100vh;\n  padding: var(--spacer-small);\n}\n\n.c-gradientEditor-rowOne {\n  grid-template-columns: repeat(3, 1fr);\n  margin-bottom: var(--spacer-small);\n}\n\n.c-gradientEditor-rowTwo {\n  grid-template-columns: repeat(2, 1fr);\n}\n\n.c-gradientEditor-ease {\n  padding: calc(var(--spacer-xsmall) / 2);\n}\n\n.c-gradientEditor-buttons {\n  display: flex;\n  flex-wrap: wrap;\n  align-content: space-between;\n  align-items: flex-end;\n  justify-content: space-between;\n}\n\n.c-gradientEditor-slider {\n  flex-basis: 100%;\n  flex-shrink: 0;\n}\n</style>\n"],"sourceRoot":""}]);
 
 // exports
 
@@ -15458,62 +15547,68 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "u-position-relative" },
-    [
-      _c("select-chevrons"),
-      _vm._v(" "),
-      _c(
-        "select",
-        {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.$store.state.colorSpace,
-              expression: "$store.state.colorSpace"
-            }
-          ],
-          staticClass: "u-input",
-          on: {
-            change: [
-              function($event) {
-                var $$selectedVal = Array.prototype.filter
-                  .call($event.target.options, function(o) {
-                    return o.selected
-                  })
-                  .map(function(o) {
-                    var val = "_value" in o ? o._value : o.value
-                    return val
-                  })
-                _vm.$set(
-                  _vm.$store.state,
-                  "colorSpace",
-                  $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-                )
-              },
-              function($event) {
-                _vm.$store.commit("updateLayerName")
+  return _c("div", [
+    _c("div", { staticClass: "u-input-label" }, [
+      _vm._v("\n    Color Space\n  ")
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "u-position-relative" },
+      [
+        _c("select-chevrons"),
+        _vm._v(" "),
+        _c(
+          "select",
+          {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.$store.state.colorSpace,
+                expression: "$store.state.colorSpace"
               }
-            ]
-          }
-        },
-        [
-          _c("option", [_vm._v("rgb")]),
-          _vm._v(" "),
-          _c("option", [_vm._v("hsl")]),
-          _vm._v(" "),
-          _c("option", [_vm._v("lab")]),
-          _vm._v(" "),
-          _c("option", [_vm._v("lch")]),
-          _vm._v(" "),
-          _c("option", [_vm._v("lrgb")])
-        ]
-      )
-    ],
-    1
-  )
+            ],
+            staticClass: "u-input",
+            on: {
+              change: [
+                function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.$set(
+                    _vm.$store.state,
+                    "colorSpace",
+                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                  )
+                },
+                function($event) {
+                  _vm.$store.commit("updateLayerName")
+                }
+              ]
+            }
+          },
+          [
+            _c("option", [_vm._v("rgb")]),
+            _vm._v(" "),
+            _c("option", [_vm._v("hsl")]),
+            _vm._v(" "),
+            _c("option", [_vm._v("lab")]),
+            _vm._v(" "),
+            _c("option", [_vm._v("lch")]),
+            _vm._v(" "),
+            _c("option", [_vm._v("lrgb")])
+          ]
+        )
+      ],
+      1
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -15537,66 +15632,157 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "u-position-relative" },
-    [
-      _c("select-chevrons"),
-      _vm._v(" "),
-      _c(
-        "select",
-        {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.$store.state.timingFunction,
-              expression: "$store.state.timingFunction"
-            }
-          ],
-          staticClass: "u-input",
-          on: {
-            change: [
-              function($event) {
-                var $$selectedVal = Array.prototype.filter
-                  .call($event.target.options, function(o) {
-                    return o.selected
-                  })
-                  .map(function(o) {
-                    var val = "_value" in o ? o._value : o.value
-                    return val
-                  })
-                _vm.$set(
-                  _vm.$store.state,
-                  "timingFunction",
-                  $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-                )
-              },
-              function($event) {
-                _vm.$store.commit("updateXYXY")
+  return _c("div", [
+    _c("div", { staticClass: "u-input-label" }, [
+      _vm._v("\n    Easing function\n  ")
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "u-position-relative" },
+      [
+        _c("select-chevrons"),
+        _vm._v(" "),
+        _c(
+          "select",
+          {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.$store.state.timingFunction,
+                expression: "$store.state.timingFunction"
               }
-            ]
-          }
-        },
-        [
-          _c("option", [_vm._v("linear")]),
-          _vm._v(" "),
-          _c("option", [_vm._v("ease")]),
-          _vm._v(" "),
-          _c("option", [_vm._v("ease-in")]),
-          _vm._v(" "),
-          _c("option", [_vm._v("ease-out")]),
-          _vm._v(" "),
-          _c("option", [_vm._v("ease-in-out")]),
-          _vm._v(" "),
-          _c("option", [_vm._v("cubic-bezier")]),
-          _vm._v(" "),
-          _c("option", [_vm._v("steps")])
-        ]
-      )
-    ],
-    1
-  )
+            ],
+            staticClass: "u-input",
+            on: {
+              change: [
+                function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.$set(
+                    _vm.$store.state,
+                    "timingFunction",
+                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                  )
+                },
+                function($event) {
+                  _vm.$store.commit("updateXYXY")
+                }
+              ]
+            }
+          },
+          [
+            _c("option", [_vm._v("linear")]),
+            _vm._v(" "),
+            _c("option", [_vm._v("ease")]),
+            _vm._v(" "),
+            _c("option", [_vm._v("ease-in")]),
+            _vm._v(" "),
+            _c("option", [_vm._v("ease-out")]),
+            _vm._v(" "),
+            _c("option", [_vm._v("ease-in-out")]),
+            _vm._v(" "),
+            _c("option", [_vm._v("cubic-bezier")]),
+            _vm._v(" "),
+            _c("option", [_vm._v("steps")])
+          ]
+        )
+      ],
+      1
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+if (false) {}
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-33e4f385\",\"hasScoped\":false,\"optionsId\":\"0\",\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/components/select-timing-advanced.vue":
+/*!**************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-33e4f385","hasScoped":false,"optionsId":"0","buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/components/select-timing-advanced.vue ***!
+  \**************************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", { staticClass: "u-input-label" }, [
+      _vm._v("\n    Ease Type\n  ")
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "u-position-relative" },
+      [
+        _c("select-chevrons"),
+        _vm._v(" "),
+        _c(
+          "select",
+          {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.$store.state.timingFunctionAdvanced,
+                expression: "$store.state.timingFunctionAdvanced"
+              }
+            ],
+            staticClass: "u-input",
+            attrs: { disabled: !_vm.isEasy },
+            on: {
+              change: [
+                function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.$set(
+                    _vm.$store.state,
+                    "timingFunctionAdvanced",
+                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                  )
+                },
+                function($event) {
+                  _vm.$store.commit("updateXYXY")
+                }
+              ]
+            }
+          },
+          [
+            _c("option", { attrs: { value: "" } }, [_vm._v("default")]),
+            _vm._v(" "),
+            _vm._l(_vm.easeMapAdvancedTypes, function(type) {
+              return _c("option", { key: type }, [
+                _vm._v("\n        " + _vm._s(type) + "\n      ")
+              ])
+            })
+          ],
+          2
+        )
+      ],
+      1
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -15654,31 +15840,20 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "c-gradientEditor", attrs: { id: "vue" } }, [
-    _c("div", { staticClass: "c-gradientEditor-settings u-grid" }, [
-      _c(
-        "div",
-        [
-          _c("div", { staticClass: "c-gradientEditor-label" }, [
-            _vm._v("\n        Easing function\n      ")
-          ]),
-          _vm._v(" "),
-          _c("select-timing")
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        [
-          _c("div", { staticClass: "c-gradientEditor-label" }, [
-            _vm._v("\n        Color space\n      ")
-          ]),
-          _vm._v(" "),
-          _c("select-color-space")
-        ],
-        1
-      ),
-      _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "c-gradientEditor-rowOne u-grid" },
+      [
+        _c("select-timing"),
+        _vm._v(" "),
+        _c("select-timing-advanced"),
+        _vm._v(" "),
+        _c("select-color-space")
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "c-gradientEditor-rowTwo u-grid" }, [
       _c("div", { staticClass: "c-gradientEditor-ease u-position-relative" }, [
         _c(
           "div",
@@ -15689,113 +15864,103 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "u-aspect--1-1" }, [
-        _c("div", { staticClass: "c-gradientEditor-buttons" }, [
-          _c("div", { staticClass: "c-gradientEditor-slider u-marginBottom" }, [
-            _vm.isSteps
-              ? _c("div", [_c("step-edit")], 1)
-              : _c("div", [
-                  _c(
-                    "div",
-                    { staticClass: "c-gradientEditor-label u-no-margin" },
-                    [_vm._v("\n              Color Stops\n            ")]
-                  ),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.$store.state.colorStops,
-                        expression: "$store.state.colorStops"
-                      }
-                    ],
-                    attrs: { type: "range", min: "3", max: "25", step: "1" },
-                    domProps: { value: _vm.$store.state.colorStops },
-                    on: {
-                      input: function($event) {
-                        _vm.$store.commit("updateLayerName")
-                      },
-                      __r: function($event) {
-                        _vm.$set(
-                          _vm.$store.state,
-                          "colorStops",
-                          $event.target.value
-                        )
-                      }
-                    }
-                  })
-                ])
-          ]),
-          _vm._v(" "),
-          _c("div", [
-            _c("div", { staticClass: "c-gradientEditor-label" }, [
-              _vm._v("\n            Copy CSS\n          ")
-            ]),
-            _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "c-gradientEditor-buttons" },
+          [
             _c(
-              "button",
-              {
-                directives: [
-                  {
-                    name: "clipboard",
-                    rawName: "v-clipboard:copy",
-                    value: _vm.$store.state.css,
-                    expression: "$store.state.css",
-                    arg: "copy"
-                  }
-                ],
-                staticClass: "u-input u-input--inline",
-                on: {
-                  click: function($event) {
-                    _vm.showMessage("CSS copied!")
-                  }
-                }
-              },
-              [_c("clipboard-icon", { staticClass: "u-icon" })],
-              1
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "u-flex" }, [
-            _c(
-              "a",
-              {
-                staticClass: "u-input u-input--inline",
-                attrs: { href: "" },
-                on: {
-                  click: function($event) {
-                    $event.preventDefault()
-                    _vm.openUrl(
-                      "https://github.com/larsenwork/sketch-easing-gradient#readme"
-                    )
-                  }
-                }
-              },
-              [_c("github-icon", { staticClass: "u-icon" })],
+              "div",
+              { staticClass: "c-gradientEditor-slider u-marginBottom" },
+              [_vm.isSteps ? _c("step-edit") : _c("stop-edit")],
               1
             ),
             _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "u-input u-input--inline u-marginLeft",
-                attrs: { href: "" },
-                on: {
-                  click: function($event) {
-                    $event.preventDefault()
-                    _vm.openUrl(
-                      "https://twitter.com/intent/follow?screen_name=larsenwork"
-                    )
+            _c("div", [
+              _c("div", { staticClass: "u-input-label" }, [
+                _vm._v("\n            Copy CSS\n          ")
+              ]),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  directives: [
+                    {
+                      name: "clipboard",
+                      rawName: "v-clipboard:copy",
+                      value: _vm.$store.state.css,
+                      expression: "$store.state.css",
+                      arg: "copy"
+                    }
+                  ],
+                  staticClass: "u-input u-input--inline",
+                  on: {
+                    click: function($event) {
+                      _vm.showMessage("CSS copied!")
+                    }
                   }
-                }
-              },
-              [_c("twitter-icon", { staticClass: "u-icon" })],
-              1
-            )
-          ])
-        ])
+                },
+                [_c("clipboard-icon", { staticClass: "u-icon" })],
+                1
+              )
+            ]),
+            _vm._v(" "),
+            _c("social-stuff")
+          ],
+          1
+        )
       ])
     ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+if (false) {}
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-799808f4\",\"hasScoped\":false,\"optionsId\":\"0\",\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/components/stop-edit.vue":
+/*!*************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-799808f4","hasScoped":false,"optionsId":"0","buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/components/stop-edit.vue ***!
+  \*************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", { staticClass: "u-input-label u-no-margin" }, [
+      _vm._v(
+        "\n    Color Stops (" + _vm._s(_vm.$store.state.colorStops) + ")\n  "
+      )
+    ]),
+    _vm._v(" "),
+    _c("input", {
+      directives: [
+        {
+          name: "model",
+          rawName: "v-model",
+          value: _vm.$store.state.colorStops,
+          expression: "$store.state.colorStops"
+        }
+      ],
+      attrs: { type: "range", min: "3", max: "25", step: "1" },
+      domProps: { value: _vm.$store.state.colorStops },
+      on: {
+        input: function($event) {
+          _vm.$store.commit("updateLayerName")
+        },
+        __r: function($event) {
+          _vm.$set(_vm.$store.state, "colorStops", $event.target.value)
+        }
+      }
+    })
   ])
 }
 var staticRenderFns = []
@@ -15861,6 +16026,66 @@ var render = function() {
         }
       }
     })
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+if (false) {}
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-b1d80236\",\"hasScoped\":false,\"optionsId\":\"0\",\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/components/social-stuff.vue":
+/*!****************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-b1d80236","hasScoped":false,"optionsId":"0","buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/components/social-stuff.vue ***!
+  \****************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "u-flex" }, [
+    _c(
+      "a",
+      {
+        staticClass: "u-input u-input--inline",
+        attrs: { href: "" },
+        on: {
+          click: function($event) {
+            $event.preventDefault()
+            _vm.openUrl(
+              "https://github.com/larsenwork/sketch-easing-gradient#readme"
+            )
+          }
+        }
+      },
+      [_c("github-icon", { staticClass: "u-icon" })],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "a",
+      {
+        staticClass: "u-input u-input--inline u-marginLeft",
+        attrs: { href: "" },
+        on: {
+          click: function($event) {
+            $event.preventDefault()
+            _vm.openUrl(
+              "https://twitter.com/intent/follow?screen_name=larsenwork"
+            )
+          }
+        }
+      },
+      [_c("twitter-icon", { staticClass: "u-icon" })],
+      1
+    )
   ])
 }
 var staticRenderFns = []
@@ -25641,12 +25866,15 @@ if (false) {}
 /*!**************************************************!*\
   !*** ./resources/components/helpers/ease-map.js ***!
   \**************************************************/
-/*! exports provided: default */
+/*! exports provided: easeMap, easeMapAdvancedTypes, easeMapAdvanced */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ({
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "easeMap", function() { return easeMap; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "easeMapAdvancedTypes", function() { return easeMapAdvancedTypes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "easeMapAdvanced", function() { return easeMapAdvanced; });
+var easeMap = {
   'ease-in-out': {
     x1: 0.42,
     y1: 0,
@@ -25676,13 +25904,137 @@ __webpack_require__.r(__webpack_exports__);
     y1: 0.25,
     x2: 0.75,
     y2: 0.75
+  }
+};
+var easeMapAdvancedTypes = ['sine', 'quad', 'cubic', 'quart', 'quint', 'expo', 'circ'];
+var easeMapAdvanced = {
+  'ease-in-sine': {
+    x1: 0.47,
+    y1: 0,
+    x2: 0.745,
+    y2: 0.715
   },
-  '0.42, 0, 0.58, 1': 'ease-in-out',
-  '0, 0, 0.58, 1': 'ease-out',
-  '0.42, 0, 1, 1': 'ease-in',
-  '0.25, 0.1, 0.25, 1': 'ease',
-  '0.25, 0.25, 0.75, 0.75': 'linear'
-});
+  'ease-out-sine': {
+    x1: 0.39,
+    y1: 0.575,
+    x2: 0.565,
+    y2: 1
+  },
+  'ease-in-out-sine': {
+    x1: 0.445,
+    y1: 0.05,
+    x2: 0.55,
+    y2: 0.95
+  },
+  'ease-in-quad': {
+    x1: 0.55,
+    y1: 0.085,
+    x2: 0.68,
+    y2: 0.53
+  },
+  'ease-out-quad': {
+    x1: 0.25,
+    y1: 0.46,
+    x2: 0.45,
+    y2: 0.94
+  },
+  'ease-in-out-quad': {
+    x1: 0.455,
+    y1: 0.03,
+    x2: 0.515,
+    y2: 0.955
+  },
+  'ease-in-cubic': {
+    x1: 0.55,
+    y1: 0.055,
+    x2: 0.675,
+    y2: 0.19
+  },
+  'ease-out-cubic': {
+    x1: 0.215,
+    y1: 0.61,
+    x2: 0.355,
+    y2: 1
+  },
+  'ease-in-out-cubic': {
+    x1: 0.645,
+    y1: 0.045,
+    x2: 0.355,
+    y2: 1
+  },
+  'ease-in-quart': {
+    x1: 0.895,
+    y1: 0.03,
+    x2: 0.685,
+    y2: 0.22
+  },
+  'ease-out-quart': {
+    x1: 0.165,
+    y1: 0.84,
+    x2: 0.44,
+    y2: 1
+  },
+  'ease-in-out-quart': {
+    x1: 0.77,
+    y1: 0,
+    x2: 0.175,
+    y2: 1
+  },
+  'ease-in-quint': {
+    x1: 0.755,
+    y1: 0.05,
+    x2: 0.855,
+    y2: 0.06
+  },
+  'ease-out-quint': {
+    x1: 0.23,
+    y1: 1,
+    x2: 0.32,
+    y2: 1
+  },
+  'ease-in-out-quint': {
+    x1: 0.86,
+    y1: 0,
+    x2: 0.07,
+    y2: 1
+  },
+  'ease-in-expo': {
+    x1: 0.95,
+    y1: 0.05,
+    x2: 0.795,
+    y2: 0.035
+  },
+  'ease-out-expo': {
+    x1: 0.19,
+    y1: 1,
+    x2: 0.22,
+    y2: 1
+  },
+  'ease-in-out-expo': {
+    x1: 1,
+    y1: 0,
+    x2: 0,
+    y2: 1
+  },
+  'ease-in-circ': {
+    x1: 0.6,
+    y1: 0.04,
+    x2: 0.98,
+    y2: 0.335
+  },
+  'ease-out-circ': {
+    x1: 0.075,
+    y1: 0.82,
+    x2: 0.165,
+    y2: 1
+  },
+  'ease-in-out-circ': {
+    x1: 0.785,
+    y1: 0.135,
+    x2: 0.15,
+    y2: 0.86
+  }
+};
 
 /***/ }),
 
@@ -25861,6 +26213,52 @@ if (false) {}
 
 /***/ }),
 
+/***/ "./resources/components/select-timing-advanced.vue":
+/*!*********************************************************!*\
+  !*** ./resources/components/select-timing-advanced.vue ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_select_timing_advanced_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !babel-loader!../../node_modules/vue-loader/lib/selector?type=script&index=0!./select-timing-advanced.vue */ "./node_modules/@skpm/builder/node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/components/select-timing-advanced.vue");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_template_compiler_index_id_data_v_33e4f385_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_select_timing_advanced_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../node_modules/vue-loader/lib/template-compiler/index?{"id":"data-v-33e4f385","hasScoped":false,"optionsId":"0","buble":{"transforms":{}}}!../../node_modules/vue-loader/lib/selector?type=template&index=0!./select-timing-advanced.vue */ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-33e4f385\",\"hasScoped\":false,\"optionsId\":\"0\",\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/components/select-timing-advanced.vue");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_component_normalizer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../node_modules/vue-loader/lib/runtime/component-normalizer */ "./node_modules/vue-loader/lib/runtime/component-normalizer.js");
+var disposed = false
+/* script */
+
+
+/* template */
+
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+
+var Component = Object(_node_modules_vue_loader_lib_runtime_component_normalizer__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_select_timing_advanced_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+  _node_modules_vue_loader_lib_template_compiler_index_id_data_v_33e4f385_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_select_timing_advanced_vue__WEBPACK_IMPORTED_MODULE_1__["render"],
+  _node_modules_vue_loader_lib_template_compiler_index_id_data_v_33e4f385_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_select_timing_advanced_vue__WEBPACK_IMPORTED_MODULE_1__["staticRenderFns"],
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/components/select-timing-advanced.vue"
+
+/* hot reload */
+if (false) {}
+
+/* harmony default export */ __webpack_exports__["default"] = (Component.exports);
+
+
+/***/ }),
+
 /***/ "./resources/components/select-timing.vue":
 /*!************************************************!*\
   !*** ./resources/components/select-timing.vue ***!
@@ -25907,6 +26305,52 @@ if (false) {}
 
 /***/ }),
 
+/***/ "./resources/components/social-stuff.vue":
+/*!***********************************************!*\
+  !*** ./resources/components/social-stuff.vue ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_social_stuff_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !babel-loader!../../node_modules/vue-loader/lib/selector?type=script&index=0!./social-stuff.vue */ "./node_modules/@skpm/builder/node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/components/social-stuff.vue");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_template_compiler_index_id_data_v_b1d80236_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_social_stuff_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../node_modules/vue-loader/lib/template-compiler/index?{"id":"data-v-b1d80236","hasScoped":false,"optionsId":"0","buble":{"transforms":{}}}!../../node_modules/vue-loader/lib/selector?type=template&index=0!./social-stuff.vue */ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-b1d80236\",\"hasScoped\":false,\"optionsId\":\"0\",\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/components/social-stuff.vue");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_component_normalizer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../node_modules/vue-loader/lib/runtime/component-normalizer */ "./node_modules/vue-loader/lib/runtime/component-normalizer.js");
+var disposed = false
+/* script */
+
+
+/* template */
+
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+
+var Component = Object(_node_modules_vue_loader_lib_runtime_component_normalizer__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_social_stuff_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+  _node_modules_vue_loader_lib_template_compiler_index_id_data_v_b1d80236_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_social_stuff_vue__WEBPACK_IMPORTED_MODULE_1__["render"],
+  _node_modules_vue_loader_lib_template_compiler_index_id_data_v_b1d80236_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_social_stuff_vue__WEBPACK_IMPORTED_MODULE_1__["staticRenderFns"],
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/components/social-stuff.vue"
+
+/* hot reload */
+if (false) {}
+
+/* harmony default export */ __webpack_exports__["default"] = (Component.exports);
+
+
+/***/ }),
+
 /***/ "./resources/components/step-edit.vue":
 /*!********************************************!*\
   !*** ./resources/components/step-edit.vue ***!
@@ -25942,6 +26386,50 @@ var Component = Object(_node_modules_vue_loader_lib_runtime_component_normalizer
   __vue_module_identifier__
 )
 Component.options.__file = "resources/components/step-edit.vue"
+
+/* hot reload */
+if (false) {}
+
+/* harmony default export */ __webpack_exports__["default"] = (Component.exports);
+
+
+/***/ }),
+
+/***/ "./resources/components/stop-edit.vue":
+/*!********************************************!*\
+  !*** ./resources/components/stop-edit.vue ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_template_compiler_index_id_data_v_799808f4_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_stop_edit_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../node_modules/vue-loader/lib/template-compiler/index?{"id":"data-v-799808f4","hasScoped":false,"optionsId":"0","buble":{"transforms":{}}}!../../node_modules/vue-loader/lib/selector?type=template&index=0!./stop-edit.vue */ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-799808f4\",\"hasScoped\":false,\"optionsId\":\"0\",\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/components/stop-edit.vue");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_component_normalizer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../node_modules/vue-loader/lib/runtime/component-normalizer */ "./node_modules/vue-loader/lib/runtime/component-normalizer.js");
+var disposed = false
+/* script */
+var __vue_script__ = null
+/* template */
+
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+
+var Component = Object(_node_modules_vue_loader_lib_runtime_component_normalizer__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  __vue_script__,
+  _node_modules_vue_loader_lib_template_compiler_index_id_data_v_799808f4_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_stop_edit_vue__WEBPACK_IMPORTED_MODULE_0__["render"],
+  _node_modules_vue_loader_lib_template_compiler_index_id_data_v_799808f4_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_stop_edit_vue__WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/components/stop-edit.vue"
 
 /* hot reload */
 if (false) {}
@@ -26025,7 +26513,6 @@ function polyLineString(coordinates) {
 }
 
 function updateColorStops(state) {
-  console.log('updateColorStops');
   var coordinates = [];
 
   if (state.timingFunction.includes('steps')) {
@@ -26056,13 +26543,11 @@ function updateColorStops(state) {
 }
 
 function _updateLayerName(state) {
-  console.log('updateLayerName');
-
-  if (state.timingFunction.includes('ease') || state.timingFunction.includes('linear')) {
-    sketch_module_web_view_client__WEBPACK_IMPORTED_MODULE_2___default()('updateName', "".concat(state.timingFunction, ";").concat(state.colorSpace, ";").concat(state.colorStops));
-  } else if (state.timingFunction.includes('cubic-bezier')) {
-    var bezierFunc = "".concat(state.timingFunction, "(").concat(xyxyString(state), ")");
+  if (state.timingFunction.includes('cubic-bezier') || state.timingFunction.includes('ease-') && state.timingFunctionAdvanced) {
+    var bezierFunc = "cubic-bezier(".concat(xyxyString(state), ")");
     sketch_module_web_view_client__WEBPACK_IMPORTED_MODULE_2___default()('updateName', "".concat(bezierFunc, ";").concat(state.colorSpace, ";").concat(state.colorStops));
+  } else if (state.timingFunction.includes('ease') || state.timingFunction.includes('linear')) {
+    sketch_module_web_view_client__WEBPACK_IMPORTED_MODULE_2___default()('updateName', "".concat(state.timingFunction, ";").concat(state.colorSpace, ";").concat(state.colorStops));
   } else if (state.timingFunction.includes('steps')) {
     sketch_module_web_view_client__WEBPACK_IMPORTED_MODULE_2___default()('updateName', "".concat(state.timingFunction, "(").concat(state.gradient.steps.number, ", ").concat(state.gradient.steps.skip, ");").concat(state.colorSpace));
   }
@@ -26071,8 +26556,9 @@ function _updateLayerName(state) {
 }
 
 function updateTimingFunction(state) {
-  var xyxy = xyxyString(state);
-  state.timingFunction = _components_helpers_ease_map__WEBPACK_IMPORTED_MODULE_5__["default"][xyxy] ? _components_helpers_ease_map__WEBPACK_IMPORTED_MODULE_5__["default"][xyxy] : 'cubic-bezier';
+  var xyxy = xyxyString(state); // TODO: Add some array.find logic here...
+
+  state.timingFunction = _components_helpers_ease_map__WEBPACK_IMPORTED_MODULE_5__["easeMap"][xyxy] ? _components_helpers_ease_map__WEBPACK_IMPORTED_MODULE_5__["easeMap"][xyxy] : 'cubic-bezier';
 
   _updateLayerName(state);
 }
@@ -26082,6 +26568,7 @@ function updateTimingFunction(state) {
     startColor: '',
     stopColor: '',
     timingFunction: '',
+    timingFunctionAdvanced: '',
     colorSpace: 'lrgb',
     polyLineString: [],
     parentBounding: {},
@@ -26120,7 +26607,16 @@ function updateTimingFunction(state) {
     },
     updateXYXY: function updateXYXY(state, bezierParams) {
       if (!state.timingFunction.includes('steps')) {
-        var xy = bezierParams || _components_helpers_ease_map__WEBPACK_IMPORTED_MODULE_5__["default"][state.timingFunction];
+        var xy;
+
+        if (bezierParams) {
+          xy = bezierParams;
+        } else if (state.timingFunction.includes('ease-') && state.timingFunctionAdvanced) {
+          xy = _components_helpers_ease_map__WEBPACK_IMPORTED_MODULE_5__["easeMapAdvanced"]["".concat(state.timingFunction, "-").concat(state.timingFunctionAdvanced)];
+        } else {
+          xy = _components_helpers_ease_map__WEBPACK_IMPORTED_MODULE_5__["easeMap"][state.timingFunction];
+        }
+
         state.gradient.ease1.x = xy.x1;
         state.gradient.ease1.y = xy.y1;
         state.gradient.ease2.x = xy.x2;

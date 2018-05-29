@@ -137,12 +137,24 @@
     transition: 0.1s var(--transitionFunction);
     transform: translateY(1px);
   }
+
+  &:disabled {
+    opacity: var(--opacity-mid);
+  }
 }
 
 .u-input--inline {
   width: auto;
 }
 
+.u-input-label {
+  display: block;
+  margin-bottom: var(--lineHeight-margin-xsmall);
+  font-weight: 700;
+  opacity: 0.7;
+}
+
+/* Icons */
 .u-icon {
   width: 16px;
   height: 16px;

@@ -3,7 +3,7 @@
     <div
       class="u-input-label"
     >
-      Easing function
+      Ease Type
     </div>
     <div
       class="u-position-relative"
@@ -11,16 +11,17 @@
       <select-chevrons></select-chevrons>
       <select
         class="u-input"
-        v-model="$store.state.timingFunction"
+        :disabled="!isEasy"
+        v-model="$store.state.timingFunctionAdvanced"
         @change="$store.commit('updateXYXY')"
       >
-        <option>linear</option>
-        <option>ease</option>
-        <option>ease-in</option>
-        <option>ease-out</option>
-        <option>ease-in-out</option>
-        <option>cubic-bezier</option>
-        <option>steps</option>
+        <option value="">default</option>
+        <option
+          v-for="type of easeMapAdvancedTypes"
+          :key="type"
+        >
+          {{type}}
+        </option>
       </select>
     </div>
   </div>
@@ -28,10 +29,16 @@
 
 <script>
 import selectChevrons from './select-chevrons.vue'
+import { easeMapAdvancedTypes } from './helpers/ease-map'
 
 export default {
   components: {
     selectChevrons,
+  },
+  data: function() {
+    return {
+      easeMapAdvancedTypes,
+    }
   },
   computed: {
     isEasy() {

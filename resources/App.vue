@@ -4,24 +4,15 @@
     class="c-gradientEditor"
   >
     <div
-      class="c-gradientEditor-settings u-grid"
+      class="c-gradientEditor-rowOne u-grid"
     >
-      <div>
-        <div
-          class="c-gradientEditor-label"
-        >
-          Easing function
-        </div>
-        <select-timing/>
-      </div>
-      <div>
-        <div
-          class="c-gradientEditor-label"
-        >
-          Color space
-        </div>
-        <select-color-space/>
-      </div>
+      <select-timing/>
+      <select-timing-advanced/>
+      <select-color-space/>
+    </div>
+    <div
+      class="c-gradientEditor-rowTwo u-grid"
+    >
       <div
         class="c-gradientEditor-ease u-position-relative"
       >
@@ -40,32 +31,16 @@
           <div
             class="c-gradientEditor-slider u-marginBottom"
           >
-            <div
+            <step-edit
               v-if="isSteps"
-            >
-              <step-edit/>
-            </div>
-            <div
+            />
+            <stop-edit
               v-else
-            >
-              <div
-                class="c-gradientEditor-label u-no-margin"
-              >
-                Color Stops
-              </div>
-              <input
-                type="range"
-                min="3"
-                max="25"
-                step="1"
-                v-model="$store.state.colorStops"
-                @input="$store.commit('updateLayerName')"
-              >
-            </div>
+            />
           </div>
           <div>
             <div
-              class="c-gradientEditor-label"
+              class="u-input-label"
             >
               Copy CSS
             </div>
@@ -80,28 +55,7 @@
               </clipboard-icon>
             </button>
           </div>
-          <div class="u-flex">
-            <a
-              href=""
-              class="u-input u-input--inline"
-              @click.prevent="openUrl('https://github.com/larsenwork/sketch-easing-gradient#readme')"
-            >
-              <github-icon
-                class="u-icon"
-              >
-              </github-icon>
-            </a>
-            <a
-              href=""
-              class="u-input u-input--inline u-marginLeft"
-              @click.prevent="openUrl('https://twitter.com/intent/follow?screen_name=larsenwork')"
-            >
-              <twitter-icon
-                class="u-icon"
-              >
-              </twitter-icon>
-            </a>
-          </div>
+          <social-stuff/>
         </div>
       </div>
     </div>
@@ -109,14 +63,17 @@
 </template>
 
 <script>
-import { ClipboardIcon, GithubIcon, TwitterIcon } from 'vue-feather-icons'
+import { ClipboardIcon } from 'vue-feather-icons'
 import pluginCall from 'sketch-module-web-view/client'
 
 import selectTiming from './components/select-timing.vue'
+import selectTimingAdvanced from './components/select-timing-advanced.vue'
 import selectColorSpace from './components/select-color-space.vue'
 import easingEdit from './components/easing-edit.vue'
 import easingPreview from './components/easing-preview.vue'
+import socialStuff from './components/social-stuff.vue'
 import stepEdit from './components/step-edit.vue'
+import stopEdit from './components/stop-edit.vue'
 import misc from './components/mixins/misc'
 
 const getParensInsides = str => str.match(/\(([^)]+)\)/)[1].split(',')
@@ -126,18 +83,16 @@ export default {
   mixins: [misc],
   components: {
     ClipboardIcon,
-    GithubIcon,
-    TwitterIcon,
     selectTiming,
+    selectTimingAdvanced,
     selectColorSpace,
     easingEdit,
     easingPreview,
+    socialStuff,
     stepEdit,
+    stopEdit,
   },
   methods: {
-    openUrl(url) {
-      pluginCall('openUrl', url)
-    },
     showMessage(msg) {
       pluginCall('showMessage', msg)
     },
@@ -189,15 +144,13 @@ export default {
   padding: var(--spacer-small);
 }
 
-.c-gradientEditor-settings {
-  grid-template-columns: repeat(2, 1fr);
+.c-gradientEditor-rowOne {
+  grid-template-columns: repeat(3, 1fr);
+  margin-bottom: var(--spacer-small);
 }
 
-.c-gradientEditor-label {
-  display: block;
-  margin-bottom: var(--lineHeight-margin-xsmall);
-  font-weight: 700;
-  opacity: 0.7;
+.c-gradientEditor-rowTwo {
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .c-gradientEditor-ease {

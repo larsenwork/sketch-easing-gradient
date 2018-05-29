@@ -41,7 +41,7 @@
     "postcss-loader": "^2.1.5",
     "postcss-nested": "^3.0.0",
     "style-loader": "^0.21.0",
-    "vue-loader": "^14.2.2",
+    "vue-loader": "^15.2.2",
     "vue-template-compiler": "^2.5.16"
   },
   "resources": [
