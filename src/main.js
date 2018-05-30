@@ -25,9 +25,10 @@ export default function() {
     ) {
       const browserWindow = new BrowserWindow(options)
       const { webContents } = browserWindow
+      const paramsAsString = getParamsFromLayer(selectedLayer)
 
       // Show the window when the page has loaded
-      browserWindow.on('ready-to-show', () => {
+      browserWindow.once('ready-to-show', () => {
         browserWindow.show()
       })
 
@@ -37,8 +38,7 @@ export default function() {
       })
 
       // Send gradient parameters to the webview once it's loaded
-      webContents.on('did-finish-load', () => {
-        const paramsAsString = getParamsFromLayer(selectedLayer)
+      webContents.once('did-finish-load', () => {
         webContents.executeJavaScript(`setGradientParams('${paramsAsString}')`)
       })
 
