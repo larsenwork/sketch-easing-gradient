@@ -4,12 +4,10 @@
   >
     <chevron-up-icon
       class="u-icon c-selectChevrons-icon"
-    >
-    </chevron-up-icon>
+    />
     <chevron-down-icon
       class="u-icon c-selectChevrons-icon"
-    >
-    </chevron-down-icon>
+    />
   </div>
 </template>
 
@@ -30,6 +28,7 @@ export default {
   right: 0;
   top: 0;
   height: 100%;
+  pointer-events: none;
 }
 
 .c-selectChevrons-icon {

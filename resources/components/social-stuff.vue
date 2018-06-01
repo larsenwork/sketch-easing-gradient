@@ -7,8 +7,7 @@
     >
       <github-icon
         class="u-icon"
-      >
-      </github-icon>
+      />
     </a>
     <a
       href=""
@@ -17,8 +16,7 @@
     >
       <twitter-icon
         class="u-icon"
-      >
-      </twitter-icon>
+      />
     </a>
   </div>
 </template>

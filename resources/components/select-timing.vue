@@ -8,7 +8,7 @@
     <div
       class="u-position-relative"
     >
-      <select-chevrons></select-chevrons>
+      <select-chevrons />
       <select
         class="u-input"
         v-model="$store.state.timingFunction"

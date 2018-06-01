@@ -420,8 +420,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -601,8 +599,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_feather_icons__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-feather-icons */ "./node_modules/vue-feather-icons/dist/vue-feather-icons.es.js");
 /* harmony import */ var sketch_module_web_view_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! sketch-module-web-view/client */ "./node_modules/sketch-module-web-view/client.js");
 /* harmony import */ var sketch_module_web_view_client__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(sketch_module_web_view_client__WEBPACK_IMPORTED_MODULE_1__);
-//
-//
 //
 //
 //
@@ -5168,7 +5164,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, "\n.c-selectChevrons {\n  position: absolute;\n  right: 0;\n  top: 0;\n  height: 100%;\n}\n.c-selectChevrons-icon {\n  position: absolute;\n  right: calc(var(--spacer-xsmall) / 2);\n}\n.c-selectChevrons-icon:nth-child(1) {\n  top: calc(var(--spacer-xsmall) / 3);\n}\n.c-selectChevrons-icon:nth-child(2) {\n  bottom: calc(var(--spacer-xsmall) / 3);\n}\n", "", {"version":3,"sources":["/Users/andreaslarsen/Git/sketch-easing-gradient/resources/components/resources/components/select-chevrons.vue"],"names":[],"mappings":";AA2BA;EACA,mBAAA;EACA,SAAA;EACA,OAAA;EACA,aAAA;CACA;AAEA;EACA,mBAAA;EACA,sCAAA;CACA;AAEA;EACA,oCAAA;CACA;AAEA;EACA,uCAAA;CACA","file":"select-chevrons.vue","sourcesContent":["<template>\n  <div\n    class=\"c-selectChevrons\"\n  >\n    <chevron-up-icon\n      class=\"u-icon c-selectChevrons-icon\"\n    >\n    </chevron-up-icon>\n    <chevron-down-icon\n      class=\"u-icon c-selectChevrons-icon\"\n    >\n    </chevron-down-icon>\n  </div>\n</template>\n\n<script>\nimport { ChevronDownIcon, ChevronUpIcon } from 'vue-feather-icons'\n\nexport default {\n  components: {\n    ChevronDownIcon,\n    ChevronUpIcon,\n  },\n}\n</script>\n\n<style>\n.c-selectChevrons {\n  position: absolute;\n  right: 0;\n  top: 0;\n  height: 100%;\n}\n\n.c-selectChevrons-icon {\n  position: absolute;\n  right: calc(var(--spacer-xsmall) / 2);\n}\n\n.c-selectChevrons-icon:nth-child(1) {\n  top: calc(var(--spacer-xsmall) / 3);\n}\n\n.c-selectChevrons-icon:nth-child(2) {\n  bottom: calc(var(--spacer-xsmall) / 3);\n}\n</style>\n"],"sourceRoot":""}]);
+exports.push([module.i, "\n.c-selectChevrons {\n  position: absolute;\n  right: 0;\n  top: 0;\n  height: 100%;\n  pointer-events: none;\n}\n.c-selectChevrons-icon {\n  position: absolute;\n  right: calc(var(--spacer-xsmall) / 2);\n}\n.c-selectChevrons-icon:nth-child(1) {\n  top: calc(var(--spacer-xsmall) / 3);\n}\n.c-selectChevrons-icon:nth-child(2) {\n  bottom: calc(var(--spacer-xsmall) / 3);\n}\n", "", {"version":3,"sources":["/Users/andreaslarsen/Git/sketch-easing-gradient/resources/components/resources/components/select-chevrons.vue"],"names":[],"mappings":";AAyBA;EACA,mBAAA;EACA,SAAA;EACA,OAAA;EACA,aAAA;EACA,qBAAA;CACA;AAEA;EACA,mBAAA;EACA,sCAAA;CACA;AAEA;EACA,oCAAA;CACA;AAEA;EACA,uCAAA;CACA","file":"select-chevrons.vue","sourcesContent":["<template>\n  <div\n    class=\"c-selectChevrons\"\n  >\n    <chevron-up-icon\n      class=\"u-icon c-selectChevrons-icon\"\n    />\n    <chevron-down-icon\n      class=\"u-icon c-selectChevrons-icon\"\n    />\n  </div>\n</template>\n\n<script>\nimport { ChevronDownIcon, ChevronUpIcon } from 'vue-feather-icons'\n\nexport default {\n  components: {\n    ChevronDownIcon,\n    ChevronUpIcon,\n  },\n}\n</script>\n\n<style>\n.c-selectChevrons {\n  position: absolute;\n  right: 0;\n  top: 0;\n  height: 100%;\n  pointer-events: none;\n}\n\n.c-selectChevrons-icon {\n  position: absolute;\n  right: calc(var(--spacer-xsmall) / 2);\n}\n\n.c-selectChevrons-icon:nth-child(1) {\n  top: calc(var(--spacer-xsmall) / 3);\n}\n\n.c-selectChevrons-icon:nth-child(2) {\n  bottom: calc(var(--spacer-xsmall) / 3);\n}\n</style>\n"],"sourceRoot":""}]);
 
 // exports
 
