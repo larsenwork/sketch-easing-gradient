@@ -1,7 +1,6 @@
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 /* eslint-disable no-param-reassign */
-
 module.exports = function(config, isNotResources) {
   config.module.rules.push({
     test: /\.(html)$/,
@@ -35,7 +34,7 @@ module.exports = function(config, isNotResources) {
   })
   config.module.rules.push({
     test: /\.(vue)$/,
-    use: 'vue-loader',
+    loader: 'vue-loader',
   })
   if (!isNotResources) {
     config.plugins.push(
