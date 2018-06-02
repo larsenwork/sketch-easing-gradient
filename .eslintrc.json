@@ -1,10 +1,12 @@
 {
+  "parser": "babel-eslint",
   "env": {
     "browser": true
   },
   "extends": "prettier",
   "plugins": ["html"],
   "rules": {
+    "strict": 0,
     "semi": [2, "never"],
     "no-param-reassign": [
       "error",

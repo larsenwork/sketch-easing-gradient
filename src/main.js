@@ -1,5 +1,5 @@
 import BrowserWindow from 'sketch-module-web-view'
-import * as helpers from '../lib/helpers'
+import * as helpers from './lib/helpers'
 
 const UI = require('sketch/ui') // eslint-disable-line import/no-unresolved
 const dom = require('sketch/dom') // eslint-disable-line import/no-unresolved

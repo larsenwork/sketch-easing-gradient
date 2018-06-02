@@ -33,16 +33,13 @@ export function getLayerParams(layer, gradientFill) {
 }
 
 export function getGradientFillMaybe(layer) {
-  if (layer && layer.style.fills && layer.style.fills.length >= 1) {
-    return layer.style.fills.find(
-      fill => fill.fill === 'Gradient' && fill.enabled
-    )
-  }
-  return null
+  return layer?.style?.fills.find(
+    fill => fill.fill === 'Gradient' && fill.enabled
+  )
 }
 
 export function getSelectedLayerMaybe(selection) {
-  if (selection && selection.length === 1) {
+  if (selection?.length === 1 && selection?.layers?.length > 0) {
     return selection.layers[0]
   }
   return null
