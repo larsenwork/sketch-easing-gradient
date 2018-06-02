@@ -27,7 +27,6 @@ export default function() {
   } else {
     const browserWindow = new BrowserWindow(options)
     const { webContents } = browserWindow
-    const paramsAsString = helpers.getLayerParams(selectedLayer, gradientFill)
 
     // Show the window when the page has loaded
     browserWindow.once('ready-to-show', () => {
@@ -41,7 +40,12 @@ export default function() {
 
     // Send gradient parameters to the webview once it's loaded
     webContents.once('did-finish-load', () => {
-      webContents.executeJavaScript(`setGradientParams('${paramsAsString}')`)
+      webContents.executeJavaScript(
+        `setGradientParams('${helpers.getLayerParams(
+          selectedLayer,
+          gradientFill
+        )}')`
+      )
     })
 
     // Handler to update name of gradient layer
