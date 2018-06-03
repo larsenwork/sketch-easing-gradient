@@ -17,7 +17,7 @@ const selectedLayer = helpers.getSelectedLayerMaybe(
 )
 const gradientFill = helpers.getGradientFillMaybe(selectedLayer)
 
-export default function() {
+export function onStartPlugin() {
   if (!selectedLayer) {
     UI.message('🌈 ⚠️ Please select a layer')
   } else if (!gradientFill) {
@@ -71,4 +71,8 @@ export default function() {
     // Load the html template
     browserWindow.loadURL(require('../resources/index.html')) // eslint-disable-line global-require
   }
+}
+
+export function onSelectionChanged() {
+  log('onSelectionChanged')
 }

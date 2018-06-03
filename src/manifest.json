@@ -11,12 +11,23 @@
   "commands": [
     {
       "script": "main.js",
+      "handler": "onStartPlugin",
       "shortcut": "command alt g",
       "identifier": "easing-gradient",
       "description":
         "Create, edit and generate CSS. Make sure to select a layer with a gradient fill first.",
       "icon": "icons/runner.png",
       "name": "Easing Gradient"
+    },
+    {
+      "name": "SelectionChanged",
+      "identifier": "selectionchanged",
+      "script": "main.js",
+      "handlers": {
+        "actions": {
+          "SelectionChanged.finish": "onSelectionChanged"
+        }
+      }
     }
   ],
   "menu": {
