@@ -130,14 +130,14 @@ export default {
 }
 
 .c-easingEdit-helpLine {
-  stroke: var(--color-themed-fg-50);
+  stroke: var(--color-themed-fg-72);
   fill: none;
 }
 
 .c-easingEdit-thinLine {
   fill: none;
   stroke-width: var(--stroke-small);
-  stroke: var(--color-themed-fg-50);
+  stroke: var(--color-themed-fg-72);
   vector-effect: non-scaling-stroke;
 }
 </style>

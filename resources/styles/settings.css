@@ -15,7 +15,7 @@
   --color-themed-bg-dimmed-transparent: var(--color-dark-dimmed-transparent);
   --color-themed-bg-dimmed-more: var(--color-dark-dimmed-more);
   --color-themed-fg: var(--color-bright);
-  --color-themed-fg-50: var(--color-bright-50);
+  --color-themed-fg-72: var(--color-bright-50);
 
   --lineLength-maxWidth: 35rem;
   --img-maxWidth: 51rem;
@@ -83,7 +83,7 @@
   --color-themed-bg-dimmed-more: var(--color-bright-dimmed-more);
   --color-themed-bg-dimmed-transparent: var(--color-bright-dimmed-transparent);
   --color-themed-fg: var(--color-dark);
-  --color-themed-fg-50: var(--color-dark-50);
+  --color-themed-fg-72: var(--color-dark-50);
 }
 
 html {
