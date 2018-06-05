@@ -1,8 +1,7 @@
 {
   "name": "sketch-easing-gradients",
-  "version": "0.6.0",
-  "description":
-    "Supercharge your gradients in Sketch with no-linear color mix and custom color spaces",
+  "version": "0.6.1",
+  "description": "Supercharge your gradients in Sketch with no-linear color mix and custom color spaces",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/larsenwork/sketch-easing-gradient.git"
@@ -48,7 +47,9 @@
     "vue-loader": "^14.2.3",
     "vue-template-compiler": "^2.5.16"
   },
-  "resources": ["resources/**/main.js"],
+  "resources": [
+    "resources/**/main.js"
+  ],
   "dependencies": {
     "chroma-js": "^1.3.7",
     "easing-coordinates": "^2.0.0",
