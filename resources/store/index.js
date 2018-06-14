@@ -39,8 +39,9 @@ function updateColorStops(state) {
   if (isCSSShorthand(state)) {
     timingString = state.timingFunction
   } else if (state.timingFunction == 'steps') {
-    timingString = `steps(${(state.gradient.steps.number,
-    state.gradient.steps.skip)})`
+    timingString = `steps(${state.gradient.steps.number}, ${
+      state.gradient.steps.skip
+    })`
   } else {
     timingString = `cubic-bezier(${rounded(state.gradient.ease1.x)}, ${rounded(
       state.gradient.ease1.y
