@@ -6,20 +6,49 @@
   "identifier": "com.larsenwork.sketch.easing-gradient",
   "author": "@larsenwork",
   "authorEmail": "andreas@larsenwork.com",
-  "compatibleVersion": 49.0,
+  "compatibleVersion": 49,
   "bundleVersion": 1,
   "commands": [
     {
-      "script": "main.js",
+      "script": "./main.js",
       "shortcut": "command alt g",
       "identifier": "easing-gradient",
       "description":
         "Create, edit and generate CSS. Make sure to select a layer with a gradient fill first.",
       "icon": "icons/runner.png",
-      "name": "Edit Easing Gradient"
+      "name": "Edit Easing Gradient",
+      "handler": "onEaseGradient"
+    },
+    {
+      "name": "Download Demo File",
+      "icon": "icons/runner.png",
+      "identifier": "demo",
+      "script": "./main.js",
+      "handler": "onDemo"
+    },
+    {
+      "name": "Ideas and Issues",
+      "icon": "icons/runner.png",
+      "identifier": "github",
+      "script": "./main.js",
+      "handler": "onGitHub"
+    },
+    {
+      "name": "Online Docs and Editor",
+      "icon": "icons/runner.png",
+      "identifier": "larsenwork",
+      "script": "./main.js",
+      "handler": "onLarsenwork"
+    },
+    {
+      "name": "PostCSS Plugin",
+      "icon": "icons/runner.png",
+      "identifier": "postcss",
+      "script": "./main.js",
+      "handler": "onPostcss"
     }
   ],
   "menu": {
-    "items": ["easing-gradient"]
+    "items": ["easing-gradient", "-", "demo", "github", "larsenwork", "postcss"]
   }
 }
