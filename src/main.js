@@ -75,7 +75,7 @@ export function onEaseGradient() {
 
 export function onDemo() {
   helpers.openUrl(
-    'https://github.com/larsenwork/sketch-easing-gradient/blob/master/docs/easing-gradient-demo.sketch'
+    'https://github.com/larsenwork/sketch-easing-gradient/blob/master/docs/easing-gradient-demo.sketch?raw=true'
   )
 }
 
