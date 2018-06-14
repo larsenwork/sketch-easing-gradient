@@ -1,12 +1,12 @@
 {
-  "name": "Easing Gradient",
+  "name": "🌈 Easing Gradient",
   "description":
     "Supercharge your gradients in Sketch with no-linear color mix and custom color spaces",
   "icon": "icons/sketch.png",
   "identifier": "com.larsenwork.sketch.easing-gradient",
   "author": "@larsenwork",
   "authorEmail": "andreas@larsenwork.com",
-  "compatibleVersion": 3,
+  "compatibleVersion": 49.0,
   "bundleVersion": 1,
   "commands": [
     {
@@ -16,11 +16,10 @@
       "description":
         "Create, edit and generate CSS. Make sure to select a layer with a gradient fill first.",
       "icon": "icons/runner.png",
-      "name": "Easing Gradient"
+      "name": "Edit Easing Gradient"
     }
   ],
   "menu": {
-    "isRoot": true,
     "items": ["easing-gradient"]
   }
 }
