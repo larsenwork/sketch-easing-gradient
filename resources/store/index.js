@@ -63,21 +63,21 @@ function updateColorStops(state) {
     obj => `${chroma(obj.color).css('hsl')} ${rounded(obj.position * 100)}%`
   )
   const fallbackCSS = `background-image: linear-gradient(
-    // Add optional gradient direction here
+    // Gradient direction goes here
     ${cssArray.join(',\n    ')}
   );`
   const futureCSS = `background-image: linear-gradient(
-    // Add optional gradient direction here
+    // Gradient direction goes here
     ${chroma(state.startColor).css('hsl')},
     ${timingString},
     ${chroma(state.stopColor).css('hsl')}
   );`
   state.css = `/*
-* Future CSS (use it today with postCSS-easing-gradients — note your current colorMode settings: '${
+* Future CSS (use it today with postCSS-easing-gradients — note your settings colorMode: '${
     state.colorSpace
-  }')
+  }' and colorStops: ${state.colorStops})
 */
-#future {
+.future {
   ${futureCSS}
 }
 
