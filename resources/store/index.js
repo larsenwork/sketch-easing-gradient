@@ -1,13 +1,27 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import pluginCall from 'sketch-module-web-view/client'
-import { cubicCoordinates, stepsCoordinates } from 'easing-coordinates'
+import easingCoordinates from 'easing-coordinates'
 import chroma from 'chroma-js'
 import { easeMap, easeMapAdvanced } from '../components/helpers/ease-map'
 
 Vue.use(Vuex)
 
 const rounded = (number, precission = 2) => +number.toFixed(precission)
+
+function isCSSShorthand(state) {
+  if (
+    state.timingFunction == 'ease' ||
+    state.timingFunction == 'ease-in-out' ||
+    state.timingFunction == 'ease-in' ||
+    state.timingFunction == 'ease-out'
+  ) {
+    if (!state.timingFunctionAdvanced) {
+      return true
+    }
+  }
+  return false
+}
 
 function xyxyString(state) {
   return `${rounded(state.gradient.ease1.x)}, ${rounded(
@@ -21,22 +35,24 @@ function polyLineString(coordinates) {
 }
 
 function updateColorStops(state) {
-  let coordinates = []
-  if (state.timingFunction.includes('steps')) {
-    coordinates = stepsCoordinates(
-      state.gradient.steps.number,
-      state.gradient.steps.skip
-    )
-    state.polyLineString = polyLineString(coordinates)
+  let timingString = ''
+  if (isCSSShorthand(state)) {
+    timingString = state.timingFunction
+  } else if (state.timingFunction == 'steps') {
+    timingString = `steps(${(state.gradient.steps.number,
+    state.gradient.steps.skip)})`
   } else {
-    coordinates = cubicCoordinates(
-      state.gradient.ease1.x,
-      state.gradient.ease1.y,
-      state.gradient.ease2.x,
-      state.gradient.ease2.y,
-      state.colorStops - 1 // -1 because it takes steps and not stops
-    )
+    timingString = `cubic-bezier(${rounded(state.gradient.ease1.x)}, ${rounded(
+      state.gradient.ease1.y
+    )}, ${rounded(state.gradient.ease2.x)}, ${rounded(state.gradient.ease2.y)})`
   }
+
+  const coordinates = easingCoordinates(
+    timingString,
+    state.colorStops - 1 // -1 because it takes steps and not stops
+  )
+
+  state.polyLineString = polyLineString(coordinates)
   const colorCoordinates = coordinates.map(obj => ({
     position: obj.x,
     color: chroma
@@ -46,7 +62,32 @@ function updateColorStops(state) {
   const cssArray = colorCoordinates.map(
     obj => `${chroma(obj.color).css('hsl')} ${rounded(obj.position * 100)}%`
   )
-  state.css = `linear-gradient(\n  ${cssArray.join(',\n  ')}\n);`
+  const fallbackCSS = `background-image: linear-gradient(
+    // Gradient direction goes here
+    ${cssArray.join(',\n    ')}
+  );`
+  const futureCSS = `background-image: linear-gradient(
+    // Gradient direction goes here
+    ${chroma(state.startColor).css('hsl')},
+    ${timingString},
+    ${chroma(state.stopColor).css('hsl')}
+  );`
+  state.css = `/*
+* Future CSS (use it today with postCSS-easing-gradients — note your settings colorMode: '${
+    state.colorSpace
+  }' and colorStops: ${state.colorStops})
+*/
+.future {
+  ${futureCSS}
+}
+
+/*
+* Fallback CSS
+*/
+.forNow {
+  ${fallbackCSS}
+}
+`
   const sketchArray = colorCoordinates.map(obj => ({
     position: obj.position,
     color: chroma(obj.color).hex('rgba'),

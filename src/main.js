@@ -17,7 +17,7 @@ const selectedLayer = helpers.getSelectedLayerMaybe(
 )
 const gradientFill = helpers.getGradientFillMaybe(selectedLayer)
 
-export default function() {
+export function onEaseGradient() {
   if (!selectedLayer) {
     UI.message('🌈 ⚠️ Please select a layer')
   } else if (!gradientFill) {
@@ -61,7 +61,7 @@ export default function() {
 
     // Handler to open url
     webContents.on('openUrl', url => {
-      NSWorkspace.sharedWorkspace().openURL(NSURL.URLWithString(url)) // eslint-disable-line no-undef, max-len
+      helpers.openUrl(url)
     })
 
     // Handler to show message
@@ -71,4 +71,22 @@ export default function() {
     // Load the html template
     browserWindow.loadURL(require('../resources/index.html')) // eslint-disable-line global-require
   }
+}
+
+export function onDemo() {
+  helpers.openUrl(
+    'https://github.com/larsenwork/sketch-easing-gradient/blob/master/docs/easing-gradient-demo.sketch'
+  )
+}
+
+export function onGitHub() {
+  helpers.openUrl('https://github.com/larsenwork/sketch-easing-gradient/issues')
+}
+
+export function onLarsenwork() {
+  helpers.openUrl('https://larsenwork.com/easing-gradients')
+}
+
+export function onPostcss() {
+  helpers.openUrl('https://github.com/larsenwork/postcss-easing-gradients/')
 }

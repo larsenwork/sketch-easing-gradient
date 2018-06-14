@@ -1,5 +1,9 @@
 const UI = require('sketch/ui') // eslint-disable-line import/no-unresolved
 
+export function openUrl(url) {
+  return NSWorkspace.sharedWorkspace().openURL(NSURL.URLWithString(url)) // eslint-disable-line no-undef, max-len
+}
+
 export function getLayerParams(layer, gradientFill) {
   const gradientParams = layer.name
     .split('🌈')
