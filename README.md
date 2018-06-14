@@ -13,7 +13,7 @@ Get the [latest release](https://github.com/larsenwork/sketch-easing-gradient/re
 ## Next level
 
 - `Download Demo File` from the plugin menu to get inspired.
-- I'd love to see what you've created so please tweet easing gradient "on/off" pictures where you @larsenwork so I can build an example gallery.
+- I'd love to see what you've created so please tweet easing gradient "on/off" pictures where you mention @larsenwork so I get notified and can build an example gallery.
 
 ## Learn more
 
