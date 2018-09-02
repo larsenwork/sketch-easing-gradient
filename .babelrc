@@ -1,7 +1,10 @@
 {
-  "presets": [
-    ["@babel/preset-env", { "modules": false }],
-    "@babel/preset-stage-3"
-  ],
-  "plugins": ["@babel/plugin-proposal-optional-chaining"]
+  "presets": [["@babel/preset-env", { "modules": false }]],
+  "plugins": [
+    "@babel/plugin-proposal-optional-chaining",
+    "@babel/plugin-syntax-dynamic-import",
+    "@babel/plugin-syntax-import-meta",
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-proposal-json-strings"
+  ]
 }

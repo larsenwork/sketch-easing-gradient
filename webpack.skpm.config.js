@@ -1,4 +1,5 @@
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 /* eslint-disable no-param-reassign */
 module.exports = function(config, isNotResources) {
@@ -49,6 +50,7 @@ module.exports = function(config, isNotResources) {
           ignore: ['*.sketch'],
         },
       ]),
+      new VueLoaderPlugin(),
     ]
   }
   config.resolve = {
