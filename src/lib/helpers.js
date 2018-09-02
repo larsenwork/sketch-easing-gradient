@@ -21,8 +21,10 @@ export function getLayerParams(layer, gradientFill) {
     ;[timing, colorSpace, colorStops] = gradientParams
   } else if (gradientParams.length === 2) {
     ;[timing, colorSpace] = gradientParams
-  } else {
+  } else if (layer.name.includes('🌈')) {
     UI.message("🌈 ⚠️ Couldn't parse the layer name. Setting defaults.")
+  } else {
+    UI.message('No 🌈 in layer name. Setting defaults.')
   }
 
   const paramsAsString = JSON.stringify([
