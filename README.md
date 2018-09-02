@@ -2,7 +2,7 @@
 
 ## Install
 
-Get the [latest release](https://github.com/larsenwork/sketch-easing-gradient/releases/latest) or install `Easing Gradient` with `Sketch Runner`.
+Get the [latest release](https://github.com/larsenwork/sketch-easing-gradient/releases/latest) or install `Easing Gradient` with `Sketch Runner`. NB: requires Sketch version >= 49.
 
 ## Get started
 
