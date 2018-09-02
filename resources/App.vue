@@ -38,23 +38,6 @@
               v-else
             />
           </div>
-          <div>
-            <div
-              class="u-input-label"
-            >
-              Copy CSS
-            </div>
-            <button
-              class="u-input u-input--inline"
-              @click="showMessage('CSS copied!')"
-              v-clipboard:copy="$store.state.css"
-            >
-              <clipboard-icon
-                class="u-icon"
-              >
-              </clipboard-icon>
-            </button>
-          </div>
           <social-stuff/>
         </div>
       </div>
@@ -63,7 +46,7 @@
 </template>
 
 <script>
-import { ClipboardIcon } from 'vue-feather-icons'
+import { CodeIcon } from 'vue-feather-icons'
 import pluginCall from 'sketch-module-web-view/client'
 
 import selectTiming from './components/select-timing.vue'
@@ -82,7 +65,7 @@ export default {
   name: 'app',
   mixins: [misc],
   components: {
-    ClipboardIcon,
+    CodeIcon,
     selectTiming,
     selectTimingAdvanced,
     selectColorSpace,
@@ -91,11 +74,6 @@ export default {
     socialStuff,
     stepEdit,
     stopEdit,
-  },
-  methods: {
-    showMessage(msg) {
-      pluginCall('showMessage', msg)
-    },
   },
   created() {
     window.setGradientParams = paramsAsString => {
@@ -159,14 +137,11 @@ export default {
 
 .c-gradientEditor-buttons {
   display: flex;
-  flex-wrap: wrap;
-  align-content: space-between;
-  align-items: flex-end;
+  flex-direction: column;
   justify-content: space-between;
 }
 
 .c-gradientEditor-slider {
-  flex-basis: 100%;
-  flex-shrink: 0;
+  width: 100%;
 }
 </style>

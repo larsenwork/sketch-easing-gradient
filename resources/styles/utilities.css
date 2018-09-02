@@ -96,10 +96,6 @@
   margin-top: var(--lineHeight-margin-small);
 }
 
-.u-marginLeft {
-  margin-left: var(--lineHeight-margin-small);
-}
-
 .u-textUppercase {
   text-transform: uppercase;
 }
@@ -170,8 +166,4 @@
   position: absolute;
   right: 0;
   bottom: 0;
-}
-
-.u-flex {
-  display: flex;
 }

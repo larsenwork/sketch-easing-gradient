@@ -29,6 +29,7 @@ export default {
   top: 0;
   height: 100%;
   pointer-events: none;
+  z-index: 1;
 }
 
 .c-selectChevrons-icon {
