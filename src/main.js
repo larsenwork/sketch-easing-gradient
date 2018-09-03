@@ -35,7 +35,7 @@ export function onEaseGradient() {
 
     // Close the window when we blur
     browserWindow.once('blur', () => {
-      // browserWindow.close()
+      browserWindow.close()
     })
 
     // Send gradient parameters to the webview once it's loaded
