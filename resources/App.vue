@@ -24,7 +24,9 @@
         </div>
       </div>
 
-      <div class="u-aspect--1-1">
+      <div
+        class="u-aspect--1-1"
+      >
         <div
           class="c-gradientEditor-buttons"
         >
