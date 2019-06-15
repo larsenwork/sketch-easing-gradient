@@ -63,6 +63,10 @@
     "vue-feather-icons": "^4.7.1",
     "vuex": "^3.0.1"
   },
+  "resolutions": {
+    "js-yaml": ">=3.13.1",
+    "lodash": ">=4.17.11"
+  },
   "author": "larsenwork <andreas@larsenwork.com>",
   "license": "MIT"
 }
